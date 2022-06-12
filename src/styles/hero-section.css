@@ -1,5 +1,6 @@
 .hero__content {
   padding-top: 70px;
+  color: #df2020;
 }
 
 .hero__title {
@@ -17,6 +18,10 @@
   color: #777;
 }
 
+.hero__img {
+  margin-top: 100px;
+}
+
 .hero__btns button {
   border: none;
   outline: none;
@@ -26,15 +31,12 @@
   font-weight: 600;
 }
 
-.order__btn {
-  background: #df2020;
-  color: #fff;
-  transition: 0.3s;
+.hero__btns input {
+  border-radius: 5px;
+  border-color: #df2020;
+  padding: 5px 10px;
 }
 
-.order__btn:hover {
-  background: #212245;
-}
 .all__foods-btn {
   background: transparent;
   border: 1px solid #df2020 !important;
@@ -45,7 +47,7 @@
 }
 
 .hero__service p {
-  color: #212245;
+  color: #df2020;
   font-weight: 600;
   font-size: 0.9rem;
 }

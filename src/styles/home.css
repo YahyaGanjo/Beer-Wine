@@ -14,6 +14,10 @@
   color: #777;
 }
 
+.feature__item {
+  color: #df2020;
+}
+
 .food__category {
   background: #df2020;
   text-align: center;
@@ -94,6 +98,11 @@
 
   .hero__btns button {
     padding: 5px 15px;
+    font-size: 0.7rem;
+  }
+
+  .hero__btns input {
+    padding: 4px 15px;
     font-size: 0.7rem;
   }
 
