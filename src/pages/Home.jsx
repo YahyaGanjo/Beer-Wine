@@ -20,19 +20,19 @@ import TestimonialSlider from '../components/UI/slider/TestimonialSlider.jsx';
 
 const featureData = [
   {
-    title: 'Wide Variety',
+    title: 'Gemakkelijk Bestellen',
     imgUrl: featureImg02,
-    desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, doloremque.',
+    desc: 'Een lege koelkast? Maar nog zin in een feestje of onverwachts visite? Bestel je drankjes snel en eenvoudig in onze webshop',
   },
   {
-    title: 'Easy Order',
+    title: 'Snel Bezorgd',
     imgUrl: featureImg03,
-    desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, doloremque.',
+    desc: 'de bezorger staat binnen 30 tot 40 minuten voor je deur. Als je geluk hebt, is de bezorger zelfs sneller!',
   },
   {
-    title: 'Quick Delivery',
+    title: '+ 18',
     imgUrl: featureImg01,
-    desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, doloremque.',
+    desc: 'Geen 18? Geen alcohol! Bij twijfel = Legitimatie verplicht!',
   },
 ];
 
@@ -44,21 +44,21 @@ const Home = () => {
           <Row>
             <Col lg='6' md='6'>
               <div className='hero__content  '>
-                <h5 className='mb-3'>Easy way to make an order</h5>
+                <h5 className='mb-3'>bierwijnbezorging</h5>
                 <h1 className='mb-4 hero__title'>
-                  <span>HUNGRY?</span> Just wait <br /> food at
-                  <span> your door</span>
+                  <span>GEKOELD GELEVERD!</span> Dranken <br /> Binnen 40 min
+                  thuisbezorgd
                 </h1>
 
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui
-                  magni delectus tenetur autem, sint veritatis!
+                  vul je postcode in om te kijken of we op jouw adres kunnen
+                  bezorgen
                 </p>
 
                 <div className='hero__btns d-flex align-items-center gap-5 mt-4'>
-                  <input type='text' placeholder='Postal code' />
+                  <input type='text' placeholder='Postcode' />
                   <button className='all__foods-btn'>
-                    <Link to='/foods'>Bestel</Link>
+                    <Link to='/foods'>Bestel Online</Link>
                   </button>
                 </div>
 
@@ -67,14 +67,14 @@ const Home = () => {
                     <span className='shipping__icon'>
                       <i class='ri-car-line'></i>
                     </span>{' '}
-                    No shipping charge
+                    Gratis bezorging vanaf 50€
                   </p>
 
                   <p className=' d-flex align-items-center gap-2 '>
                     <span className='shipping__icon'>
                       <i class='ri-shield-check-line'></i>
                     </span>{' '}
-                    100% secure checkout
+                    100% veilig afrekenen
                   </p>
                 </div>
               </div>
@@ -93,18 +93,18 @@ const Home = () => {
         <Container>
           <Row>
             <Col lg='12' className='text-center'>
-              <h5 className='feature__subtitle mb-4'>What we serve</h5>
-              <h2 className='feature__title'>Just sit back at home</h2>
+              <h5 className='feature__subtitle mb-4'>Wat we serveren?</h5>
+              <h2 className='feature__title'>Gewoon lekker thuis zitten</h2>
               <h2 className='feature__title'>
-                we will <span>take care</span>
+                wij zullen <span>ervoor zorgen</span>
               </h2>
               <p className='mb-1 mt-4 feature__text'>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor,
-                officiis?
-              </p>
-              <p className='feature__text'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aperiam, eius.{' '}
+                Uiteraard bezorgen wij al onze dranken heerlijk gekoeld bij je
+                thuis! Betaal direct online, snel en veilig met iDEAL. Zo hoef
+                je aan de deur niets meer af te rekenen.
+                <br />
+                wil je toch contant betalen bij de bezorging van je bestelling?
+                geen zorgen, dat doen we ook!
               </p>
             </Col>
 
