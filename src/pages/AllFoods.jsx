@@ -1,29 +1,29 @@
-import React, { useState } from "react";
-import Helmet from "../components/Helmet/Helmet";
-import CommonSection from "../components/UI/common-section/CommonSection";
+import React, { useState } from 'react';
+import Helmet from '../components/Helmet/Helmet';
+import CommonSection from '../components/UI/common-section/CommonSection';
 
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col } from 'reactstrap';
 
-import products from "../assets/fake-data/products";
-import ProductCard from "../components/UI/product-card/ProductCard";
-import ReactPaginate from "react-paginate";
+import products from '../assets/fake-data/products';
+import ProductCard from '../components/UI/product-card/ProductCard';
+import ReactPaginate from 'react-paginate';
 
-import "../styles/all-foods.css";
-import "../styles/pagination.css";
+import '../styles/all-foods.css';
+import '../styles/pagination.css';
 
 const AllFoods = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
 
   const [pageNumber, setPageNumber] = useState(0);
 
   const searchedProduct = products.filter((item) => {
-    if (searchTerm.value === "") {
+    if (searchTerm.value === '') {
       return item;
     }
     if (item.title.toLowerCase().includes(searchTerm.toLowerCase())) {
       return item;
     } else {
-      return console.log("not found");
+      return console.log('not found');
     }
   });
 
@@ -41,7 +41,7 @@ const AllFoods = () => {
   };
 
   return (
-    <Helmet title="All-Foods">
+    /* <Helmet title="All-Foods">
       <CommonSection title="All Foods" />
 
       <section>
@@ -90,7 +90,8 @@ const AllFoods = () => {
           </Row>
         </Container>
       </section>
-    </Helmet>
+    </Helmet>*/
+    <h1>Deze Pagina Is In Onderhoud</h1>
   );
 };
 

@@ -1,18 +1,18 @@
-import React from "react";
+import React from 'react';
 
-import CommonSection from "../components/UI/common-section/CommonSection";
-import Helmet from "../components/Helmet/Helmet";
-import "../styles/cart-page.css";
-import { useSelector, useDispatch } from "react-redux";
-import { Container, Row, Col } from "reactstrap";
-import { cartActions } from "../store/shopping-cart/cartSlice";
-import { Link } from "react-router-dom";
+import CommonSection from '../components/UI/common-section/CommonSection';
+import Helmet from '../components/Helmet/Helmet';
+import '../styles/cart-page.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { Container, Row, Col } from 'reactstrap';
+import { cartActions } from '../store/shopping-cart/cartSlice';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const totalAmount = useSelector((state) => state.cart.totalAmount);
   return (
-    <Helmet title="Cart">
+    /*<Helmet title="Cart">
       <CommonSection title="Your Cart" />
       <section>
         <Container>
@@ -58,7 +58,8 @@ const Cart = () => {
           </Row>
         </Container>
       </section>
-    </Helmet>
+    </Helmet>*/
+    <h1>Deze Pagina Is In Onderhoud</h1>
   );
 };
 
@@ -71,14 +72,14 @@ const Tr = (props) => {
   };
   return (
     <tr>
-      <td className="text-center cart__img-box">
-        <img src={image01} alt="" />
+      <td className='text-center cart__img-box'>
+        <img src={image01} alt='' />
       </td>
-      <td className="text-center">{title}</td>
-      <td className="text-center">${price}</td>
-      <td className="text-center">{quantity}px</td>
-      <td className="text-center cart__item-del">
-        <i class="ri-delete-bin-line" onClick={deleteItem}></i>
+      <td className='text-center'>{title}</td>
+      <td className='text-center'>${price}</td>
+      <td className='text-center'>{quantity}px</td>
+      <td className='text-center cart__item-del'>
+        <i class='ri-delete-bin-line' onClick={deleteItem}></i>
       </td>
     </tr>
   );
