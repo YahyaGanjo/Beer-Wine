@@ -1,38 +1,37 @@
 import Helmet from '../components/Helmet/Helmet.js';
-import { Container, Row, Col, ListGroup, ListGroupItem } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 
-import heroImg from '../assets/images/123.jpg';
+import heroImg from '../assets/images/borrel.jpg';
 import '../styles/hero-section.css';
 
 import { Link } from 'react-router-dom';
 
 import '../styles/home.css';
 
-import featureImg01 from '../assets/images/service-01.png';
-import featureImg02 from '../assets/images/service-02.png';
-import featureImg03 from '../assets/images/service-03.png';
-
-import whyImg from '../assets/images/location.png';
-
+import featureImg01 from '../assets/images/bestel-online.png';
+import featureImg02 from '../assets/images/service-01.png';
+import featureImg03 from '../assets/images/18.png';
 import networkImg from '../assets/images/network.png';
 
 import TestimonialSlider from '../components/UI/slider/TestimonialSlider.jsx';
 
+import Map from '../components/UI/map/Map.jsx';
+
 const featureData = [
   {
-    title: 'Wide Variety',
-    imgUrl: featureImg02,
-    desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, doloremque.',
-  },
-  {
-    title: 'Easy Order',
-    imgUrl: featureImg03,
-    desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, doloremque.',
-  },
-  {
-    title: 'Quick Delivery',
+    title: 'Gemakkelijk Besteld',
     imgUrl: featureImg01,
-    desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, doloremque.',
+    desc: 'Een lege koelkast? Maar nog zin in een feestje of onverwachts visite? Bestel je drankjes snel en eenvoudig in onze webshop',
+  },
+  {
+    title: 'Snel Bezorgd',
+    imgUrl: featureImg02,
+    desc: 'de bezorger staat binnen 30 tot 40 minuten voor je deur. Als je geluk hebt, is de bezorger zelfs sneller!',
+  },
+  {
+    title: '+ 18',
+    imgUrl: featureImg03,
+    desc: 'Geen 18? Geen alcohol! Bij twijfel = Legitimatie verplicht!',
   },
 ];
 
@@ -44,21 +43,21 @@ const Home = () => {
           <Row>
             <Col lg='6' md='6'>
               <div className='hero__content  '>
-                <h5 className='mb-3'>Easy way to make an order</h5>
+                <h5 className='mb-3'>bierwijnbezorging</h5>
                 <h1 className='mb-4 hero__title'>
-                  <span>HUNGRY?</span> Just wait <br /> food at
-                  <span> your door</span>
+                  <span>GEKOELD GELEVERD!</span> Dranken <br /> Binnen 40 min
+                  thuisbezorgd
                 </h1>
 
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui
-                  magni delectus tenetur autem, sint veritatis!
+                  vul je postcode in om te kijken of we op jouw adres kunnen
+                  bezorgen
                 </p>
 
                 <div className='hero__btns d-flex align-items-center gap-5 mt-4'>
-                  <input type='text' placeholder='Postal code' />
+                  <input type='text' placeholder='Postcode' />
                   <button className='all__foods-btn'>
-                    <Link to='/foods'>Bestel</Link>
+                    <Link to='/foods'>Bestel Online</Link>
                   </button>
                 </div>
 
@@ -67,14 +66,14 @@ const Home = () => {
                     <span className='shipping__icon'>
                       <i class='ri-car-line'></i>
                     </span>{' '}
-                    No shipping charge
+                    Gratis bezorging vanaf 50€
                   </p>
 
                   <p className=' d-flex align-items-center gap-2 '>
                     <span className='shipping__icon'>
                       <i class='ri-shield-check-line'></i>
                     </span>{' '}
-                    100% secure checkout
+                    100% veilig afrekenen
                   </p>
                 </div>
               </div>
@@ -93,23 +92,30 @@ const Home = () => {
         <Container>
           <Row>
             <Col lg='12' className='text-center'>
-              <h5 className='feature__subtitle mb-4'>What we serve</h5>
-              <h2 className='feature__title'>Just sit back at home</h2>
+              <h5 className='feature__subtitle mb-4'>Wat we serveren?</h5>
+              <h2 className='feature__title'>Gewoon lekker thuis zitten</h2>
               <h2 className='feature__title'>
-                we will <span>take care</span>
+                wij zullen <span>ervoor zorgen</span>
               </h2>
               <p className='mb-1 mt-4 feature__text'>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor,
-                officiis?
-              </p>
-              <p className='feature__text'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aperiam, eius.{' '}
+                Wij hebben een bezorgservice van gemiddeld 30 minuten, heldere
+                en scherpe prijzen en contant is mogelijk! Bier bestellen in
+                betuwe regio is nog nooit zo makkelijk geweest! Contact met ons
+                opnemen kan telefonische via 06xx xxx xxx maar ook via Whatsapp!
+                Wilt u bier bestellen via Whatsapp? Dat kan ook gewoon via 06xx
+                xxx xxx
+                <br />
+                Uiteraard bezorgen wij al onze dranken heerlijk gekoeld bij je
+                thuis! Betaal direct online, snel en veilig met iDEAL. Zo hoef
+                je aan de deur niets meer af te rekenen.
+                <br />
+                wil je toch contant betalen bij de bezorging van je bestelling?
+                geen zorgen, dat doen we ook!
               </p>
             </Col>
 
             {featureData.map((item, index) => (
-              <Col lg='4' md='6' sm='6' key={index} className='mt-5'>
+              <Col lg='4' md='6' sm='6' key={index} className='mt-5 feature'>
                 <div className='feature__item text-center px-5 py-3'>
                   <img
                     src={item.imgUrl}
@@ -127,15 +133,15 @@ const Home = () => {
 
       <section className='why__choose-us'>
         <Container>
-          <Row>
-            <Col lg='6' md='6'>
-              <img src={whyImg} alt='why-tasty-treat' className='w-100' />
+          <Row class='row d-flex justify-content-center'>
+            <Col class='col-md-6'>
+              <Map />
             </Col>
 
-            <Col lg='6' md='6'>
+            <Col class='col-md-6'>
               <div className='why__tasty-treat'>
                 <h2 className='tasty__treat-title mb-4'>
-                  Why <span>Tasty Treat?</span>
+                  waar kunnen we <span>bezorgen?</span>
                 </h2>
                 <p className='tasty__treat-desc'>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -143,40 +149,6 @@ const Home = () => {
                   laboriosam vitae ullam, repellat illo sequi odio esse iste
                   fugiat dolor, optio incidunt eligendi deleniti!
                 </p>
-
-                <ListGroup className='mt-4'>
-                  <ListGroupItem className='border-0 ps-0'>
-                    <p className=' choose__us-title d-flex align-items-center gap-2 '>
-                      <i class='ri-checkbox-circle-line'></i> Fresh and tasty
-                      foods
-                    </p>
-                    <p className='choose__us-desc'>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Quia, voluptatibus.
-                    </p>
-                  </ListGroupItem>
-
-                  <ListGroupItem className='border-0 ps-0'>
-                    <p className='choose__us-title d-flex align-items-center gap-2 '>
-                      <i class='ri-checkbox-circle-line'></i> Quality support
-                    </p>
-                    <p className='choose__us-desc'>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Qui, earum.
-                    </p>
-                  </ListGroupItem>
-
-                  <ListGroupItem className='border-0 ps-0'>
-                    <p className='choose__us-title d-flex align-items-center gap-2 '>
-                      <i class='ri-checkbox-circle-line'></i>Order from any
-                      location{' '}
-                    </p>
-                    <p className='choose__us-desc'>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Qui, earum.
-                    </p>
-                  </ListGroupItem>
-                </ListGroup>
               </div>
             </Col>
           </Row>
@@ -188,9 +160,9 @@ const Home = () => {
           <Row>
             <Col lg='6' md='6'>
               <div className='testimonial '>
-                <h5 className='testimonial__subtitle mb-4'>Testimonial</h5>
+                <h5 className='testimonial__subtitle mb-4'>beoordelingen</h5>
                 <h2 className='testimonial__title mb-4'>
-                  What our <span>customers</span> are saying
+                  Wat onze <span>klanten</span> zeggen
                 </h2>
                 <p className='testimonial__desc'>
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit.

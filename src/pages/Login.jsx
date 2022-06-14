@@ -1,8 +1,8 @@
-import React, { useRef } from "react";
-import Helmet from "../components/Helmet/Helmet";
-import CommonSection from "../components/UI/common-section/CommonSection";
-import { Container, Row, Col } from "reactstrap";
-import { Link } from "react-router-dom";
+import React, { useRef } from 'react';
+import Helmet from '../components/Helmet/Helmet';
+import CommonSection from '../components/UI/common-section/CommonSection';
+import { Container, Row, Col } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const loginNameRef = useRef();
@@ -13,7 +13,7 @@ const Login = () => {
   };
 
   return (
-    <Helmet title="Login">
+    /*<Helmet title="Login">
       <CommonSection title="Login" />
       <section>
         <Container>
@@ -47,7 +47,8 @@ const Login = () => {
           </Row>
         </Container>
       </section>
-    </Helmet>
+    </Helmet>*/
+    <h1>Deze Pagina Is In Onderhoud</h1>
   );
 };
 

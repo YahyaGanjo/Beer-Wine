@@ -1,3 +1,6 @@
+.feature {
+  align-self: center !important;
+}
 .feature__subtitle {
   color: #df2020;
 }
@@ -43,6 +46,10 @@
   background: #fff !important;
   border-radius: 5px;
   color: #df2020 !important;
+}
+
+.tasty__treat-title {
+  margin-top: 50px;
 }
 
 .tasty__treat-title span {
