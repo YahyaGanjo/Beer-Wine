@@ -1,5 +1,5 @@
 import Helmet from '../components/Helmet/Helmet.js';
-import { Container, Row, Col, ListGroup, ListGroupItem } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 
 import heroImg from '../assets/images/borrel.jpg';
 import '../styles/hero-section.css';
@@ -11,9 +11,6 @@ import '../styles/home.css';
 import featureImg01 from '../assets/images/bestel-online.png';
 import featureImg02 from '../assets/images/service-01.png';
 import featureImg03 from '../assets/images/18.png';
-
-import whyImg from '../assets/images/location.png';
-
 import networkImg from '../assets/images/network.png';
 
 import TestimonialSlider from '../components/UI/slider/TestimonialSlider.jsx';
@@ -101,6 +98,13 @@ const Home = () => {
                 wij zullen <span>ervoor zorgen</span>
               </h2>
               <p className='mb-1 mt-4 feature__text'>
+                Wij hebben een bezorgservice van gemiddeld 30 minuten, heldere
+                en scherpe prijzen en contant is mogelijk! Bier bestellen in
+                betuwe regio is nog nooit zo makkelijk geweest! Contact met ons
+                opnemen kan telefonische via 06xx xxx xxx maar ook via Whatsapp!
+                Wilt u bier bestellen via Whatsapp? Dat kan ook gewoon via 06xx
+                xxx xxx
+                <br />
                 Uiteraard bezorgen wij al onze dranken heerlijk gekoeld bij je
                 thuis! Betaal direct online, snel en veilig met iDEAL. Zo hoef
                 je aan de deur niets meer af te rekenen.
@@ -156,9 +160,9 @@ const Home = () => {
           <Row>
             <Col lg='6' md='6'>
               <div className='testimonial '>
-                <h5 className='testimonial__subtitle mb-4'>Testimonial</h5>
+                <h5 className='testimonial__subtitle mb-4'>beoordelingen</h5>
                 <h2 className='testimonial__title mb-4'>
-                  What our <span>customers</span> are saying
+                  Wat onze <span>klanten</span> zeggen
                 </h2>
                 <p className='testimonial__desc'>
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit.
