@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, ListGroup, ListGroupItem } from 'reactstrap';
-import logo from '../../assets/images/res-logo.png';
+import logo from '../../assets/images/logo.png';
 
 import '../../styles/footer.css';
 
@@ -14,7 +14,7 @@ const Footer = () => {
           <Col lg='3' md='4' sm='6'>
             <div className=' footer__logo text-start'>
               <img src={logo} alt='logo' />
-              <h5>Tasty Treat</h5>
+              <h5>bierwijnbezorging</h5>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Nesciunt pariatur accusamus
@@ -23,16 +23,16 @@ const Footer = () => {
           </Col>
 
           <Col lg='3' md='4' sm='6'>
-            <h5 className='footer__title'>Delivery Time</h5>
+            <h5 className='footer__title'>Bezorg Tijd</h5>
             <ListGroup className='deliver__time-list'>
               <ListGroupItem className=' delivery__time-item border-0 ps-0'>
-                <span>Sunday - Thursday</span>
+                <span>Maandag - Frijdag</span>
                 <p>10:00am - 11:00pm</p>
               </ListGroupItem>
 
               <ListGroupItem className=' delivery__time-item border-0 ps-0'>
-                <span>Friday - Saturday</span>
-                <p>Off day</p>
+                <span>Zaterdag</span>
+                <p>Vrij Dag</p>
               </ListGroupItem>
             </ListGroup>
           </Col>
@@ -41,10 +41,10 @@ const Footer = () => {
             <h5 className='footer__title'>Contact</h5>
             <ListGroup className='deliver__time-list'>
               <ListGroupItem className=' delivery__time-item border-0 ps-0'>
-                <p>Location: ZindaBazar, Sylhet-3100, Bangladesh</p>
+                <p>Locatie: ZindaBazar, Sylhet-3100, Bangladesh</p>
               </ListGroupItem>
               <ListGroupItem className=' delivery__time-item border-0 ps-0'>
-                <span>Phone: 01712345678</span>
+                <span>Telefoon: 01712345678</span>
               </ListGroupItem>
 
               <ListGroupItem className=' delivery__time-item border-0 ps-0'>
@@ -54,8 +54,8 @@ const Footer = () => {
           </Col>
 
           <Col lg='3' md='4' sm='6'>
-            <h5 className='footer__title'>Newsletter</h5>
-            <p>Subscribe our newsletter</p>
+            <h5 className='footer__title'>Nieuwsbrief</h5>
+            <p>Schrijf je in op onze nieuwsbrief</p>
             <div className='newsletter'>
               <input type='email' placeholder='Enter your email' />
               <span>
@@ -68,8 +68,7 @@ const Footer = () => {
         <Row className='mt-5'>
           <Col lg='6' md='6'>
             <p className='copyright__text'>
-              Copyright - 2022, website made by Muhibur Rahman. All Rights
-              Reserved.
+              Copyright - 2022, website made by Labs Tech. All Rights Reserved.
             </p>
           </Col>
           <Col lg='6' md='6'>
