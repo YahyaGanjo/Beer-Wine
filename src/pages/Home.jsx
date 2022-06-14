@@ -8,9 +8,9 @@ import { Link } from 'react-router-dom';
 
 import '../styles/home.css';
 
-import featureImg01 from '../assets/images/service-01.png';
-import featureImg02 from '../assets/images/service-02.png';
-import featureImg03 from '../assets/images/service-03.png';
+import featureImg01 from '../assets/images/bestel-online.png';
+import featureImg02 from '../assets/images/service-01.png';
+import featureImg03 from '../assets/images/18.png';
 
 import whyImg from '../assets/images/location.png';
 
@@ -18,20 +18,22 @@ import networkImg from '../assets/images/network.png';
 
 import TestimonialSlider from '../components/UI/slider/TestimonialSlider.jsx';
 
+import Map from '../components/UI/map/Map.jsx';
+
 const featureData = [
   {
-    title: 'Gemakkelijk Bestellen',
-    imgUrl: featureImg02,
+    title: 'Gemakkelijk Besteld',
+    imgUrl: featureImg01,
     desc: 'Een lege koelkast? Maar nog zin in een feestje of onverwachts visite? Bestel je drankjes snel en eenvoudig in onze webshop',
   },
   {
     title: 'Snel Bezorgd',
-    imgUrl: featureImg03,
+    imgUrl: featureImg02,
     desc: 'de bezorger staat binnen 30 tot 40 minuten voor je deur. Als je geluk hebt, is de bezorger zelfs sneller!',
   },
   {
     title: '+ 18',
-    imgUrl: featureImg01,
+    imgUrl: featureImg03,
     desc: 'Geen 18? Geen alcohol! Bij twijfel = Legitimatie verplicht!',
   },
 ];
@@ -109,7 +111,7 @@ const Home = () => {
             </Col>
 
             {featureData.map((item, index) => (
-              <Col lg='4' md='6' sm='6' key={index} className='mt-5'>
+              <Col lg='4' md='6' sm='6' key={index} className='mt-5 feature'>
                 <div className='feature__item text-center px-5 py-3'>
                   <img
                     src={item.imgUrl}
@@ -135,7 +137,7 @@ const Home = () => {
             <Col lg='6' md='6'>
               <div className='why__tasty-treat'>
                 <h2 className='tasty__treat-title mb-4'>
-                  Why <span>Tasty Treat?</span>
+                  waar kunnen we <span>bezorgen?</span>
                 </h2>
                 <p className='tasty__treat-desc'>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -144,39 +146,9 @@ const Home = () => {
                   fugiat dolor, optio incidunt eligendi deleniti!
                 </p>
 
-                <ListGroup className='mt-4'>
-                  <ListGroupItem className='border-0 ps-0'>
-                    <p className=' choose__us-title d-flex align-items-center gap-2 '>
-                      <i class='ri-checkbox-circle-line'></i> Fresh and tasty
-                      foods
-                    </p>
-                    <p className='choose__us-desc'>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Quia, voluptatibus.
-                    </p>
-                  </ListGroupItem>
-
-                  <ListGroupItem className='border-0 ps-0'>
-                    <p className='choose__us-title d-flex align-items-center gap-2 '>
-                      <i class='ri-checkbox-circle-line'></i> Quality support
-                    </p>
-                    <p className='choose__us-desc'>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Qui, earum.
-                    </p>
-                  </ListGroupItem>
-
-                  <ListGroupItem className='border-0 ps-0'>
-                    <p className='choose__us-title d-flex align-items-center gap-2 '>
-                      <i class='ri-checkbox-circle-line'></i>Order from any
-                      location{' '}
-                    </p>
-                    <p className='choose__us-desc'>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Qui, earum.
-                    </p>
-                  </ListGroupItem>
-                </ListGroup>
+                <Container>
+                  <Map />
+                </Container>
               </div>
             </Col>
           </Row>

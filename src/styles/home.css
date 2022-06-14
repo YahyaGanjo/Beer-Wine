@@ -1,3 +1,6 @@
+.feature {
+  align-self: center !important;
+}
 .feature__subtitle {
   color: #df2020;
 }
