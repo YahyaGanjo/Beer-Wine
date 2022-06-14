@@ -19,7 +19,7 @@ const position = {
 function Map() {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: process.env.REACT_APP_API_KEY,
+    googleMapsApiKey: 'AIzaSyDrbBlCgaOKX1MtGEF8tz8VJIW2hfACYQs',
   });
 
   const onLoad = (marker) => {
