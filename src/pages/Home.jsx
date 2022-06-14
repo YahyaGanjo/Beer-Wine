@@ -129,12 +129,12 @@ const Home = () => {
 
       <section className='why__choose-us'>
         <Container>
-          <Row>
-            <Col lg='6' md='6'>
-              <img src={whyImg} alt='why-tasty-treat' className='w-100' />
+          <Row class='row d-flex justify-content-center'>
+            <Col class='col-md-6'>
+              <Map />
             </Col>
 
-            <Col lg='6' md='6'>
+            <Col class='col-md-6'>
               <div className='why__tasty-treat'>
                 <h2 className='tasty__treat-title mb-4'>
                   waar kunnen we <span>bezorgen?</span>
@@ -145,10 +145,6 @@ const Home = () => {
                   laboriosam vitae ullam, repellat illo sequi odio esse iste
                   fugiat dolor, optio incidunt eligendi deleniti!
                 </p>
-
-                <Container>
-                  <Map />
-                </Container>
               </div>
             </Col>
           </Row>

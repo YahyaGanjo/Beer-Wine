@@ -48,6 +48,10 @@
   color: #df2020 !important;
 }
 
+.tasty__treat-title {
+  margin-top: 50px;
+}
+
 .tasty__treat-title span {
   color: #df2020;
 }
