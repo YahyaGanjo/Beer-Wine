@@ -1,16 +1,17 @@
-import React, { useRef } from 'react';
+import React from 'react';
+/*import { useRef } from 'react';
 import Helmet from '../components/Helmet/Helmet';
 import CommonSection from '../components/UI/common-section/CommonSection';
 import { Container, Row, Col } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';*/
 
 const Login = () => {
-  const loginNameRef = useRef();
+  /*const loginNameRef = useRef();
   const loginPasswordRef = useRef();
 
   const submitHandler = (e) => {
     e.preventDefault();
-  };
+  };*/
 
   return (
     /*<Helmet title="Login">

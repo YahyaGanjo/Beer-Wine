@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+/*import { useState } from 'react';
 import Helmet from '../components/Helmet/Helmet';
 import CommonSection from '../components/UI/common-section/CommonSection';
 
@@ -9,10 +10,10 @@ import ProductCard from '../components/UI/product-card/ProductCard';
 import ReactPaginate from 'react-paginate';
 
 import '../styles/all-foods.css';
-import '../styles/pagination.css';
+import '../styles/pagination.css';*/
 
 const AllFoods = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  /*const [searchTerm, setSearchTerm] = useState('');
 
   const [pageNumber, setPageNumber] = useState(0);
 
@@ -38,7 +39,7 @@ const AllFoods = () => {
 
   const changePage = ({ selected }) => {
     setPageNumber(selected);
-  };
+  };*/
 
   return (
     /* <Helmet title="All-Foods">
