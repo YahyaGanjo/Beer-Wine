@@ -1,5 +1,5 @@
 .hero__content {
-  padding-top: 70px;
+  padding-top: 20px;
   color: #df2020;
 }
 
@@ -18,8 +18,8 @@
   color: #777;
 }
 
-.hero__img {
-  margin-top: 100px;
+.hero__img img {
+  border-radius: 20px;
 }
 
 .hero__btns button {
