@@ -4,6 +4,10 @@
   line-height: 80px;
 }
 
+.logo {
+  margin-top: -15px;
+}
+
 .logo img {
   width: calc(100% - 60%);
 }
