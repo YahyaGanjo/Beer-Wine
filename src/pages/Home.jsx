@@ -11,7 +11,6 @@ import '../styles/home.css';
 import featureImg01 from '../assets/images/bestel-online.png';
 import featureImg02 from '../assets/images/service-01.png';
 import featureImg03 from '../assets/images/18.png';
-import networkImg from '../assets/images/network.png';
 
 import TestimonialSlider from '../components/UI/slider/TestimonialSlider.jsx';
 
@@ -66,14 +65,14 @@ const Home = () => {
                     <span className='shipping__icon'>
                       <i class='ri-car-line'></i>
                     </span>{' '}
-                    Gratis bezorging vanaf 50€
+                    Gratis bezorging vanaf €50
                   </p>
 
                   <p className=' d-flex align-items-center gap-2 '>
                     <span className='shipping__icon'>
                       <i class='ri-shield-check-line'></i>
                     </span>{' '}
-                    100% veilig afrekenen
+                    bezorging vanaf €20
                   </p>
                 </div>
               </div>
@@ -101,13 +100,10 @@ const Home = () => {
                 Wij hebben een bezorgservice van gemiddeld 30 minuten, heldere
                 en scherpe prijzen en contant is mogelijk! Bier bestellen in
                 betuwe regio is nog nooit zo makkelijk geweest! Contact met ons
-                opnemen kan telefonische via 06xx xxx xxx maar ook via Whatsapp!
-                Wilt u bier bestellen via Whatsapp? Dat kan ook gewoon via 06xx
-                xxx xxx
+                opnemen kan telefonische via 06-84045272 maar ook via Whatsapp!
                 <br />
-                Uiteraard bezorgen wij al onze dranken heerlijk gekoeld bij je
-                thuis! Betaal direct online, snel en veilig met iDEAL. Zo hoef
-                je aan de deur niets meer af te rekenen.
+                Betaal direct online, snel en veilig met iDEAL. Zo hoef je aan
+                de deur niets meer af te rekenen.
                 <br />
                 wil je toch contant betalen bij de bezorging van je bestelling?
                 geen zorgen, dat doen we ook!
@@ -172,10 +168,6 @@ const Home = () => {
 
                 <TestimonialSlider />
               </div>
-            </Col>
-
-            <Col lg='6' md='6'>
-              <img src={networkImg} alt='testimonial-img' className='w-100' />
             </Col>
           </Row>
         </Container>
