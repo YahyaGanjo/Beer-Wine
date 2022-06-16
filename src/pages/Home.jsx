@@ -2,6 +2,7 @@ import Helmet from '../components/Helmet/Helmet.js';
 import { Container, Row, Col } from 'reactstrap';
 
 import heroImg from '../assets/images/borrel.jpg';
+import map from '../assets/images/mapimage.jfif';
 import '../styles/hero-section.css';
 
 import { Link } from 'react-router-dom';
@@ -14,8 +15,6 @@ import featureImg03 from '../assets/images/18.png';
 import networkImg from '../assets/images/network.png';
 
 import TestimonialSlider from '../components/UI/slider/TestimonialSlider.jsx';
-
-import Map from '../components/UI/map/Map.jsx';
 
 const featureData = [
   {
@@ -133,11 +132,10 @@ const Home = () => {
 
       <section className='why__choose-us'>
         <Container>
-          <Row class='row d-flex justify-content-center'>
+          <Row class='row d-flex justify-content-center align-items-center'>
             <Col class='col-md-6'>
-              <Map />
+              <img src={map} alt='map-img' className='w-100' />
             </Col>
-
             <Col class='col-md-6'>
               <div className='why__tasty-treat'>
                 <h2 className='tasty__treat-title mb-4'>
