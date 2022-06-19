@@ -47,7 +47,7 @@ const Header = () => {
           {/* ======= menu ======= */}
           <div className='navigation' ref={menuRef} onClick={toggleMenu}>
             <div className='menu d-flex align-items-center gap-5'>
-              <Link to='/home'>Home</Link>
+              <Link to='/home#home'>Home</Link>
               <Link to='/producten'>Bestel Online</Link>
               <Link to='/home#overOns'>Over Ons</Link>
               <Link to='/home#beoordelingen'>Beoordelingen</Link>

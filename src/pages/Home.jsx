@@ -123,9 +123,6 @@ const Home = () => {
         <Container>
           <Row class='row d-flex justify-content-center align-items-center'>
             <Col class='col-md-6'>
-              <img src={map} alt='map-img' className='w-100' />
-            </Col>
-            <Col class='col-md-6'>
               <div className='why__tasty-treat'>
                 <h2 className='tasty__treat-title mb-4'>
                   waar kunnen we <span>bezorgen?</span>
@@ -137,6 +134,9 @@ const Home = () => {
                   fugiat dolor, optio incidunt eligendi deleniti!
                 </p>
               </div>
+            </Col>
+            <Col class='col-md-8'>
+              <img src={map} alt='map-img' className='w-100' />
             </Col>
           </Row>
         </Container>
