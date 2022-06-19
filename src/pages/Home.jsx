@@ -42,17 +42,11 @@ const Home = () => {
           <Row>
             <Col lg='6' md='6'>
               <div className='hero__content  '>
-                <h5 className='mb-3'>bierwijnbezorging</h5>
+                <h5 className='mb-3'>bierwijnbezorging.nl</h5>
                 <h1 className='mb-4 hero__title'>
                   <span>GEKOELD GELEVERD!</span> Dranken <br /> Binnen 40 min
                   thuisbezorgd
                 </h1>
-
-                <p>
-                  vul je postcode in om te kijken of we op jouw adres kunnen
-                  bezorgen
-                </p>
-
                 <div className='hero__btns d-flex align-items-center gap-5 mt-4'>
                   <input type='text' placeholder='Postcode' />
                   <button className='all__foods-btn'>
