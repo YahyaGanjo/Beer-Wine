@@ -2,35 +2,12 @@ import React, { useRef, useEffect } from 'react';
 
 import { Container } from 'reactstrap';
 import logo from '../../assets/images/logo.png';
-import { NavLink, Link } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { cartUiActions } from '../../store/shopping-cart/cartUiSlice';
 
 import '../../styles/header.css';
-
-const nav__links = [
-  {
-    display: 'Home',
-    path: '/home',
-  },
-  {
-    display: 'Bestel Online',
-    path: '/foods',
-  },
-  {
-    display: 'Beoordelingen',
-    path: '/cart',
-  },
-  {
-    display: 'Over Ons',
-    path: '/contact',
-  },
-  {
-    display: 'Contact',
-    path: '/contact',
-  },
-];
 
 const Header = () => {
   const menuRef = useRef(null);
@@ -70,17 +47,11 @@ const Header = () => {
           {/* ======= menu ======= */}
           <div className='navigation' ref={menuRef} onClick={toggleMenu}>
             <div className='menu d-flex align-items-center gap-5'>
-              {nav__links.map((item, index) => (
-                <NavLink
-                  to={item.path}
-                  key={index}
-                  className={(navClass) =>
-                    navClass.isActive ? 'active__menu' : ''
-                  }
-                >
-                  {item.display}
-                </NavLink>
-              ))}
+              <Link to='/home'>Home</Link>
+              <Link to='/producten'>Bestel Online</Link>
+              <Link to='/home#overOns'>Over Ons</Link>
+              <Link to='/home#beoordelingen'>Beoordelingen</Link>
+              <Link to='/contact'>Contact</Link>
             </div>
           </div>
 

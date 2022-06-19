@@ -4,8 +4,7 @@ import { Container, Row, Col } from 'reactstrap';
 import heroImg from '../assets/images/borrel.jpg';
 import map from '../assets/images/mapimage.jfif';
 import '../styles/hero-section.css';
-
-import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 import '../styles/home.css';
 
@@ -36,7 +35,7 @@ const featureData = [
 const Home = () => {
   return (
     <Helmet title='Home'>
-      <section>
+      <section id='home'>
         <Container>
           <Row>
             <Col lg='6' md='6'>
@@ -49,7 +48,7 @@ const Home = () => {
                 <div className='hero__btns d-flex align-items-center gap-5 mt-4'>
                   <input type='text' placeholder='Postcode' />
                   <button className='all__foods-btn'>
-                    <Link to='/foods'>Bestel Online</Link>
+                    <HashLink to='/home#postCode'>Bestel Online</HashLink>
                   </button>
                 </div>
 
@@ -80,7 +79,7 @@ const Home = () => {
         </Container>
       </section>
 
-      <section>
+      <section id='overOns'>
         <Container>
           <Row>
             <Col lg='12' className='text-center'>
@@ -120,7 +119,7 @@ const Home = () => {
         </Container>
       </section>
 
-      <section className='why__choose-us'>
+      <section id='postCode' className='why__choose-us'>
         <Container>
           <Row class='row d-flex justify-content-center align-items-center'>
             <Col class='col-md-6'>
@@ -143,7 +142,7 @@ const Home = () => {
         </Container>
       </section>
 
-      <section>
+      <section id='beoordelingen'>
         <Container>
           <Row>
             <Col lg='6' md='6'>
