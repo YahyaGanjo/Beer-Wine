@@ -125,17 +125,20 @@ const Home = () => {
             <Col class='col-md-6'>
               <div className='why__tasty-treat'>
                 <h2 className='tasty__treat-title mb-4'>
-                  waar kunnen we <span>bezorgen?</span>
+                  we hebben een ruim <span>bezorgengebied!</span>
                 </h2>
                 <p className='tasty__treat-desc'>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Dolorum, minus. Tempora reprehenderit a corporis velit,
-                  laboriosam vitae ullam, repellat illo sequi odio esse iste
-                  fugiat dolor, optio incidunt eligendi deleniti!
+                  vul eenvoudig je postcode in, dan kan je direct bij ons
+                  bestellen! wordt je postcode niet geaccepteerd? je kan ons
+                  altijd bellen om de mogelijkheden te bespreken.We vinden het
+                  geen enkel probleem om een stukje verder te rijden.
                 </p>
+                <button className='bel_ons-btn'>
+                  <HashLink to='/home#postCode'>Bel ons direct</HashLink>
+                </button>
               </div>
             </Col>
-            <Col class='col-md-8'>
+            <Col class='col-md-10'>
               <img src={map} alt='map-img' className='w-100' />
             </Col>
           </Row>
