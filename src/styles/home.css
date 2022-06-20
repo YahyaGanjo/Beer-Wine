@@ -103,6 +103,10 @@
     font-size: 1rem;
   }
 
+  .ruimte {
+    flex-direction: column;
+  }
+
   .hero__content p {
     font-size: 0.8rem;
     line-height: 25px;

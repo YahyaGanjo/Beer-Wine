@@ -121,8 +121,8 @@ const Home = () => {
 
       <section id='postCode' className='why__choose-us'>
         <Container>
-          <Row class='row d-flex justify-content-center align-items-center'>
-            <Col class='col-md-6'>
+          <Row class='row d-flex justify-content-center align-items-center ruimte'>
+            <Col class='col-md-10'>
               <div className='why__tasty-treat'>
                 <h2 className='tasty__treat-title mb-4'>
                   we hebben een ruim <span>bezorgengebied!</span>
@@ -138,7 +138,7 @@ const Home = () => {
                 </button>
               </div>
             </Col>
-            <Col class='col-md-10'>
+            <Col class='col-md-8 map'>
               <img src={map} alt='map-img' className='w-100' />
             </Col>
           </Row>
@@ -148,7 +148,7 @@ const Home = () => {
       <section id='beoordelingen'>
         <Container>
           <Row>
-            <Col lg='6' md='6'>
+            <Col lg='6'>
               <div className='testimonial '>
                 <h5 className='testimonial__subtitle mb-4'>beoordelingen</h5>
                 <h2 className='testimonial__title mb-4'>
