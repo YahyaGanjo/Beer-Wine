@@ -1,5 +1,5 @@
 import React from 'react';
-/*import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Helmet from '../components/Helmet/Helmet';
 import CommonSection from '../components/UI/common-section/CommonSection';
 
@@ -7,92 +7,99 @@ import { Container, Row, Col } from 'reactstrap';
 
 import products from '../assets/fake-data/products';
 import ProductCard from '../components/UI/product-card/ProductCard';
-import ReactPaginate from 'react-paginate';
 
 import '../styles/all-foods.css';
-import '../styles/pagination.css';*/
+import '../styles/pagination.css';
 
 const AllFoods = () => {
-  /*const [searchTerm, setSearchTerm] = useState('');
+  const [category, setCategory] = useState('ALLES');
+  const [allProducts, setAllProducts] = useState(products);
 
-  const [pageNumber, setPageNumber] = useState(0);
-
-  const searchedProduct = products.filter((item) => {
-    if (searchTerm.value === '') {
-      return item;
+  useEffect(() => {
+    if (category === 'ALLES') {
+      setAllProducts(products);
     }
-    if (item.title.toLowerCase().includes(searchTerm.toLowerCase())) {
-      return item;
-    } else {
-      return console.log('not found');
+
+    if (category === 'BIER') {
+      const filteredProducts = products.filter(
+        (item) => item.category === 'Bier'
+      );
+
+      setAllProducts(filteredProducts);
     }
-  });
 
-  const productPerPage = 12;
-  const visitedPage = pageNumber * productPerPage;
-  const displayPage = searchedProduct.slice(
-    visitedPage,
-    visitedPage + productPerPage
-  );
+    if (category === 'WIJN') {
+      const filteredProducts = products.filter(
+        (item) => item.category === 'Wijn'
+      );
 
-  const pageCount = Math.ceil(searchedProduct.length / productPerPage);
+      setAllProducts(filteredProducts);
+    }
 
-  const changePage = ({ selected }) => {
-    setPageNumber(selected);
-  };*/
+    if (category === 'MIX') {
+      const filteredProducts = products.filter(
+        (item) => item.category === 'Mix'
+      );
+
+      setAllProducts(filteredProducts);
+    }
+  }, [category]);
 
   return (
-    /* <Helmet title="All-Foods">
-      <CommonSection title="All Foods" />
+    <Helmet title='Bestellen'>
+      <CommonSection title='Alle Producten' />
 
       <section>
         <Container>
           <Row>
-            <Col lg="6" md="6" sm="6" xs="12">
-              <div className="search__widget d-flex align-items-center justify-content-between ">
-                <input
-                  type="text"
-                  placeholder="I'm looking for...."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-                <span>
-                  <i class="ri-search-line"></i>
-                </span>
-              </div>
-            </Col>
-            <Col lg="6" md="6" sm="6" xs="12" className="mb-5">
-              <div className="sorting__widget text-end">
-                <select className="w-50">
-                  <option>Default</option>
-                  <option value="ascending">Alphabetically, A-Z</option>
-                  <option value="descending">Alphabetically, Z-A</option>
-                  <option value="high-price">High Price</option>
-                  <option value="low-price">Low Price</option>
-                </select>
+            <Col lg='12'>
+              <div className='food__category d-flex align-items-center justify-content-center gap-4'>
+                <button
+                  className={`all__btn  ${
+                    category === 'ALLES' ? 'foodBtnActive' : ''
+                  } `}
+                  onClick={() => setCategory('ALLES')}
+                >
+                  Alles
+                </button>
+                <button
+                  className={`d-flex align-items-center gap-2 ${
+                    category === 'BIER' ? 'foodBtnActive' : ''
+                  } `}
+                  onClick={() => setCategory('BIER')}
+                >
+                  Bier
+                </button>
+
+                <button
+                  className={`d-flex align-items-center gap-2 ${
+                    category === 'WIJN' ? 'foodBtnActive' : ''
+                  } `}
+                  onClick={() => setCategory('WIJN')}
+                >
+                  Wijn
+                </button>
+
+                <button
+                  className={`d-flex align-items-center gap-2 ${
+                    category === 'MIX' ? 'foodBtnActive' : ''
+                  } `}
+                  onClick={() => setCategory('MIX')}
+                >
+                  Mix
+                </button>
               </div>
             </Col>
 
-            {displayPage.map((item) => (
-              <Col lg="3" md="4" sm="6" xs="6" key={item.id} className="mb-4">
+            {allProducts.map((item) => (
+              <Col lg='3' md='4' sm='6' xs='6' key={item.id} className='mb-4'>
                 <ProductCard item={item} />
               </Col>
             ))}
-
-            <div>
-              <ReactPaginate
-                pageCount={pageCount}
-                onPageChange={changePage}
-                previousLabel={"Prev"}
-                nextLabel={"Next"}
-                containerClassName=" paginationBttns "
-              />
-            </div>
           </Row>
         </Container>
       </section>
-    </Helmet>*/
-    <h1>Deze Pagina Is In Onderhoud</h1>
+    </Helmet>
   );
 };
 
