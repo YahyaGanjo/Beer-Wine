@@ -1,7 +1,7 @@
 import Helmet from '../components/Helmet/Helmet.js';
 import { Container, Row, Col } from 'reactstrap';
 
-import heroImg from '../assets/images/borrel.jpg';
+import heroImg from '../assets/images/Matthews_Liquor_-_Beer_and_Cider-3.png';
 import map from '../assets/images/mapimage.jfif';
 import '../styles/hero-section.css';
 import { HashLink } from 'react-router-hash-link';
@@ -121,8 +121,8 @@ const Home = () => {
 
       <section id='postCode' className='why__choose-us'>
         <Container>
-          <Row class='row d-flex justify-content-center align-items-center ruimte'>
-            <Col class='col-md-10'>
+          <div class='row ruimte'>
+            <Col>
               <div className='why__tasty-treat'>
                 <h2 className='tasty__treat-title mb-4'>
                   we hebben een ruim <span>bezorgengebied!</span>
@@ -138,10 +138,10 @@ const Home = () => {
                 </button>
               </div>
             </Col>
-            <Col class='col-md-8 map'>
+            <Col class='col-md-8'>
               <img src={map} alt='map-img' className='w-100' />
             </Col>
-          </Row>
+          </div>
         </Container>
       </section>
 

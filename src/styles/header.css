@@ -64,9 +64,9 @@
   position: sticky;
   top: 0;
   left: 0;
-  background: #180500;
+  background: #f6f2f2;
   z-index: 99999;
-  box-shadow: 5px 5px 15px -5px #fde4e4;
+  box-shadow: 5px 5px 15px -5px #180500;
 }
 
 @media only screen and (max-width: 992px) {
@@ -97,7 +97,7 @@
     right: 0;
     width: 250px;
     height: 100%;
-    background: #180500;
+    background: #f6f2f2;
     flex-direction: column;
     justify-content: center;
     align-items: center;
