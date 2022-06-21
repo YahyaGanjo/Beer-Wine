@@ -40,7 +40,7 @@ const Home = () => {
           <Row>
             <Col lg='6' md='6'>
               <div className='hero__content  '>
-                <h5 className='mb-3'>bierwijnbezorging.nl</h5>
+                <h5 className='mb-3'>BierWijnbezorging.nl</h5>
                 <h1 className='mb-4 hero__title'>
                   <span>GEKOELD GELEVERD!</span> Dranken <br /> Binnen 40 min
                   thuisbezorgd
@@ -64,7 +64,7 @@ const Home = () => {
                     <span className='shipping__icon'>
                       <i class='ri-shield-check-line'></i>
                     </span>{' '}
-                    bezorging vanaf €20
+                    Bezorging vanaf €20
                   </p>
                 </div>
               </div>
@@ -125,10 +125,10 @@ const Home = () => {
             <Col>
               <div className='why__tasty-treat'>
                 <h2 className='tasty__treat-title mb-4'>
-                  we hebben een ruim <span>bezorgengebied!</span>
+                  We hebben een ruim <span>bezorgengebied!</span>
                 </h2>
                 <p className='tasty__treat-desc'>
-                  vul eenvoudig je postcode in, dan kan je direct bij ons
+                  Vul eenvoudig je postcode in, dan kan je direct bij ons
                   bestellen! wordt je postcode niet geaccepteerd? je kan ons
                   altijd bellen om de mogelijkheden te bespreken.We vinden het
                   geen enkel probleem om een stukje verder te rijden.
@@ -150,7 +150,7 @@ const Home = () => {
           <Row>
             <Col lg='6'>
               <div className='testimonial '>
-                <h5 className='testimonial__subtitle mb-4'>beoordelingen</h5>
+                <h5 className='testimonial__subtitle mb-4'>Beoordelingen</h5>
                 <h2 className='testimonial__title mb-4'>
                   Wat onze <span>klanten</span> zeggen
                 </h2>
