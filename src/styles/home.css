@@ -156,10 +156,10 @@
   }
 
   .food__category {
-    padding: 15px;
+    padding: 10px;
   }
   .food__category button {
-    padding: 5px 15px;
+    padding: 5px;
     font-size: 0.7rem;
   }
 
@@ -196,5 +196,9 @@
   }
   .why__choose-us {
     padding-top: 0 !important;
+  }
+
+  .food__category button {
+    font-size: 0.5rem;
   }
 }
