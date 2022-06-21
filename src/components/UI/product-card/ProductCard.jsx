@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../../../store/shopping-cart/cartSlice';
+import { cartUiActions } from '../../../store/shopping-cart/cartUiSlice';
 
 const ProductCard = (props) => {
   const { id, title, image01, price } = props.item;
@@ -20,16 +21,13 @@ const ProductCard = (props) => {
         price,
       })
     );
+    dispatch(cartUiActions.toggle());
   };
 
   return (
     <div className='product__item'>
       <div className='product__img'>
-        <img
-          src={image01}
-          alt='product-img'
-          className='w-50 rounded-circle z-depth-2'
-        />
+        <img src={image01} alt='product-img' className='w-50' />
       </div>
 
       <div className='product__content'>

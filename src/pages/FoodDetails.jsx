@@ -8,6 +8,7 @@ import { Container, Row, Col } from 'reactstrap';
 
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../store/shopping-cart/cartSlice';
+import { cartUiActions } from '../store/shopping-cart/cartUiSlice';
 
 import '../styles/product-details.css';
 
@@ -32,6 +33,7 @@ const FoodDetails = () => {
         image01,
       })
     );
+    dispatch(cartUiActions.toggle());
   };
 
   useEffect(() => {
@@ -51,7 +53,7 @@ const FoodDetails = () => {
           <Row>
             <Col lg='4' md='4'>
               <div className='product__main-img'>
-                <img src={previewImg} alt='' className='w-100' />
+                <img src={previewImg} alt='' className='w-50' />
               </div>
             </Col>
 
@@ -60,21 +62,21 @@ const FoodDetails = () => {
                 <h2 className='product__title mb-3'>{title}</h2>
                 <p className='product__price'>
                   {' '}
-                  Price: <span>${price}</span>
+                  Prijs: <span>€{price}</span>
                 </p>
                 <p className='category mb-5'>
-                  Category: <span>{category}</span>
+                  Categorie: <span>{category}</span>
                 </p>
 
                 <button onClick={addItem} className='addTOCart__btn'>
-                  Add to Cart
+                  Voeg toe aan winkelwagen
                 </button>
               </div>
             </Col>
 
             <Col lg='12'>
               <div className='tabs d-flex align-items-center gap-5 py-3'>
-                <h6 className='tab__active'>Description</h6>
+                <h6 className='tab__active'>Beschrijving</h6>
               </div>
               <div className='tab__content'>
                 <p>{desc}</p>
@@ -82,7 +84,9 @@ const FoodDetails = () => {
             </Col>
 
             <Col lg='12' className='mb-5 mt-4'>
-              <h2 className='related__Product-title'>You might also like</h2>
+              <h2 className='related__Product-title'>
+                Misschien vind je dit ook leuk
+              </h2>
             </Col>
 
             {relatedProduct.map((item) => (
