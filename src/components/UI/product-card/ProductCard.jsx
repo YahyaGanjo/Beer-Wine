@@ -2,11 +2,10 @@ import React from 'react';
 
 import '../../../styles/product-card.css';
 
-import { Link } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../../../store/shopping-cart/cartSlice';
-import { cartUiActions } from '../../../store/shopping-cart/cartUiSlice';
 
 const ProductCard = (props) => {
   const { id, title, image01, price } = props.item;
@@ -21,25 +20,22 @@ const ProductCard = (props) => {
         price,
       })
     );
-    dispatch(cartUiActions.toggle());
   };
 
   return (
     <div className='product__item'>
-      <div className='product__img'>
-        <img src={image01} alt='product-img' className='w-50' />
+      <div className='product__content'>
+        <Link to={`/producten/${id}`}>
+          <img src={image01} alt='product-img' className='w-50' />
+          <h5>{title}</h5>
+        </Link>
       </div>
 
-      <div className='product__content'>
-        <h5>
-          <Link to={`/producten/${id}`}>{title}</Link>
-        </h5>
-        <div className=' d-flex align-items-center justify-content-between '>
-          <span className='product__price'>€{price}</span>
-          <button className='addTOCart__btn' onClick={addToCart}>
-            In Winkelwagen
-          </button>
-        </div>
+      <div className=' d-flex align-items-center justify-content-between '>
+        <span className='product__price'>€{price}</span>
+        <button className='addTOCart__btn' onClick={addToCart}>
+          In Winkelwagen
+        </button>
       </div>
     </div>
   );

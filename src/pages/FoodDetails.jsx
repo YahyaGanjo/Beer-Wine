@@ -8,7 +8,6 @@ import { Container, Row, Col } from 'reactstrap';
 
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../store/shopping-cart/cartSlice';
-import { cartUiActions } from '../store/shopping-cart/cartUiSlice';
 
 import '../styles/product-details.css';
 
@@ -33,7 +32,6 @@ const FoodDetails = () => {
         image01,
       })
     );
-    dispatch(cartUiActions.toggle());
   };
 
   useEffect(() => {

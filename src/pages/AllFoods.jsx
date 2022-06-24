@@ -36,9 +36,41 @@ const AllFoods = () => {
       setAllProducts(filteredProducts);
     }
 
-    if (category === 'MIX') {
+    if (category === 'MIXDRANKEN') {
       const filteredProducts = products.filter(
-        (item) => item.category === 'Mix'
+        (item) => item.category === 'Mix Dranken'
+      );
+
+      setAllProducts(filteredProducts);
+    }
+
+    if (category === 'CHIPS') {
+      const filteredProducts = products.filter(
+        (item) => item.category === 'Chips'
+      );
+
+      setAllProducts(filteredProducts);
+    }
+
+    if (category === 'FLUGEL') {
+      const filteredProducts = products.filter(
+        (item) => item.category === 'Flugel'
+      );
+
+      setAllProducts(filteredProducts);
+    }
+
+    if (category === 'ENERGYDRANKEN') {
+      const filteredProducts = products.filter(
+        (item) => item.category === 'Energy Dranken'
+      );
+
+      setAllProducts(filteredProducts);
+    }
+
+    if (category === 'FRISDRANKEN') {
+      const filteredProducts = products.filter(
+        (item) => item.category === 'Fris Dranken'
       );
 
       setAllProducts(filteredProducts);
@@ -82,11 +114,46 @@ const AllFoods = () => {
 
                 <button
                   className={`d-flex align-items-center gap-2 ${
-                    category === 'MIX' ? 'foodBtnActive' : ''
+                    category === 'MIXDRANKEN' ? 'foodBtnActive' : ''
                   } `}
-                  onClick={() => setCategory('MIX')}
+                  onClick={() => setCategory('MIXDRANKEN')}
                 >
-                  Mix
+                  Mix Dranken
+                </button>
+
+                <button
+                  className={`d-flex align-items-center gap-2 ${
+                    category === 'CHIPS' ? 'foodBtnActive' : ''
+                  } `}
+                  onClick={() => setCategory('CHIPS')}
+                >
+                  Chips
+                </button>
+
+                <button
+                  className={`d-flex align-items-center gap-2 ${
+                    category === 'FLUGEL' ? 'foodBtnActive' : ''
+                  } `}
+                  onClick={() => setCategory('FLUGEL')}
+                >
+                  Flugel
+                </button>
+
+                <button
+                  className={`d-flex align-items-center gap-2 ${
+                    category === 'ENERGYDRANKEN' ? 'foodBtnActive' : ''
+                  } `}
+                  onClick={() => setCategory('ENERGYDRANKEN')}
+                >
+                  Energy Dranken
+                </button>
+                <button
+                  className={`d-flex align-items-center gap-2 ${
+                    category === 'FRISDRANKEN' ? 'foodBtnActive' : ''
+                  } `}
+                  onClick={() => setCategory('FRISDRANKEN')}
+                >
+                  Fris Dranken
                 </button>
               </div>
             </Col>

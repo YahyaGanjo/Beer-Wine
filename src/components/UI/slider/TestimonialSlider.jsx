@@ -17,36 +17,23 @@ const TestimonialSlider = () => {
   return (
     <Slider {...settings}>
       <div>
-        <p className='review__text'>
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
-          atque, quam minus totam maiores laborum! Impedit consectetur illum
-          aliquid odit. Odit dolore ipsum quod debitis nostrum necessitatibus
-          quis dolorem quas!"
-        </p>
+        <p className='review__text'>"Super service! op tijd en heerlijk"</p>
         <div className=' slider__content d-flex align-items-center gap-3 '>
-          <h6>Jhon Doe</h6>
+          <h6>Lieke</h6>
+        </div>
+      </div>
+      <div>
+        <p className='review__text'>"Koude beer, snel bezorgd!"</p>
+        <div className='slider__content d-flex align-items-center gap-3 '>
+          <h6>Tevreden Klant</h6>
         </div>
       </div>
       <div>
         <p className='review__text'>
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
-          atque, quam minus totam maiores laborum! Impedit consectetur illum
-          aliquid odit. Odit dolore ipsum quod debitis nostrum necessitatibus
-          quis dolorem quas!"
+          "Was zeer snel bezorgd, hele vriendelijke bezorger, topper."
         </p>
         <div className='slider__content d-flex align-items-center gap-3 '>
-          <h6>Mitchell Marsh</h6>
-        </div>
-      </div>
-      <div>
-        <p className='review__text'>
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
-          atque, quam minus totam maiores laborum! Impedit consectetur illum
-          aliquid odit. Odit dolore ipsum quod debitis nostrum necessitatibus
-          quis dolorem quas!"
-        </p>
-        <div className='slider__content d-flex align-items-center gap-3 '>
-          <h6>Steven Crock</h6>
+          <h6>Luuk snijder</h6>
         </div>
       </div>
     </Slider>

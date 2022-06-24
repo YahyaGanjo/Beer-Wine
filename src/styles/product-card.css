@@ -1,26 +1,24 @@
 .product__item {
   border: 1px solid #df2020;
+  border-radius: 10px;
   text-align: center;
   padding: 20px;
   cursor: pointer;
 }
 
-.product__img {
+.product__content {
   margin-bottom: 20px;
   transition: 0.4s;
 }
 
-.product__img:hover {
+.product__content:hover {
   transform: scale(1.2);
 }
 
-.product__content h5 a {
+.product__content h5 {
   color: #7175e0;
   font-size: 1rem;
-}
-
-.product__content h5 {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .product__price {
@@ -39,14 +37,14 @@
 }
 
 @media only screen and (max-width: 992px) {
-  .product__content h5 a {
-    font-size: 0.8rem;
+  .product__content h5 {
+    font-size: 0.6rem;
   }
   .product__item {
-    padding: 20px;
+    padding: 5px;
   }
   .addTOCart__btn {
-    padding: 5px 15px;
+    padding: 5px;
     font-size: 0.7rem;
   }
 }

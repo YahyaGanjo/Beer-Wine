@@ -38,6 +38,9 @@
 .cart__icon {
   position: relative;
 }
+.cart__badge::content {
+  transform: scale(1.5);
+}
 
 .cart__badge {
   position: absolute;

@@ -154,12 +154,6 @@ const Home = () => {
                 <h2 className='testimonial__title mb-4'>
                   Wat onze <span>klanten</span> zeggen
                 </h2>
-                <p className='testimonial__desc'>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Distinctio quasi qui minus quos sit perspiciatis inventore
-                  quis provident placeat fugiat!
-                </p>
-
                 <TestimonialSlider />
               </div>
             </Col>
