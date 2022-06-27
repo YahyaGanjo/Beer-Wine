@@ -2,7 +2,7 @@ import Helmet from '../components/Helmet/Helmet.js';
 import { Container, Row, Col } from 'reactstrap';
 
 import heroImg from '../assets/images/Matthews_Liquor_-_Beer_and_Cider-3.png';
-import map from '../assets/images/mapimage.jfif';
+import map from '../assets/images/mapimage.png';
 import '../styles/hero-section.css';
 import { HashLink } from 'react-router-hash-link';
 
