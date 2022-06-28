@@ -5,6 +5,8 @@
   width: 28%;
   height: 88%;
   background: #fff;
+  border: 1px outset #df2020;
+  border-radius: 5px;
 }
 
 .cart__item-list1 {
