@@ -1,9 +1,10 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 import { Container } from 'reactstrap';
 import logo from '../../assets/images/logo.png';
 import { HashLink as Link } from 'react-router-hash-link';
 import { useSelector, useDispatch } from 'react-redux';
+import useWindowDimensions from '../Hooks/useWindowDimensions';
 
 import { cartUiActions } from '../../store/shopping-cart/cartUiSlice';
 
@@ -14,6 +15,13 @@ const Header = () => {
   const headerRef = useRef(null);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const dispatch = useDispatch();
+  const [showCart, setShowCart] = useState(false);
+
+  const { width } = useWindowDimensions();
+
+  useEffect(() => {
+    width > 990 ? setShowCart(false) : setShowCart(true);
+  }, [width]);
 
   const toggleMenu = () => menuRef.current.classList.toggle('show__menu');
 
@@ -57,10 +65,12 @@ const Header = () => {
 
           {/* ======== nav right icons ========= */}
           <div className='nav__right d-flex align-items-center gap-4'>
-            <span className='cart__icon' onClick={toggleCart}>
-              <i class='ri-shopping-basket-line'></i>
-              <span className='cart__badge'>{totalQuantity}</span>
-            </span>
+            {showCart && (
+              <span className='cart__icon' onClick={toggleCart}>
+                <i class='ri-shopping-basket-line'></i>
+                <span className='cart__badge'>{totalQuantity}</span>
+              </span>
+            )}
 
             <span className='user'>
               <Link to='/login'>
