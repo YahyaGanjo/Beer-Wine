@@ -57,7 +57,7 @@ const FoodDetails = () => {
       <section>
         <Container>
           <Row>
-            <Col lg='4' md='4'>
+            <Col lg='3' md='3'>
               <div className='product__main-img'>
                 <img src={previewImg} alt='' className='w-50' />
               </div>
@@ -80,7 +80,7 @@ const FoodDetails = () => {
               </div>
             </Col>
 
-            <Col lg='12'>
+            <Col lg='9'>
               <div className='tabs d-flex align-items-center gap-5 py-3'>
                 <h6 className='tab__active'>Beschrijving</h6>
               </div>
