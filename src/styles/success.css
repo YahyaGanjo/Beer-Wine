@@ -1,0 +1,14 @@
+.success-title {
+  text-align: center;
+  margin: 25px 50px;
+  color: #7175e0;
+}
+.success-title span {
+  color: #df2020;
+}
+.success-msg {
+  text-align: center;
+  margin: 25px 50px;
+  font-size: large;
+  font-weight: 600;
+}
