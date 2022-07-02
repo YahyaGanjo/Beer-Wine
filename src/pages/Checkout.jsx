@@ -31,8 +31,6 @@ const Checkout = () => {
       postalCode: postalCode,
     };
 
-    console.log(cartProducts);
-
     shippingInfo.push(userShippingAddress);
     fetch('http://localhost:5500/create-checkout-session', {
       method: 'POST',
