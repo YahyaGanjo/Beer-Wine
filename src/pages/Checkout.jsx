@@ -32,15 +32,18 @@ const Checkout = () => {
     };
 
     shippingInfo.push(userShippingAddress);
-    fetch('https://localhost:5500/create-checkout-session', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: JSON.stringify({
-        items: cartProducts,
-      }),
-    })
+    fetch(
+      'https://git.heroku.com/fast-ravine-20619.git/create-checkout-session',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: JSON.stringify({
+          items: cartProducts,
+        }),
+      }
+    )
       .then((res) => {
         if (res.ok) return res.json();
         return res.json().then((json) => Promise.reject(json));
