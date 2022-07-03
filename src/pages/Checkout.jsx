@@ -32,18 +32,15 @@ const Checkout = () => {
     };
 
     shippingInfo.push(userShippingAddress);
-    fetch(
-      'https://vast-beyond-42437.herokuapp.com/https://fast-ravine-20619.herokuapp.com/create-checkout-session',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          items: cartProducts,
-        }),
-      }
-    )
+    fetch('https://fast-ravine-20619.herokuapp.com/create-checkout-session', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        items: cartProducts,
+      }),
+    })
       .then((res) => {
         if (res.ok) return res.json();
         return res.json().then((json) => Promise.reject(json));
