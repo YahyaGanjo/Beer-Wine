@@ -33,7 +33,7 @@ const Checkout = () => {
 
     shippingInfo.push(userShippingAddress);
     fetch(
-      'https://git.heroku.com/fast-ravine-20619.git/create-checkout-session',
+      'https://git.heroku.com/vast-beyond-42437.git/https://git.heroku.com/fast-ravine-20619.git/create-checkout-session',
       {
         method: 'POST',
         headers: {
