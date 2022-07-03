@@ -32,7 +32,7 @@ const Checkout = () => {
     };
 
     shippingInfo.push(userShippingAddress);
-    fetch('https://localhost:5500/create-checkout-session', {
+    fetch('http://localhost:5500/create-checkout-session', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
