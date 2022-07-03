@@ -36,9 +36,6 @@ const Checkout = () => {
       'https://git.heroku.com/fast-ravine-20619.git/create-checkout-session',
       {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
         body: JSON.stringify({
           items: cartProducts,
         }),
