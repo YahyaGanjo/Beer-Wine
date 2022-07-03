@@ -33,7 +33,7 @@ const Checkout = () => {
 
     shippingInfo.push(userShippingAddress);
     fetch(
-      'https://git.heroku.com/connecting-beer-stripe.git/create-checkout-session',
+      'https://connecting-beer-stripe.herokuapp.com/create-checkout-session',
       {
         method: 'POST',
         headers: {
