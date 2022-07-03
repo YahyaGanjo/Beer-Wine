@@ -38,6 +38,8 @@ const Checkout = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin':
+            'https://bierwijnbezorging.netlify.app',
         },
         body: JSON.stringify({
           items: cartProducts,
