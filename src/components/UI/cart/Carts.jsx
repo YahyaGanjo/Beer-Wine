@@ -40,7 +40,7 @@ const Carts = () => {
           <h6>
             totaal : <span>€{totalAmount}</span>
           </h6>
-          <button>
+          <button onClick={toggleCart}>
             <Link to='/checkout'>uitbetalen</Link>
           </button>
         </div>

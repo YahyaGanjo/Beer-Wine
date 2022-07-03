@@ -3,21 +3,30 @@ import { useSelector } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
 import CommonSection from '../components/UI/common-section/CommonSection';
 import Helmet from '../components/Helmet/Helmet';
+import Modal from '../components/UI/common-section/Modal';
 
 import '../styles/checkout.css';
 
 const Checkout = () => {
+  const [showModal, setShowModal] = useState(false);
   const [enterName, setEnterName] = useState('');
   const [enterEmail, setEnterEmail] = useState('');
   const [enterNumber, setEnterNumber] = useState('');
   const [enterCity, setEnterCity] = useState('');
+  const [enterAddress, setEnterAddress] = useState('');
   const [postalCode, setPostalCode] = useState('');
 
   const shippingInfo = [];
   const cartTotalAmount = useSelector((state) => state.cart.totalAmount);
   const cartProducts = useSelector((state) => state.cart.cartItems);
 
-  const shippingCost = 30;
+  let shippingCost;
+
+  if (cartTotalAmount === 0 || cartTotalAmount > 49.99) {
+    shippingCost = 0;
+  } else {
+    shippingCost = 5;
+  }
 
   const totalAmount = cartTotalAmount + Number(shippingCost);
 
@@ -28,8 +37,13 @@ const Checkout = () => {
       email: enterEmail,
       phone: enterNumber,
       city: enterCity,
+      address: enterAddress,
       postalCode: postalCode,
     };
+    if (cartTotalAmount < 20) {
+      setShowModal(true);
+      return;
+    }
 
     shippingInfo.push(userShippingAddress);
     fetch(
@@ -58,7 +72,14 @@ const Checkout = () => {
 
   return (
     <Helmet title='Checkout'>
-      <CommonSection title='Checkout' />
+      <CommonSection title='Bestelling' />
+      {showModal && (
+        <Modal>
+          <h5>Sorry! Minimaal bestelling €20</h5>
+          <button onClick={() => setShowModal(false)}>Sluiten</button>
+        </Modal>
+      )}
+
       <section>
         <Container>
           <Row>
@@ -93,6 +114,14 @@ const Checkout = () => {
                 <div className='form__group'>
                   <input
                     type='text'
+                    placeholder='Straat en huisnummer'
+                    required
+                    onChange={(e) => setEnterAddress(e.target.value)}
+                  />
+                </div>
+                <div className='form__group'>
+                  <input
+                    type='text'
                     placeholder='Plaats'
                     required
                     onChange={(e) => setEnterCity(e.target.value)}
@@ -115,14 +144,14 @@ const Checkout = () => {
             <Col lg='4' md='6'>
               <div className='checkout__bill'>
                 <h6 className='d-flex align-items-center justify-content-between mb-3'>
-                  Bestelling: <span>${cartTotalAmount}</span>
+                  Bestelling: <span>€{cartTotalAmount}</span>
                 </h6>
                 <h6 className='d-flex align-items-center justify-content-between mb-3'>
-                  Bezorg Kosten: <span>${shippingCost}</span>
+                  Bezorg Kosten: <span>€{shippingCost}</span>
                 </h6>
                 <div className='checkout__total'>
                   <h5 className='d-flex align-items-center justify-content-between'>
-                    Totaal: <span>${totalAmount}</span>
+                    Totaal: <span>€{totalAmount}</span>
                   </h5>
                 </div>
               </div>

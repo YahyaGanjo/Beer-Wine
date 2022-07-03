@@ -1,9 +1,12 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Helmet from '../components/Helmet/Helmet.js';
 import { Container, Row, Col } from 'reactstrap';
 
 import heroImg from '../assets/images/Matthews_Liquor_-_Beer_and_Cider-3.png';
 import map from '../assets/images/mapimage.png';
 import '../styles/hero-section.css';
+import postcodes from '../assets/fake-data/postcodes.js';
 import { HashLink } from 'react-router-hash-link';
 
 import '../styles/home.css';
@@ -33,6 +36,21 @@ const featureData = [
 ];
 
 const Home = () => {
+  const [postcode, setPostcode] = useState('');
+  const navigate = useNavigate();
+
+  const handlePostcode = (event) => {
+    event.preventDefault();
+    const numbersOnly = postcode.replace(/[^\d.-]/g, '');
+    if (postcodes.includes(numbersOnly)) {
+      navigate('/producten');
+    } else {
+    }
+    setPostcode('');
+  };
+  const postcodeOnChangeHandler = (event) => {
+    setPostcode(event.target.value);
+  };
   return (
     <Helmet title='Home'>
       <section id='home'>
@@ -46,8 +64,13 @@ const Home = () => {
                   thuisbezorgd
                 </h1>
                 <div className='hero__btns d-flex align-items-center gap-5 mt-4'>
-                  <input type='text' placeholder='Postcode' />
-                  <button className='all__foods-btn'>
+                  <input
+                    type='text'
+                    placeholder='Postcode'
+                    value={postcode}
+                    onChange={postcodeOnChangeHandler}
+                  />
+                  <button className='all__foods-btn' onClick={handlePostcode}>
                     <HashLink to='/home#postCode'>Bestel Online</HashLink>
                   </button>
                 </div>
