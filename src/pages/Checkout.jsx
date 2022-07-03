@@ -35,7 +35,7 @@ const Checkout = () => {
     fetch('https://localhost:5500/create-checkout-session', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: JSON.stringify({
         items: cartProducts,
