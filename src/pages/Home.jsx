@@ -58,7 +58,7 @@ const Home = () => {
           <Row>
             <Col lg='6' md='6'>
               <div className='hero__content  '>
-                <h5 className='mb-3'>BierWijnbezorging.nl</h5>
+                <h5 className='mb-3'>BierWijn-Taxi.nl</h5>
                 <h1 className='mb-4 hero__title'>
                   <span>GEKOELD GELEVERD!</span> Dranken <br /> Binnen 40 min
                   thuisbezorgd

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, ListGroup, ListGroupItem } from 'reactstrap';
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/logo11.png';
 
 import '../../styles/footer.css';
 
@@ -14,7 +14,7 @@ const Footer = () => {
           <Col lg='3' md='4' sm='6'>
             <div className=' footer__logo text-start'>
               <img src={logo} alt='logo' />
-              <h5>bierwijnbezorging</h5>
+              <h5>BierWijn-Taxi</h5>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Nesciunt pariatur accusamus

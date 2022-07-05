@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 
 import { Container } from 'reactstrap';
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/logo11.png';
 import { HashLink as Link } from 'react-router-hash-link';
 import { useSelector, useDispatch } from 'react-redux';
 import useWindowDimensions from '../Hooks/useWindowDimensions';
