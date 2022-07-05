@@ -4,6 +4,10 @@
   margin: 40px 0px;
 }
 
+.slick-dots {
+  position: unset !important;
+}
+
 .slider__content h6 {
   color: #7175e0;
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Helmet from '../components/Helmet/Helmet.js';
 import { Container, Row, Col } from 'reactstrap';
@@ -8,6 +8,7 @@ import map from '../assets/images/mapimage.png';
 import '../styles/hero-section.css';
 import postcodes from '../assets/fake-data/postcodes.js';
 import { HashLink } from 'react-router-hash-link';
+import Modal from '../components/UI/common-section/Modal';
 
 import '../styles/home.css';
 
@@ -36,7 +37,12 @@ const featureData = [
 ];
 
 const Home = () => {
+  const nameRef = useRef();
+  const reviewRef = useRef();
   const [postcode, setPostcode] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const handlePostcode = (event) => {
@@ -51,9 +57,82 @@ const Home = () => {
   const postcodeOnChangeHandler = (event) => {
     setPostcode(event.target.value);
   };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    setShowModal(false);
+    setIsLoading(true);
+    const enteredName = nameRef.current.value;
+    const enteredReview = reviewRef.current.value;
+    const nowDate = new Date();
+    const date =
+      nowDate.getFullYear() +
+      '/' +
+      (nowDate.getMonth() + 1) +
+      '/' +
+      nowDate.getDate();
+    console.log(enteredName, enteredReview, date);
+    fetch(
+      'https://one-project-36fc7-default-rtdb.europe-west1.firebasedatabase.app/reviews?key=AIzaSyB47NsZujsnouqbKgpUrkER-LDp66QA8Pc',
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          name: enteredName,
+          review: enteredReview,
+          date,
+          selected: false,
+          new: true,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
+      .then((res) => {
+        setIsLoading(false);
+        if (res.ok) {
+          console.log(res.json());
+        } else {
+          return res.json().then((data) => {
+            let errorMessage = 'Iets misgegaan!';
+            if (data && data.error && data.error.message) {
+              errorMessage = data.error.message;
+            }
+
+            throw new Error(errorMessage);
+          });
+        }
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        alert(err.message);
+      });
+  };
   return (
     <Helmet title='Home'>
       <section id='home'>
+        {showModal && (
+          <Modal>
+            <Col lg='6' md='6' sm='12' className='m-auto text-center'>
+              <form className='review-container' onSubmit={submitHandler}>
+                <div>
+                  <input type='text' placeholder='Naam' ref={nameRef} />
+                </div>
+                <div className='review-field'>
+                  <textarea
+                    name='beoordeling'
+                    placeholder='Max 250 letters'
+                    maxLength={250}
+                    ref={reviewRef}
+                    rows='10'
+                  ></textarea>
+                </div>
+                {!isLoading && <button className='review-btn'>Verzend</button>}
+                {isLoading && <p>Verzenden</p>}
+              </form>
+            </Col>
+          </Modal>
+        )}
         <Container>
           <Row>
             <Col lg='6' md='6'>
@@ -156,9 +235,6 @@ const Home = () => {
                   altijd bellen om de mogelijkheden te bespreken.We vinden het
                   geen enkel probleem om een stukje verder te rijden.
                 </p>
-                <button className='bel_ons-btn'>
-                  <HashLink to='/home#postCode'>Bel ons direct</HashLink>
-                </button>
               </div>
             </Col>
             <Col class='col-md-8'>
@@ -179,6 +255,12 @@ const Home = () => {
                 </h2>
                 <TestimonialSlider />
               </div>
+              <button
+                className='bel_ons-btn'
+                onClick={() => setShowModal(true)}
+              >
+                Voeg recensie toe
+              </button>
             </Col>
           </Row>
         </Container>

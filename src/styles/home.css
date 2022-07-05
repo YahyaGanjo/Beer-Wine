@@ -67,6 +67,19 @@
   margin-bottom: 10px;
 }
 
+.review-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-field {
+  margin: 8px 0;
+}
+.review-field input {
+  line-height: 2em;
+}
+
 .choose__us-title i {
   font-weight: 500 !important;
   color: #df2020;
@@ -79,8 +92,9 @@
 .bel_ons-btn {
   border-radius: 5px;
   border-color: #df2020;
-  padding: 5px 10px;
   background: transparent;
+  padding: 5px;
+  font-size: 13px;
 }
 .bel_ons-btn a {
   color: #df2020;

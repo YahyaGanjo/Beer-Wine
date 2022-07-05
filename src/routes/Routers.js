@@ -25,7 +25,7 @@ const Routers = () => {
       <Route path='/success' element={<Success />} />
       <Route
         path='/admin'
-        element={authCtx.isLoggedIn ? <Home /> : <Admin />}
+        element={authCtx.isLoggedIn ? <Admin /> : <Home />}
       ></Route>
       <Route path='*' element={<Navigate to='/home' />} />
     </Routes>
