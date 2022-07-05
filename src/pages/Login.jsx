@@ -4,10 +4,13 @@ import CommonSection from '../components/UI/common-section/CommonSection';
 import { Container, Row, Col } from 'reactstrap';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../store/auth-context';
+import Modal from '../components/UI/common-section/Modal';
 
 const Login = () => {
   const loginNameRef = useRef();
   const loginPasswordRef = useRef();
+  const [message, setMessage] = useState('');
+  const [showModal, setShowModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const authCtx = useContext(AuthContext);
   const navigate = useNavigate();
@@ -57,13 +60,20 @@ const Login = () => {
         navigate('/admin');
       })
       .catch((err) => {
-        alert(err.message);
+        setShowModal(true);
+        setMessage(err.message);
       });
   };
 
   return (
     <Helmet title='Login'>
       <CommonSection title='Login' />
+      {showModal && (
+        <Modal>
+          <h5>{message}</h5>
+          <button onClick={() => setShowModal(false)}>Sluiten</button>
+        </Modal>
+      )}
       <section>
         <Container>
           <Row>
