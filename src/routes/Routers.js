@@ -9,6 +9,7 @@ import Login from '../pages/Login';
 import Success from '../pages/Success';
 import AuthContext from '../store/auth-context';
 import Admin from '../pages/Admin';
+import Checkout from '../pages/Checkout';
 
 const Routers = () => {
   const authCtx = useContext(AuthContext);
@@ -18,7 +19,7 @@ const Routers = () => {
       <Route path='/home' element={<Home />} />
       <Route path='/producten' element={<AllFoods />} />
       <Route path='/producten/:id' element={<FoodDetails />} />
-      <Route path='/checkout' element={<FoodDetails />} />
+      <Route path='/checkout' element={<Checkout />} />
       <Route path='/login' element={<Login />} />
       <Route path='/contact' element={<Contact />} />
       <Route path='/success' element={<Success />} />
