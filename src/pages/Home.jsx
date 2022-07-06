@@ -65,6 +65,12 @@ const Home = () => {
     setIsLoading(true);
     const enteredName = nameRef.current.value;
     const enteredReview = reviewRef.current.value;
+    if (enteredReview.trim() === '') {
+      setIsLoading(false);
+      return;
+    }
+    let name;
+    enteredName.trim() === '' ? (name = 'Anoniem') : (name = enteredName);
     const nowDate = new Date();
     const date =
       nowDate.getFullYear() +
@@ -77,7 +83,7 @@ const Home = () => {
       {
         method: 'POST',
         body: JSON.stringify({
-          name: enteredName,
+          name,
           review: enteredReview,
           date,
           selected: false,
@@ -142,7 +148,17 @@ const Home = () => {
                     rows='10'
                   ></textarea>
                 </div>
-                {!isLoading && <button className='bel_ons-btn'>Verzend</button>}
+                {!isLoading && (
+                  <div style={{ display: 'flex', gap: '18px' }}>
+                    <button className='bel_ons-btn'>Verzend</button>
+                    <button
+                      className='bel_ons-btn'
+                      onClick={() => setShowModal(false)}
+                    >
+                      Sluiten
+                    </button>
+                  </div>
+                )}
                 {isLoading && <p>Verzenden</p>}
               </form>
             </Col>

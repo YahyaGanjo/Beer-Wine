@@ -43,6 +43,9 @@ const TestimonialSlider = () => {
         }
       })
       .then((data) => {
+        if (!data) {
+          return;
+        }
         const reviews = Object.entries(data);
         const selectedReviews = reviews.filter((review) => {
           return review[1].selected;
