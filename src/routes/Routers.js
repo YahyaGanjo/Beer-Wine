@@ -24,10 +24,7 @@ const Routers = () => {
       <Route path='/login' element={<Login />} />
       <Route path='/contact' element={<Contact />} />
       <Route path='/success' element={<Success />} />
-      <Route
-        path='/admin'
-        element={!authCtx.isLoggedIn ? <Admin /> : <Home />}
-      ></Route>
+      <Route path='/admin' element={authCtx.isLoggedIn && <Admin />}></Route>
       <Route path='*' element={<Home />} />
     </Routes>
   );

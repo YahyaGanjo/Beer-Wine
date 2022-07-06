@@ -1,0 +1,14 @@
+.logout-btn {
+  display: block;
+  margin: 5px auto;
+  border-radius: 5px;
+  padding: 5px;
+  color: #7175e0;
+  border: none !important;
+  font-family: 'Istok Web', sans-serif;
+  font-weight: bold;
+}
+
+.logout-btn:hover {
+  color: #df2020;
+}

@@ -152,11 +152,11 @@ const Home = () => {
           <Row>
             <Col lg='6' md='6'>
               <div className='hero__content  '>
-                <h5 className='mb-3'>BierWijn-Taxi.nl</h5>
-                <h1 className='mb-4 hero__title'>
+                <h1 className='mb-3'>BierWijn-Taxi.nl</h1>
+                <h2 className='mb-4 hero__title'>
                   <span>GEKOELD GELEVERD!</span> Dranken <br /> Binnen 40 min
                   thuisbezorgd
-                </h1>
+                </h2>
                 <div className='hero__btns d-flex align-items-center gap-5 mt-4'>
                   <input
                     type='text'
