@@ -13,6 +13,7 @@ import Checkout from '../pages/Checkout';
 
 const Routers = () => {
   const authCtx = useContext(AuthContext);
+
   return (
     <Routes>
       <Route path='/' element={<Navigate to='/home' />} />
@@ -25,9 +26,9 @@ const Routers = () => {
       <Route path='/success' element={<Success />} />
       <Route
         path='/admin'
-        element={authCtx.isLoggedIn ? <Admin /> : <Home />}
+        element={!authCtx.isLoggedIn ? <Admin /> : <Home />}
       ></Route>
-      <Route path='*' element={<Navigate to='/home' />} />
+      <Route path='*' element={<Home />} />
     </Routes>
   );
 };

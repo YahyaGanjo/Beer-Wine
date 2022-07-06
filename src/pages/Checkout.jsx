@@ -76,7 +76,9 @@ const Checkout = () => {
       {showModal && (
         <Modal>
           <h5>Sorry! Minimaal bestelling €20</h5>
-          <button onClick={() => setShowModal(false)}>Sluiten</button>
+          <button className='bel_ons-btn' onClick={() => setShowModal(false)}>
+            Sluiten
+          </button>
         </Modal>
       )}
 

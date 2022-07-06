@@ -7,7 +7,6 @@ import heroImg from '../assets/images/Matthews_Liquor_-_Beer_and_Cider-3.png';
 import map from '../assets/images/mapimage.png';
 import '../styles/hero-section.css';
 import postcodes from '../assets/fake-data/postcodes.js';
-import { HashLink } from 'react-router-hash-link';
 import Modal from '../components/UI/common-section/Modal';
 
 import '../styles/home.css';
@@ -40,6 +39,7 @@ const Home = () => {
   const nameRef = useRef();
   const reviewRef = useRef();
   const [postcode, setPostcode] = useState('');
+  const [showPostcode, setShowPostcode] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -51,6 +51,7 @@ const Home = () => {
     if (postcodes.includes(numbersOnly)) {
       navigate('/producten');
     } else {
+      setShowPostcode(true);
     }
     setPostcode('');
   };
@@ -71,9 +72,8 @@ const Home = () => {
       (nowDate.getMonth() + 1) +
       '/' +
       nowDate.getDate();
-    console.log(enteredName, enteredReview, date);
     fetch(
-      'https://one-project-36fc7-default-rtdb.europe-west1.firebasedatabase.app/reviews?key=AIzaSyB47NsZujsnouqbKgpUrkER-LDp66QA8Pc',
+      'https://one-project-36fc7-default-rtdb.europe-west1.firebasedatabase.app/reviews.json',
       {
         method: 'POST',
         body: JSON.stringify({
@@ -91,7 +91,7 @@ const Home = () => {
       .then((res) => {
         setIsLoading(false);
         if (res.ok) {
-          console.log(res.json());
+          return res.json();
         } else {
           return res.json().then((data) => {
             let errorMessage = 'Iets misgegaan!';
@@ -111,6 +111,21 @@ const Home = () => {
   return (
     <Helmet title='Home'>
       <section id='home'>
+        {showPostcode && (
+          <Modal>
+            <h5>
+              Helaas! Bezorgen we niet in jouw regio, maar je kan ons altijd
+              bellen om de mogelijkheden te bespreken
+            </h5>
+            <h4>0633 999 222</h4>
+            <button
+              className='bel_ons-btn'
+              onClick={() => setShowPostcode(false)}
+            >
+              Sluiten
+            </button>
+          </Modal>
+        )}
         {showModal && (
           <Modal>
             <Col lg='6' md='6' sm='12' className='m-auto text-center'>
@@ -127,7 +142,7 @@ const Home = () => {
                     rows='10'
                   ></textarea>
                 </div>
-                {!isLoading && <button className='review-btn'>Verzend</button>}
+                {!isLoading && <button className='bel_ons-btn'>Verzend</button>}
                 {isLoading && <p>Verzenden</p>}
               </form>
             </Col>
@@ -149,8 +164,8 @@ const Home = () => {
                     value={postcode}
                     onChange={postcodeOnChangeHandler}
                   />
-                  <button className='all__foods-btn' onClick={handlePostcode}>
-                    <HashLink to='/home#postCode'>Bestel Online</HashLink>
+                  <button className='bel_ons-btn' onClick={handlePostcode}>
+                    Bestel Online
                   </button>
                 </div>
 

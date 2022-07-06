@@ -71,7 +71,9 @@ const Login = () => {
       {showModal && (
         <Modal>
           <h5>{message}</h5>
-          <button onClick={() => setShowModal(false)}>Sluiten</button>
+          <button className='bel_ons-btn' onClick={() => setShowModal(false)}>
+            Sluiten
+          </button>
         </Modal>
       )}
       <section>

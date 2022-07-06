@@ -20,12 +20,6 @@
   z-index: 30;
   animation: slide-down 300ms ease-out forwards;
 }
-.dialog button {
-  border-radius: 5px;
-  border-color: #df2020;
-  padding: 5px 10px;
-  background: transparent;
-}
 .content {
   text-align: center;
 }

@@ -91,12 +91,14 @@
 
 .bel_ons-btn {
   border-radius: 5px;
-  border-color: #df2020;
-  background: transparent;
   padding: 5px;
   font-size: 13px;
+  color: #7175e0;
+  border: none !important;
+  font-family: 'Istok Web', sans-serif;
+  font-weight: bold;
 }
-.bel_ons-btn a {
+.bel_ons-btn:hover {
   color: #df2020;
 }
 
