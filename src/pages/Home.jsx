@@ -117,7 +117,7 @@ const Home = () => {
               Helaas! Bezorgen we niet in jouw regio, maar je kan ons altijd
               bellen om de mogelijkheden te bespreken
             </h5>
-            <h4>0633 999 222</h4>
+            <h4 className='phone'>0633 999 222</h4>
             <button
               className='bel_ons-btn'
               onClick={() => setShowPostcode(false)}
