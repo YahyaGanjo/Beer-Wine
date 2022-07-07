@@ -24,6 +24,10 @@ import product_22 from '../images/rodw.jfif';
 import product_23 from '../images/cola.jfif';
 import product_24 from '../images/6cola.jfif';
 import product_25 from '../images/colaf.jfif';
+import product_26 from '../images/hertogkrat.jfif';
+import product_27 from '../images/desp6.jfif';
+import product_28 from '../images/corona6.jfif';
+import product_29 from '../images/hertog6.jfif';
 
 const products = [
   {
@@ -271,6 +275,46 @@ const products = [
     price: 35.0,
     image01: product_25,
     category: 'Fris Dranken',
+
+    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ad et est, fugiat repudiandae neque illo delectus commodi magnam explicabo autem voluptates eaque velit vero facere mollitia. Placeat rem, molestiae error obcaecati enim doloribus impedit aliquam, maiores qui minus neque.',
+  },
+
+  {
+    id: '29',
+    title: 'Hertog 6 Pack',
+    price: 35.0,
+    image01: product_29,
+    category: 'Bier',
+
+    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ad et est, fugiat repudiandae neque illo delectus commodi magnam explicabo autem voluptates eaque velit vero facere mollitia. Placeat rem, molestiae error obcaecati enim doloribus impedit aliquam, maiores qui minus neque.',
+  },
+
+  {
+    id: '26',
+    title: 'Hertog Krat',
+    price: 19.0,
+    image01: product_26,
+    category: 'Bier',
+
+    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ad et est, fugiat repudiandae neque illo delectus commodi magnam explicabo autem voluptates eaque velit vero facere mollitia. Placeat rem, molestiae error obcaecati enim doloribus impedit aliquam, maiores qui minus neque.',
+  },
+
+  {
+    id: '27',
+    title: 'Desperados 6 Pack',
+    price: 35.0,
+    image01: product_27,
+    category: 'Bier',
+
+    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ad et est, fugiat repudiandae neque illo delectus commodi magnam explicabo autem voluptates eaque velit vero facere mollitia. Placeat rem, molestiae error obcaecati enim doloribus impedit aliquam, maiores qui minus neque.',
+  },
+
+  {
+    id: '28',
+    title: 'Corona 6 Pack',
+    price: 35.0,
+    image01: product_28,
+    category: 'Bier',
 
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ad et est, fugiat repudiandae neque illo delectus commodi magnam explicabo autem voluptates eaque velit vero facere mollitia. Placeat rem, molestiae error obcaecati enim doloribus impedit aliquam, maiores qui minus neque.',
   },
