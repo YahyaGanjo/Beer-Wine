@@ -15,6 +15,8 @@ const Checkout = () => {
   const [enterCity, setEnterCity] = useState('');
   const [enterAddress, setEnterAddress] = useState('');
   const [postalCode, setPostalCode] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [showClosed, setShowClosed] = useState(false);
 
   const shippingInfo = [];
   const cartTotalAmount = useSelector((state) => state.cart.totalAmount);
@@ -32,6 +34,7 @@ const Checkout = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     const userShippingAddress = {
       name: enterName,
       email: enterEmail,
@@ -42,10 +45,47 @@ const Checkout = () => {
     };
     if (cartTotalAmount < 20) {
       setShowModal(true);
+      setIsLoading(false);
       return;
     }
 
     shippingInfo.push(userShippingAddress);
+
+    fetch(
+      'https://one-project-36fc7-default-rtdb.europe-west1.firebasedatabase.app/delivery.json',
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          return res.json().then((data) => {
+            let errorMessage = 'Iets misgegaan!';
+            if (data && data.error && data.error.message) {
+              errorMessage = data.error.message;
+            }
+            setIsLoading(false);
+            throw new Error(errorMessage);
+          });
+        }
+      })
+      .then((data) => {
+        if (!data) {
+          setIsLoading(false);
+          setShowClosed(true);
+          return;
+        }
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        alert(err.message);
+      });
+
     fetch(
       'https://connecting-beer-stripe.herokuapp.com/create-checkout-session',
       {
@@ -67,6 +107,7 @@ const Checkout = () => {
       })
       .catch((e) => {
         console.error(e.error);
+        setIsLoading(false);
       });
   };
 
@@ -81,7 +122,19 @@ const Checkout = () => {
           </button>
         </Modal>
       )}
-
+      {showClosed && (
+        <Modal>
+          <h5>Sorry! Wij zijn nu gesloten.</h5>
+          <button className='bel_ons-btn' onClick={() => setShowClosed(false)}>
+            Sluiten
+          </button>
+        </Modal>
+      )}
+      {isLoading && (
+        <Modal>
+          <p>Verwerken</p>
+        </Modal>
+      )}
       <section>
         <Container>
           <Row>

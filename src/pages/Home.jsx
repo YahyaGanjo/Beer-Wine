@@ -165,7 +165,7 @@ const Home = () => {
                     </button>
                   </div>
                 )}
-                {isLoading && <p>Verzenden</p>}
+                {isLoading && <p>Verwerken</p>}
               </form>
             </Col>
           </Modal>

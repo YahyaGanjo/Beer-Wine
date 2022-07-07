@@ -80,6 +80,10 @@
   border-radius: 50%;
 }
 
+.social__links a:hover {
+  cursor: pointer;
+}
+
 .copyright__text {
   font-size: 0.8rem;
   color: #df2020;

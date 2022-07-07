@@ -4,8 +4,6 @@ import logo from '../../assets/images/logo11.png';
 
 import '../../styles/footer.css';
 
-import { Link } from 'react-router-dom';
-
 const Footer = () => {
   return (
     <footer className='footer'>
@@ -15,10 +13,6 @@ const Footer = () => {
             <div className=' footer__logo text-start'>
               <img src={logo} alt='logo' />
               <h5>BierWijn-Taxi</h5>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Nesciunt pariatur accusamus
-              </p>
             </div>
           </Col>
 
@@ -26,13 +20,20 @@ const Footer = () => {
             <h5 className='footer__title'>Bezorg Tijd</h5>
             <ListGroup className='deliver__time-list'>
               <ListGroupItem className=' delivery__time-item border-0 ps-0'>
-                <span>Maandag - Frijdag</span>
-                <p>10:00am - 11:00pm</p>
-              </ListGroupItem>
-
-              <ListGroupItem className=' delivery__time-item border-0 ps-0'>
-                <span>Zaterdag</span>
-                <p>Vrij Dag</p>
+                <span>Maandag: 10:00pm - 03:00am</span>
+                <br />
+                <span>Dinsdag: 10:00pm - 03:00am</span>
+                <br />
+                <span>Woensdag: 10:00pm - 03:00am</span>
+                <br />
+                <span>Donderdag: 10:00pm - 03:00am</span>
+                <br />
+                <span>Vrijdag: 10:00pm - 03:00am</span>
+                <br />
+                <span>Zaterdag: 10:00pm - 03:00am</span>
+                <br />
+                <span>Zondag: 10:00pm - 03:00am</span>
+                <br />
               </ListGroupItem>
             </ListGroup>
           </Col>
@@ -41,14 +42,17 @@ const Footer = () => {
             <h5 className='footer__title'>Contact</h5>
             <ListGroup className='deliver__time-list'>
               <ListGroupItem className=' delivery__time-item border-0 ps-0'>
-                <p>Locatie: ZindaBazar, Sylhet-3100, Bangladesh</p>
+                <span>Locatie: Heteren</span>
               </ListGroupItem>
               <ListGroupItem className=' delivery__time-item border-0 ps-0'>
-                <span>Telefoon: 01712345678</span>
+                <span>Telefoon: 06-84045272</span>
               </ListGroupItem>
 
               <ListGroupItem className=' delivery__time-item border-0 ps-0'>
-                <span>Email: example@gmail.com</span>
+                <span>Email: kevorkianara73@gmail.com</span>
+              </ListGroupItem>
+              <ListGroupItem className=' delivery__time-item border-0 ps-0'>
+                <span>KNK-nummer: 86762737</span>
               </ListGroupItem>
             </ListGroup>
           </Col>
@@ -76,29 +80,45 @@ const Footer = () => {
               <p className='m-0'>Follow: </p>
               <span>
                 {' '}
-                <Link to='https://www.facebook.com/muhib160'>
+                <a
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  href='https://www.facebook.com/BierWijn-Taxi-110321745064957'
+                >
                   <i class='ri-facebook-line'></i>
-                </Link>{' '}
+                </a>{' '}
               </span>
 
               <span>
-                <Link to='https://github.com/muhib160'>
+                <a
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  href='https://www.facebook.com/BierWijn-Taxi-110321745064957'
+                >
                   <i class='ri-github-line'></i>
-                </Link>
+                </a>
               </span>
 
               <span>
                 {' '}
-                <Link to=' https://www.youtube.com/c/MuhibsTechDiary'>
+                <a
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  href='https://www.facebook.com/BierWijn-Taxi-110321745064957'
+                >
                   <i class='ri-youtube-line'></i>
-                </Link>{' '}
+                </a>{' '}
               </span>
 
               <span>
                 {' '}
-                <Link to=' https://www.linkedin.com/in/muhib160/'>
+                <a
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  href='https://www.facebook.com/BierWijn-Taxi-110321745064957'
+                >
                   <i class='ri-linkedin-line'></i>
-                </Link>{' '}
+                </a>{' '}
               </span>
             </div>
           </Col>
