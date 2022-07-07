@@ -42,10 +42,8 @@ const Admin = () => {
           return;
         }
         const reviews = Object.entries(data);
-        const selectedReviews = reviews.filter((review) => {
-          return review[1].new;
-        });
-        setNewReviews(selectedReviews);
+
+        setNewReviews(reviews);
       })
       .catch((err) => {
         alert(err.message);
@@ -79,6 +77,7 @@ const Admin = () => {
       .catch((err) => {
         alert(err.message);
       });
+    setNewReviews(newReviews.filter((item) => item !== review));
   };
   const selectHandler = (review) => {
     fetch(
@@ -114,6 +113,38 @@ const Admin = () => {
       .catch((err) => {
         alert(err.message);
       });
+    setNewReviews(newReviews.filter((item) => item !== review));
+  };
+  const deliveryHandler = (value) => {
+    let deliveryState;
+    value === 'open' ? (deliveryState = true) : (deliveryState = false);
+    fetch(
+      `https://one-project-36fc7-default-rtdb.europe-west1.firebasedatabase.app/delivery.json`,
+      {
+        method: 'PUT',
+        body: deliveryState,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          return res.json().then((data) => {
+            let errorMessage = 'Iets misgegaan!';
+            if (data && data.error && data.error.message) {
+              errorMessage = data.error.message;
+            }
+
+            throw new Error(errorMessage);
+          });
+        }
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
   };
   return (
     <Helmet title='Admin'>
@@ -121,40 +152,34 @@ const Admin = () => {
         Uitloggen
       </button>
       <section style={{ width: '20%', margin: '0 auto' }}>
-        <div class='form-check'>
-          <input
-            class='form-check-input'
-            type='radio'
-            name='flexRadioDefault'
-            id='flexRadioDefault1'
-          ></input>
-          <label class='form-check-label' for='flexRadioDefault1'>
-            Open Bezorging
-          </label>
-        </div>
-        <div class='form-check'>
-          <input
-            class='form-check-input'
-            type='radio'
-            name='flexRadioDefault'
-            id='flexRadioDefault2'
-            checked
-          ></input>
-          <label class='form-check-label' for='flexRadioDefault2'>
-            Eindig Bezorging
-          </label>
+        <h5>Bezorging</h5>
+        <div class='btn-group' role='group' aria-label='Basic example'>
+          <button
+            type='button'
+            class='btn btn-primary'
+            onClick={() => deliveryHandler('open')}
+          >
+            Open
+          </button>
+          <button
+            type='button'
+            class='btn btn-primary'
+            onClick={() => deliveryHandler('close')}
+          >
+            Dicht
+          </button>
         </div>
       </section>
       <div>
         {newReviews.map((review) => {
           return (
             <div className='reviews-container'>
-              <h5>Beoordeling:</h5>
+              <h6>Beoordeling:</h6>
               <p>{review[1].review}</p>
               <div className=' slider__content d-flex align-items-center gap-3 '>
-                <h5>Datum & Naam :</h5>
-                <h6>{review[1].date}</h6>
-                <h6>{review[1].name}</h6>
+                <p>Datum & Naam :</p>
+                <p>{review[1].date}</p>
+                <p>{review[1].name}</p>
               </div>
               <div style={{ display: 'flex', gap: '18px' }}>
                 <button

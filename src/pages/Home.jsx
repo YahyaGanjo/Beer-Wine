@@ -40,6 +40,7 @@ const Home = () => {
   const reviewRef = useRef();
   const [postcode, setPostcode] = useState('');
   const [showPostcode, setShowPostcode] = useState(false);
+  const [showReview, setShowReview] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -123,7 +124,7 @@ const Home = () => {
               Helaas! Bezorgen we niet in jouw regio, maar je kan ons altijd
               bellen om de mogelijkheden te bespreken
             </h5>
-            <h4 className='phone'>0633 999 222</h4>
+            <h4 className='phone'>06-84045272</h4>
             <button
               className='bel_ons-btn'
               onClick={() => setShowPostcode(false)}
@@ -150,7 +151,12 @@ const Home = () => {
                 </div>
                 {!isLoading && (
                   <div style={{ display: 'flex', gap: '18px' }}>
-                    <button className='bel_ons-btn'>Verzend</button>
+                    <button
+                      className='bel_ons-btn'
+                      onClick={() => setShowReview(true)}
+                    >
+                      Verzend
+                    </button>
                     <button
                       className='bel_ons-btn'
                       onClick={() => setShowModal(false)}
@@ -162,6 +168,17 @@ const Home = () => {
                 {isLoading && <p>Verzenden</p>}
               </form>
             </Col>
+          </Modal>
+        )}
+        {showReview && (
+          <Modal>
+            <h5>Bedank voor je beoordeling</h5>
+            <button
+              className='bel_ons-btn'
+              onClick={() => setShowReview(false)}
+            >
+              Sluiten
+            </button>
           </Modal>
         )}
         <Container>
@@ -263,8 +280,8 @@ const Home = () => {
                 <p className='tasty__treat-desc'>
                   Vul eenvoudig je postcode in, dan kan je direct bij ons
                   bestellen! wordt je postcode niet geaccepteerd? je kan ons
-                  altijd bellen om de mogelijkheden te bespreken.We vinden het
-                  geen enkel probleem om een stukje verder te rijden.
+                  altijd bellen om de mogelijkheden te bespreken 06-84045272. We
+                  vinden het geen enkel probleem om een stukje verder te rijden.
                 </p>
               </div>
             </Col>
