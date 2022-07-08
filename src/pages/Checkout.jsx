@@ -51,6 +51,7 @@ const Checkout = () => {
 
     shippingInfo.push(userShippingAddress);
 
+    let closed;
     fetch(
       'https://one-project-36fc7-default-rtdb.europe-west1.firebasedatabase.app/delivery.json',
       {
@@ -76,15 +77,18 @@ const Checkout = () => {
       })
       .then((data) => {
         if (!data) {
+          closed = true;
           setIsLoading(false);
           setShowClosed(true);
-          return;
         }
       })
       .catch((err) => {
         setIsLoading(false);
         alert(err.message);
       });
+    if (closed) {
+      return;
+    }
 
     fetch(
       'https://connecting-beer-stripe.herokuapp.com/create-checkout-session',
