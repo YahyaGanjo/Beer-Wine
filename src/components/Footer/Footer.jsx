@@ -20,19 +20,19 @@ const Footer = () => {
             <h5 className='footer__title'>Bezorg Tijd</h5>
             <ListGroup className='deliver__time-list'>
               <ListGroupItem className=' delivery__time-item border-0 ps-0'>
-                <span>Maandag: 10:00pm - 03:00am</span>
+                <span>Maandag:&nbsp;&nbsp;&nbsp;&nbsp;10:00pm - 03:00am</span>
                 <br />
-                <span>Dinsdag: 10:00pm - 03:00am</span>
+                <span>Dinsdag:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00pm - 03:00am</span>
                 <br />
-                <span>Woensdag: 10:00pm - 03:00am</span>
+                <span>Woensdag:&nbsp;&nbsp;10:00pm - 03:00am</span>
                 <br />
-                <span>Donderdag: 10:00pm - 03:00am</span>
+                <span>Donderdag:&nbsp;10:00pm - 03:00am</span>
                 <br />
-                <span>Vrijdag: 10:00pm - 03:00am</span>
+                <span>Vrijdag:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00pm - 03:00am</span>
                 <br />
-                <span>Zaterdag: 10:00pm - 03:00am</span>
+                <span>Zaterdag:&nbsp;&nbsp;&nbsp;&nbsp;10:00pm - 03:00am</span>
                 <br />
-                <span>Zondag: 10:00pm - 03:00am</span>
+                <span>Zondag:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00pm - 03:00am</span>
                 <br />
               </ListGroupItem>
             </ListGroup>
