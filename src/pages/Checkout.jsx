@@ -51,7 +51,6 @@ const Checkout = () => {
 
     shippingInfo.push(userShippingAddress);
 
-    let closed;
     fetch(
       'https://one-project-36fc7-default-rtdb.europe-west1.firebasedatabase.app/delivery.json',
       {
@@ -77,41 +76,39 @@ const Checkout = () => {
       })
       .then((data) => {
         if (!data) {
-          closed = true;
+          console.log(cartProducts, shippingCost);
           setIsLoading(false);
           setShowClosed(true);
+        } else {
+          fetch(
+            'https://connecting-beer-stripe.herokuapp.com/create-checkout-session',
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                items: cartProducts,
+                delivery: shippingCost,
+              }),
+            }
+          )
+            .then((res) => {
+              if (res.ok) return res.json();
+              return res.json().then((json) => Promise.reject(json));
+            })
+            .then(({ url }) => {
+              window.location = url;
+            })
+            .catch((e) => {
+              console.error(e.error);
+              setIsLoading(false);
+            });
         }
       })
       .catch((err) => {
         setIsLoading(false);
         alert(err.message);
-      });
-    if (closed) {
-      return;
-    }
-
-    fetch(
-      'https://connecting-beer-stripe.herokuapp.com/create-checkout-session',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          items: cartProducts,
-        }),
-      }
-    )
-      .then((res) => {
-        if (res.ok) return res.json();
-        return res.json().then((json) => Promise.reject(json));
-      })
-      .then(({ url }) => {
-        window.location = url;
-      })
-      .catch((e) => {
-        console.error(e.error);
-        setIsLoading(false);
       });
   };
 

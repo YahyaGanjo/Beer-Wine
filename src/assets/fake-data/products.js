@@ -34,7 +34,7 @@ const products = [
     id: '01',
     title: 'Heineken Krat',
     price: 11.0,
-    price1: 11.0,
+    price1: 3.9,
     image01: product_01,
     category: 'Bier',
 
@@ -45,6 +45,7 @@ const products = [
     id: '02',
     title: 'Heineken Tray',
     price: 115.0,
+    price1: null,
     image01: product_02,
     category: 'Bier',
 
@@ -55,6 +56,7 @@ const products = [
     id: '03',
     title: 'Heineken 6 pack 33cl',
     price: 110.0,
+    price1: null,
     image01: product_03,
     category: 'Bier',
 
@@ -65,6 +67,7 @@ const products = [
     id: '04',
     title: 'Corona',
     price: 110.0,
+    price1: null,
     image01: product_04,
     category: 'Bier',
 
@@ -75,6 +78,7 @@ const products = [
     id: '05',
     title: 'Desperados',
     price: 24.0,
+    price1: null,
     image01: product_05,
     category: 'Bier',
 
@@ -84,6 +88,7 @@ const products = [
     id: '06',
     title: 'Lays Naturel',
     price: 24.0,
+    price1: null,
     image01: product_06,
     category: 'Chips',
 
@@ -94,6 +99,7 @@ const products = [
     id: '07',
     title: 'Lays Paprika',
     price: 115.0,
+    price1: null,
     image01: product_07,
     category: 'Chips',
 
@@ -104,6 +110,7 @@ const products = [
     id: '08',
     title: 'Flugel Flesje 20ml',
     price: 110.0,
+    price1: null,
     image01: product_08,
     category: 'Flugel',
 
@@ -114,6 +121,7 @@ const products = [
     id: '09',
     title: '10 Flugel Flesje 20ml',
     price: 110.0,
+    price1: null,
     image01: product_09,
     category: 'Flugel',
 
@@ -124,6 +132,7 @@ const products = [
     id: '10',
     title: '40 Flugel Flesje 20ml',
     price: 24.0,
+    price1: null,
     image01: product_10,
     category: 'Flugel',
 
@@ -134,6 +143,7 @@ const products = [
     id: '11',
     title: 'Red Bull 250ml ',
     price: 35.0,
+    price1: null,
     image01: product_11,
     category: 'Energy Dranken',
 
@@ -144,6 +154,7 @@ const products = [
     id: '12',
     title: '4 Red Bull',
     price: 35.0,
+    price1: null,
     image01: product_12,
     category: 'Energy Dranken',
 
@@ -154,6 +165,7 @@ const products = [
     id: '13',
     title: '6 Red Bull',
     price: 35.0,
+    price1: null,
     image01: product_13,
     category: 'Energy Dranken',
 
@@ -164,6 +176,7 @@ const products = [
     id: '14',
     title: 'Rocket Shot (Rocketje) alc 14%',
     price: 35.0,
+    price1: null,
     image01: product_14,
     category: 'Mix Dranken',
 
@@ -174,6 +187,7 @@ const products = [
     id: '15',
     title: 'Petrikov Vodka Juicy alc 12.5%',
     price: 35.0,
+    price1: null,
     image01: product_15,
     category: 'Mix Dranken',
 
@@ -184,6 +198,7 @@ const products = [
     id: '16',
     title: 'Safari Senza Exotic Fruit alc 14.9%',
     price: 35.0,
+    price1: null,
     image01: product_16,
     category: 'Mix Dranken',
 
@@ -194,6 +209,7 @@ const products = [
     id: '17',
     title: 'Bacardi Rum & Cola 250ml alc 7%',
     price: 35.0,
+    price1: null,
     image01: product_17,
     category: 'Mix Dranken',
 
@@ -204,6 +220,7 @@ const products = [
     id: '18',
     title: 'Bacardi Razz & up 250ml alc 7%',
     price: 35.0,
+    price1: null,
     image01: product_18,
     category: 'Mix Dranken',
 
@@ -214,6 +231,7 @@ const products = [
     id: '19',
     title: 'Smirnoff Ice 250ml alc 4%',
     price: 35.0,
+    price1: null,
     image01: product_19,
     category: 'Mix Dranken',
 
@@ -224,6 +242,7 @@ const products = [
     id: '20',
     title: 'Zoete Witte Wijn 70cl',
     price: 35.0,
+    price1: null,
     image01: product_20,
     category: 'Wijn',
 
@@ -234,6 +253,7 @@ const products = [
     id: '21',
     title: 'Rose Wijn 70cl',
     price: 35.0,
+    price1: null,
     image01: product_21,
     category: 'Wijn',
 
@@ -244,6 +264,7 @@ const products = [
     id: '22',
     title: 'Rode Wijn 70cl',
     price: 35.0,
+    price1: null,
     image01: product_22,
     category: 'Wijn',
 
@@ -254,6 +275,7 @@ const products = [
     id: '23',
     title: 'Cola',
     price: 35.0,
+    price1: null,
     image01: product_23,
     category: 'Fris Dranken',
 
@@ -264,6 +286,7 @@ const products = [
     id: '24',
     title: '6 Pack Cola',
     price: 35.0,
+    price1: null,
     image01: product_24,
     category: 'Fris Dranken',
 
@@ -274,6 +297,7 @@ const products = [
     id: '25',
     title: 'Fles 1.5 Liter Cola',
     price: 35.0,
+    price1: null,
     image01: product_25,
     category: 'Fris Dranken',
 
@@ -284,6 +308,7 @@ const products = [
     id: '29',
     title: 'Hertog 6 Pack',
     price: 35.0,
+    price1: null,
     image01: product_29,
     category: 'Bier',
 
@@ -294,6 +319,7 @@ const products = [
     id: '26',
     title: 'Hertog Krat',
     price: 19.0,
+    price1: 3.9,
     image01: product_26,
     category: 'Bier',
 
@@ -304,6 +330,7 @@ const products = [
     id: '27',
     title: 'Desperados 6 Pack',
     price: 35.0,
+    price1: null,
     image01: product_27,
     category: 'Bier',
 
@@ -314,6 +341,7 @@ const products = [
     id: '28',
     title: 'Corona 6 Pack',
     price: 35.0,
+    price1: null,
     image01: product_28,
     category: 'Bier',
 

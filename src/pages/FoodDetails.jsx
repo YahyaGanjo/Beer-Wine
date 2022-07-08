@@ -67,14 +67,21 @@ const FoodDetails = () => {
             <Col lg='6' md='6'>
               <div className='single__product-content'>
                 <h2 className='product__title mb-3'>{title}</h2>
-                <p className='product__price'>
-                  {' '}
-                  Prijs:{' '}
-                  <span>
-                    €{price} + {price1}
-                  </span>
-                  <p>statie geld</p>
-                </p>
+                {price1 ? (
+                  <p className='product__price'>
+                    {' '}
+                    Prijs:{' '}
+                    <span>
+                      €{price} + {price1}
+                    </span>
+                    statie geld
+                  </p>
+                ) : (
+                  <p className='product__price'>
+                    {' '}
+                    Prijs: <span>€{price}</span>
+                  </p>
+                )}
                 <p className='category mb-5'>
                   Categorie: <span>{category}</span>
                 </p>
