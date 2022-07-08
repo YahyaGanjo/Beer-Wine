@@ -22,17 +22,24 @@ const Footer = () => {
               <ListGroupItem className=' delivery__time-item border-0 ps-0'>
                 <span>Maandag:&nbsp;&nbsp;&nbsp;&nbsp;10:00pm - 03:00am</span>
                 <br />
-                <span>Dinsdag:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00pm - 03:00am</span>
+                <span>
+                  Dinsdag:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00pm - 03:00am
+                </span>
                 <br />
                 <span>Woensdag:&nbsp;&nbsp;10:00pm - 03:00am</span>
                 <br />
                 <span>Donderdag:&nbsp;10:00pm - 03:00am</span>
                 <br />
-                <span>Vrijdag:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00pm - 03:00am</span>
+                <span>
+                  Vrijdag:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00pm -
+                  03:00am
+                </span>
                 <br />
                 <span>Zaterdag:&nbsp;&nbsp;&nbsp;&nbsp;10:00pm - 03:00am</span>
                 <br />
-                <span>Zondag:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00pm - 03:00am</span>
+                <span>
+                  Zondag:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00pm - 03:00am
+                </span>
                 <br />
               </ListGroupItem>
             </ListGroup>
