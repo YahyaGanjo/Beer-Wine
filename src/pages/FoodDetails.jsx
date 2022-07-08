@@ -27,7 +27,7 @@ const FoodDetails = () => {
 
   const product = products.find((product) => product.id === id);
   const [previewImg, setPreviewImg] = useState(product.image01);
-  const { title, price, category, desc, image01 } = product;
+  const { title, price, price1, category, desc, image01 } = product;
 
   const relatedProduct = products.filter((item) => category === item.category);
 
@@ -37,6 +37,7 @@ const FoodDetails = () => {
         id,
         title,
         price,
+        price1,
         image01,
       })
     );
@@ -68,7 +69,11 @@ const FoodDetails = () => {
                 <h2 className='product__title mb-3'>{title}</h2>
                 <p className='product__price'>
                   {' '}
-                  Prijs: <span>€{price}</span>
+                  Prijs:{' '}
+                  <span>
+                    €{price} + {price1}
+                  </span>
+                  <p>statie geld</p>
                 </p>
                 <p className='category mb-5'>
                   Categorie: <span>{category}</span>

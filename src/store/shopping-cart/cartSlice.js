@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   cartItems: [],
@@ -7,7 +7,7 @@ const initialState = {
 };
 
 const cartSlice = createSlice({
-  name: "cart",
+  name: 'cart',
   initialState,
 
   reducers: {
@@ -27,17 +27,20 @@ const cartSlice = createSlice({
           title: newItem.title,
           image01: newItem.image01,
           price: newItem.price,
+          price1: newItem.price1,
           quantity: 1,
-          totalPrice: newItem.price,
+          totalPrice: newItem.price + newItem.price1,
         });
       } else {
         existingItem.quantity++;
         existingItem.totalPrice =
-          Number(existingItem.totalPrice) + Number(newItem.price);
+          Number(existingItem.totalPrice) +
+          Number(newItem.price + newItem.price1);
       }
 
       state.totalAmount = state.cartItems.reduce(
-        (total, item) => total + Number(item.price) * Number(item.quantity),
+        (total, item) =>
+          total + Number(item.price + item.price1) * Number(item.quantity),
 
         0
       );
@@ -55,11 +58,13 @@ const cartSlice = createSlice({
       } else {
         existingItem.quantity--;
         existingItem.totalPrice =
-          Number(existingItem.totalPrice) - Number(existingItem.price);
+          Number(existingItem.totalPrice) -
+          Number(existingItem.price + existingItem.price1);
       }
 
       state.totalAmount = state.cartItems.reduce(
-        (total, item) => total + Number(item.price) * Number(item.quantity),
+        (total, item) =>
+          total + Number(item.price + item.price1) * Number(item.quantity),
         0
       );
     },
@@ -76,7 +81,8 @@ const cartSlice = createSlice({
       }
 
       state.totalAmount = state.cartItems.reduce(
-        (total, item) => total + Number(item.price) * Number(item.quantity),
+        (total, item) =>
+          total + Number(item.price + item.price1) * Number(item.quantity),
         0
       );
     },

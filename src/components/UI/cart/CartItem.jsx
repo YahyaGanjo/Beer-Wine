@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { cartActions } from '../../../store/shopping-cart/cartSlice';
 
 const CartItem = ({ item }) => {
-  const { id, title, price, image01, quantity, totalPrice } = item;
+  const { id, title, price, price1, image01, quantity } = item;
 
   const dispatch = useDispatch();
 
@@ -17,6 +17,7 @@ const CartItem = ({ item }) => {
         id,
         title,
         price,
+        price1,
         image01,
       })
     );
@@ -39,7 +40,11 @@ const CartItem = ({ item }) => {
           <div>
             <h6 className='cart__product-title'>{title}</h6>
             <p className=' d-flex align-items-center gap-5 cart__product-price'>
-              {quantity}x <span>€{totalPrice}</span>
+              {quantity}x{' '}
+              <span>
+                €{price} + {price1}
+              </span>
+              <p>statie geld</p>
             </p>
             <div className=' d-flex align-items-center justify-content-between increase__decrease-btn'>
               <span className='increase__btn' onClick={incrementItem}>

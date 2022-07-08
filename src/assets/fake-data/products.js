@@ -34,6 +34,7 @@ const products = [
     id: '01',
     title: 'Heineken Krat',
     price: 11.0,
+    price1: 11.0,
     image01: product_01,
     category: 'Bier',
 
