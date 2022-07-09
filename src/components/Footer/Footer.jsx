@@ -59,7 +59,7 @@ const Footer = () => {
                 <span>Email: kevorkianara73@gmail.com</span>
               </ListGroupItem>
               <ListGroupItem className=' delivery__time-item border-0 ps-0'>
-                <span>KNK-nummer: 86762737</span>
+                <span>KvK-nummer: 86762737</span>
               </ListGroupItem>
             </ListGroup>
           </Col>
