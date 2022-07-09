@@ -4,6 +4,8 @@ import { Container, Row, Col } from 'reactstrap';
 import CommonSection from '../components/UI/common-section/CommonSection';
 import Helmet from '../components/Helmet/Helmet';
 import Modal from '../components/UI/common-section/Modal';
+import { db } from '../initFirebase';
+import { ref, onValue } from 'firebase/database';
 
 import '../styles/checkout.css';
 
@@ -51,65 +53,38 @@ const Checkout = () => {
 
     shippingInfo.push(userShippingAddress);
 
-    fetch(
-      'https://one-project-36fc7-default-rtdb.europe-west1.firebasedatabase.app/delivery.json',
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    )
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          return res.json().then((data) => {
-            let errorMessage = 'Iets misgegaan!';
-            if (data && data.error && data.error.message) {
-              errorMessage = data.error.message;
-            }
-            setIsLoading(false);
-            throw new Error(errorMessage);
-          });
-        }
-      })
-      .then((data) => {
-        if (!data) {
-          console.log(cartProducts, shippingCost);
-          setIsLoading(false);
-          setShowClosed(true);
-        } else {
-          fetch(
-            'https://connecting-beer-stripe.herokuapp.com/create-checkout-session',
-            {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                items: cartProducts,
-                delivery: shippingCost,
-              }),
-            }
-          )
-            .then((res) => {
-              if (res.ok) return res.json();
-              return res.json().then((json) => Promise.reject(json));
-            })
-            .then(({ url }) => {
-              window.location = url;
-            })
-            .catch((e) => {
-              console.error(e.error);
-              setIsLoading(false);
-            });
-        }
-      })
-      .catch((err) => {
+    onValue(ref(db), (snapshot) => {
+      const deliveryState = snapshot.val().delivery;
+      if (!deliveryState) {
         setIsLoading(false);
-        alert(err.message);
-      });
+        setShowClosed(true);
+      } else {
+        fetch(
+          'https://connecting-beer-stripe.herokuapp.com/create-checkout-session',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              items: cartProducts,
+              delivery: shippingCost,
+            }),
+          }
+        )
+          .then((res) => {
+            if (res.ok) return res.json();
+            return res.json().then((json) => Promise.reject(json));
+          })
+          .then(({ url }) => {
+            window.location = url;
+          })
+          .catch((e) => {
+            console.error(e.error);
+            setIsLoading(false);
+          });
+      }
+    });
   };
 
   return (

@@ -89,7 +89,7 @@
   color: #df2020;
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1195px) {
   .newsletter input {
     padding: 7px;
     font-size: 0.7rem;
@@ -98,14 +98,13 @@
     padding: 4px 20px;
     font-size: 0.7rem;
   }
+  .delivery__time-item span {
+    font-size: 0.8rem;
+  }
 }
 
 @media only screen and (max-width: 768px) {
   .footer__title {
-    font-size: 0.8rem;
-  }
-
-  .delivery__time-item span {
     font-size: 0.8rem;
   }
 
