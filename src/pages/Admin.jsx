@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import AuthContext from '../store/auth-context';
 import '../styles/admin.css';
 import Helmet from '../components/Helmet/Helmet';
+import { db } from '../initFirebase';
+import { ref, onValue, update } from 'firebase/database';
 
 const Admin = () => {
   const navigate = useNavigate();
@@ -12,42 +14,15 @@ const Admin = () => {
     authCtx.logout();
     navigate('/home');
   };
-
   useEffect(() => {
-    fetch(
-      'https://one-project-36fc7-default-rtdb.europe-west1.firebasedatabase.app/reviews.json',
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+    onValue(ref(db), (snapshot) => {
+      const data = snapshot.val().reviews;
+      if (!data) {
+        return;
       }
-    )
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          return res.json().then((data) => {
-            let errorMessage = 'Iets misgegaan!';
-            if (data && data.error && data.error.message) {
-              errorMessage = data.error.message;
-            }
-
-            throw new Error(errorMessage);
-          });
-        }
-      })
-      .then((data) => {
-        if (!data) {
-          return;
-        }
-        const reviews = Object.entries(data);
-
-        setNewReviews(reviews);
-      })
-      .catch((err) => {
-        alert(err.message);
-      });
+      const reviews = Object.entries(data);
+      setNewReviews(reviews);
+    });
   }, []);
 
   const deleteHandler = (review) => {
@@ -118,33 +93,9 @@ const Admin = () => {
   const deliveryHandler = (value) => {
     let deliveryState;
     value === 'open' ? (deliveryState = true) : (deliveryState = false);
-    fetch(
-      `https://one-project-36fc7-default-rtdb.europe-west1.firebasedatabase.app/delivery.json`,
-      {
-        method: 'PUT',
-        body: deliveryState,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    )
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          return res.json().then((data) => {
-            let errorMessage = 'Iets misgegaan!';
-            if (data && data.error && data.error.message) {
-              errorMessage = data.error.message;
-            }
-
-            throw new Error(errorMessage);
-          });
-        }
-      })
-      .catch((err) => {
-        alert(err.message);
-      });
+    update(ref(db), {
+      delivery: deliveryState,
+    });
   };
   return (
     <Helmet title='Admin'>

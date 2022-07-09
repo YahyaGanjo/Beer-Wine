@@ -14,6 +14,8 @@ import '../styles/home.css';
 import featureImg01 from '../assets/images/bestel-online.png';
 import featureImg02 from '../assets/images/service-01.png';
 import featureImg03 from '../assets/images/18.png';
+import { db } from '../initFirebase.js';
+import { update, ref, push, child } from 'firebase/database';
 
 import TestimonialSlider from '../components/UI/slider/TestimonialSlider.jsx';
 
@@ -79,41 +81,18 @@ const Home = () => {
       (nowDate.getMonth() + 1) +
       '/' +
       nowDate.getDate();
-    fetch(
-      'https://one-project-36fc7-default-rtdb.europe-west1.firebasedatabase.app/reviews.json',
-      {
-        method: 'POST',
-        body: JSON.stringify({
-          name,
-          review: enteredReview,
-          date,
-          selected: false,
-          new: true,
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    )
-      .then((res) => {
-        setIsLoading(false);
-        if (res.ok) {
-          return res.json();
-        } else {
-          return res.json().then((data) => {
-            let errorMessage = 'Iets misgegaan!';
-            if (data && data.error && data.error.message) {
-              errorMessage = data.error.message;
-            }
-
-            throw new Error(errorMessage);
-          });
-        }
-      })
-      .catch((err) => {
-        setIsLoading(false);
-        alert(err.message);
-      });
+    const postData = {
+      name,
+      review: enteredReview,
+      date,
+      selected: false,
+      new: true,
+    };
+    const newPostKey = push(child(ref(db), 'reviews')).key;
+    const updates = {};
+    updates['/reviews/' + newPostKey] = postData;
+    update(ref(db), updates);
+    setIsLoading(false);
   };
   return (
     <Helmet title='Home'>

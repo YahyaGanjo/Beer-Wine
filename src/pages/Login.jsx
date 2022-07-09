@@ -5,6 +5,8 @@ import { Container, Row, Col } from 'reactstrap';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../store/auth-context';
 import Modal from '../components/UI/common-section/Modal';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../initFirebase';
 
 const Login = () => {
   const loginNameRef = useRef();
@@ -23,45 +25,23 @@ const Login = () => {
 
     setIsLoading(true);
 
-    fetch(
-      'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyB47NsZujsnouqbKgpUrkER-LDp66QA8Pc',
-      {
-        method: 'POST',
-        body: JSON.stringify({
-          email: enteredEmail,
-          password: enteredPassword,
-          returnSecureToken: true,
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    )
-      .then((res) => {
-        setIsLoading(false);
-        if (res.ok) {
-          return res.json();
-        } else {
-          return res.json().then((data) => {
-            let errorMessage = 'Authenticatie mislukt!';
-            if (data && data.error && data.error.message) {
-              errorMessage = data.error.message;
-            }
-
-            throw new Error(errorMessage);
-          });
-        }
-      })
-      .then((data) => {
+    signInWithEmailAndPassword(auth, enteredEmail, enteredPassword)
+      .then((userCredential) => {
+        // Signed in
         const expirationTime = new Date(
-          new Date().getTime() + +data.expiresIn * 1000
+          new Date().getTime() + +userCredential._tokenResponse.expiresIn * 1000
         );
-        authCtx.login(data.idToken, expirationTime.toISOString());
+        authCtx.login(
+          userCredential._tokenResponse.idToken,
+          expirationTime.toISOString()
+        );
         navigate('/admin');
+        // ...
       })
-      .catch((err) => {
+      .catch((error) => {
         setShowModal(true);
-        setMessage(err.message);
+        setMessage(error.message);
+        setIsLoading(false);
       });
   };
 
