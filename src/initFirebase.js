@@ -9,11 +9,10 @@ import { getAuth } from 'firebase/auth';
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: 'AIzaSyDvoXTdYdLPnBi3i4nsBC8Q4fLcG-rS5UQ',
+  apiKey: process.env.API_KEY,
   authDomain: 'bierwijn-taxi.firebaseapp.com',
-  databaseURL:
-    'https://bierwijn-taxi-default-rtdb.europe-west1.firebasedatabase.app',
-  projectId: 'bierwijn-taxi',
+  databaseURL: process.env.DATABASE_URL,
+  projectId: process.env.PROJECT_ID,
   storageBucket: 'bierwijn-taxi.appspot.com',
   messagingSenderId: '581057400400',
   appId: '1:581057400400:web:c1dc5ffb7910ce4269cb55',
