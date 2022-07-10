@@ -100,7 +100,10 @@ const AllFoods = () => {
             <Col lg='10'>
               <Row>
                 <Col lg='10' md='12'>
-                  <div className='food__category d-flex align-items-center justify-content-center gap-4'>
+                  <div
+                    className='food__category d-flex align-items-center justify-content-center gap-2'
+                    style={{ margin: '5px auto' }}
+                  >
                     <button
                       className={`all__btn  ${
                         category === 'ALLES' ? 'foodBtnActive' : ''

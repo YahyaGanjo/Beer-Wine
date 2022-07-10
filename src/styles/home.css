@@ -24,8 +24,7 @@
 .food__category {
   background: #df2020;
   text-align: center;
-  margin-top: 30px;
-  padding: 20px 0px;
+  padding: 10px 0px;
   border-radius: 8px;
   flex-wrap: wrap;
 }
