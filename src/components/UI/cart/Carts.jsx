@@ -38,7 +38,8 @@ const Carts = () => {
 
         <div className='cart__bottom d-flex align-items-center justify-content-between'>
           <h6>
-            totaal : <span>€{totalAmount}</span>
+            totaal :{' '}
+            <span>€{(Math.round(totalAmount * 100) / 100).toFixed(2)}</span>
           </h6>
           <button onClick={toggleCart}>
             <Link to='/checkout'>uitbetalen</Link>

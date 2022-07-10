@@ -6,27 +6,12 @@ import { HashLink as Link } from 'react-router-hash-link';
 
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../../../store/shopping-cart/cartSlice';
-import { db } from '../../../initFirebase';
-import { push, child, ref, update } from 'firebase/database';
 
 const ProductCard = (props) => {
-  const { id, title, image01, price, price1, category, desc } = props.item;
+  const { id, title, image01, price, price1 } = props.item;
   const dispatch = useDispatch();
 
   const addToCart = () => {
-    const postData = {
-      id,
-      title,
-      image01,
-      price,
-      price1,
-      category,
-      desc,
-    };
-    const newPostKey = push(child(ref(db), 'products')).key;
-    const updates = {};
-    updates['/products/' + newPostKey] = postData;
-    update(ref(db), updates);
     dispatch(
       cartActions.addItem({
         id,

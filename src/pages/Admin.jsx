@@ -76,6 +76,7 @@ const Admin = () => {
     const updates = {};
     updates['/products/' + item[0]] = newPostData;
     update(ref(db), updates);
+    console.log(newPostData.price);
   };
   return (
     <Helmet title='Admin'>

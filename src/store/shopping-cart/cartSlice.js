@@ -26,10 +26,12 @@ const cartSlice = createSlice({
           id: newItem.id,
           title: newItem.title,
           image01: newItem.image01,
-          price: newItem.price,
-          price1: newItem.price1,
+          price: Number(newItem.price),
+          price1: Number(newItem.price1),
           quantity: 1,
-          totalPrice: newItem.price + newItem.price1,
+          totalPrice: (
+            Math.round((newItem.price + newItem.price1) * 100) / 100
+          ).toFixed(2),
         });
       } else {
         existingItem.quantity++;
