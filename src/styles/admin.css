@@ -14,9 +14,10 @@
 }
 
 .reviews-container {
-  width: 90%;
-  margin: 5px auto;
-  margin-top: 10px;
-  padding: 0 15px;
-  border: 4px solid #000;
+  margin: 15px 5px;
+  padding: 0 5px;
+  border: 4px double #000;
+}
+.products-container {
+  width: -webkit-fill-available;
 }

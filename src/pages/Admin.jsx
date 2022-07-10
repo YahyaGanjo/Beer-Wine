@@ -9,6 +9,8 @@ import { ref, onValue, update } from 'firebase/database';
 const Admin = () => {
   const navigate = useNavigate();
   const [newReviews, setNewReviews] = useState([]);
+  const [newProducts, setNewProducts] = useState([]);
+  const [newPrice, setNewPrice] = useState(0);
   const authCtx = useContext(AuthContext);
   const logoutHandler = () => {
     authCtx.logout();
@@ -16,78 +18,40 @@ const Admin = () => {
   };
   useEffect(() => {
     onValue(ref(db), (snapshot) => {
-      const data = snapshot.val().reviews;
-      if (!data) {
+      const data = snapshot.val();
+      if (!data.reviews) {
         return;
+      } else {
+        const reviews = Object.entries(data.reviews);
+        setNewReviews(reviews);
       }
-      const reviews = Object.entries(data);
-      setNewReviews(reviews);
+      if (!data.products) {
+        return;
+      } else {
+        const productsData = Object.entries(data.products);
+        setNewProducts(productsData);
+      }
     });
   }, []);
 
   const deleteHandler = (review) => {
-    fetch(
-      `https://one-project-36fc7-default-rtdb.europe-west1.firebasedatabase.app/reviews/${review[0]}.json`,
-      {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    )
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          return res.json().then((data) => {
-            let errorMessage = 'Iets misgegaan!';
-            if (data && data.error && data.error.message) {
-              errorMessage = data.error.message;
-            }
-
-            throw new Error(errorMessage);
-          });
-        }
-      })
-      .catch((err) => {
-        alert(err.message);
-      });
+    const newPostData = null;
+    const deleteData = {};
+    deleteData['/reviews/' + review[0]] = newPostData;
+    update(ref(db), deleteData);
     setNewReviews(newReviews.filter((item) => item !== review));
   };
   const selectHandler = (review) => {
-    fetch(
-      `https://one-project-36fc7-default-rtdb.europe-west1.firebasedatabase.app/reviews/${review[0]}.json`,
-      {
-        method: 'PUT',
-        body: JSON.stringify({
-          name: review[1].name,
-          review: review[1].review,
-          date: review[1].date,
-          selected: true,
-          new: false,
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    )
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          return res.json().then((data) => {
-            let errorMessage = 'Iets misgegaan!';
-            if (data && data.error && data.error.message) {
-              errorMessage = data.error.message;
-            }
-
-            throw new Error(errorMessage);
-          });
-        }
-      })
-      .catch((err) => {
-        alert(err.message);
-      });
+    const newPostData = {
+      name: review[1].name,
+      review: review[1].review,
+      date: review[1].date,
+      selected: true,
+      new: false,
+    };
+    const updates = {};
+    updates['/reviews/' + review[0]] = newPostData;
+    update(ref(db), updates);
     setNewReviews(newReviews.filter((item) => item !== review));
   };
   const deliveryHandler = (value) => {
@@ -96,6 +60,22 @@ const Admin = () => {
     update(ref(db), {
       delivery: deliveryState,
     });
+  };
+  const newPriceHandler = (newPrice, item) => {
+    let statieGeld;
+    item[1].price1 ? (statieGeld = item[1].price1) : (statieGeld = null);
+    const newPostData = {
+      category: item[1].category,
+      id: item[1].id,
+      desc: item[1].desc,
+      image01: item[1].image01,
+      price1: statieGeld,
+      title: item[1].title,
+      price: newPrice,
+    };
+    const updates = {};
+    updates['/products/' + item[0]] = newPostData;
+    update(ref(db), updates);
   };
   return (
     <Helmet title='Admin'>
@@ -121,34 +101,60 @@ const Admin = () => {
           </button>
         </div>
       </section>
-      <div>
-        {newReviews.map((review) => {
-          return (
-            <div className='reviews-container'>
-              <h6>Beoordeling:</h6>
-              <p>{review[1].review}</p>
-              <div className=' slider__content d-flex align-items-center gap-3 '>
-                <p>Datum & Naam :</p>
-                <p>{review[1].date}</p>
-                <p>{review[1].name}</p>
+      <div className='d-flex flex-row gap-2 justify-content-between'>
+        <div>
+          {newReviews.map((review) => {
+            return (
+              <div className='reviews-container'>
+                <h6>Beoordeling:</h6>
+                <p>{review[1].review}</p>
+                <div className=' slider__content d-flex align-items-center gap-5 '>
+                  <p>Datum & Naam :</p>
+                  <p>{review[1].date}</p>
+                  <p>{review[1].name}</p>
+                </div>
+                <div style={{ display: 'flex', gap: '18px' }}>
+                  <button
+                    className='bel_ons-btn'
+                    onClick={() => selectHandler(review)}
+                  >
+                    selecteer
+                  </button>
+                  <button
+                    className='bel_ons-btn'
+                    onClick={() => deleteHandler(review)}
+                  >
+                    verwijderen
+                  </button>
+                </div>
               </div>
-              <div style={{ display: 'flex', gap: '18px' }}>
-                <button
-                  className='bel_ons-btn'
-                  onClick={() => selectHandler(review)}
-                >
-                  selecteer
-                </button>
-                <button
-                  className='bel_ons-btn'
-                  onClick={() => deleteHandler(review)}
-                >
-                  verwijderen
-                </button>
+            );
+          })}
+        </div>
+        <div className='products-container'>
+          {newProducts.map((item) => (
+            <div className='product__item'>
+              <div className='product__content'>
+                <h5>{item[1].title}</h5>
               </div>
+
+              <div className=' d-flex align-items-center justify-content-between '>
+                <span className='product__price'>€{item[1].price}</span>
+              </div>
+              <div>Nieuwe prijs:</div>
+              <input
+                type='number'
+                onChange={(e) => setNewPrice(e.target.value)}
+              />
+              <button
+                className='bel_ons-btn'
+                onClick={() => newPriceHandler(newPrice, item)}
+              >
+                Bewerken
+              </button>
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
     </Helmet>
   );

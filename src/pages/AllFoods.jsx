@@ -5,16 +5,17 @@ import CommonSection from '../components/UI/common-section/CommonSection';
 
 import { Container, Row, Col } from 'reactstrap';
 
-import products from '../assets/fake-data/products';
 import ProductCard from '../components/UI/product-card/ProductCard';
 import CartNew from '../components/UI/cart/CartNew';
 import useWindowDimensions from '../components/Hooks/useWindowDimensions';
 import '../styles/all-foods.css';
 import '../styles/pagination.css';
-
+import { db } from '../initFirebase';
+import { onValue, ref } from 'firebase/database';
 const AllFoods = () => {
   const [category, setCategory] = useState('ALLES');
-  const [allProducts, setAllProducts] = useState(products);
+  const [products, setProducts] = useState([]);
+  const [allProducts, setAllProducts] = useState([]);
   const [showCart, setShowCart] = useState(false);
   const { width } = useWindowDimensions();
 
@@ -82,8 +83,13 @@ const AllFoods = () => {
 
       setAllProducts(filteredProducts);
     }
-  }, [category]);
-
+  }, [category, products]);
+  useEffect(() => {
+    onValue(ref(db), (snapshot) => {
+      const data = snapshot.val().products;
+      setProducts(Object.values(data));
+    });
+  }, []);
   return (
     <Helmet title='Bestellen'>
       <CommonSection title='Alle Producten' />
