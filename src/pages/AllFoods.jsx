@@ -87,6 +87,9 @@ const AllFoods = () => {
   useEffect(() => {
     onValue(ref(db), (snapshot) => {
       const data = snapshot.val().products;
+      Object.values(data).forEach((obj) => {
+        obj.price = parseFloat(obj.price);
+      });
       setProducts(Object.values(data));
     });
   }, []);

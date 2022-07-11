@@ -13,7 +13,9 @@ const cartSlice = createSlice({
   reducers: {
     // =========== add item ============
     addItem(state, action) {
+      let productPrice;
       const newItem = action.payload;
+      !newItem.price1 ? (productPrice = 0) : (productPrice = newItem.price1);
       const existingItem = state.cartItems.find(
         (item) => item.id === newItem.id
       );
@@ -27,7 +29,7 @@ const cartSlice = createSlice({
           title: newItem.title,
           image01: newItem.image01,
           price: Number(newItem.price),
-          price1: Number(newItem.price1),
+          price1: Number(productPrice),
           quantity: 1,
           totalPrice: (
             Math.round((newItem.price + newItem.price1) * 100) / 100
