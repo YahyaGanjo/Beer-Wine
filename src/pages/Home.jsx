@@ -51,7 +51,7 @@ const Home = () => {
   const handlePostcode = (event) => {
     event.preventDefault();
     const numbersOnly = postcode.replace(/[^\d.-]/g, '');
-    if (postcodes.includes(numbersOnly)) {
+    if (postcodes.includes(numbersOnly) || numbersOnly === '') {
       navigate('/producten');
     } else {
       setShowPostcode(true);
