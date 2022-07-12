@@ -11,6 +11,7 @@ const Admin = () => {
   const [newReviews, setNewReviews] = useState([]);
   const [newProducts, setNewProducts] = useState([]);
   const [newPrice, setNewPrice] = useState(0);
+  const [newTitle, setNewTitle] = useState('');
   const authCtx = useContext(AuthContext);
   const logoutHandler = () => {
     authCtx.logout();
@@ -76,7 +77,22 @@ const Admin = () => {
     const updates = {};
     updates['/products/' + item[0]] = newPostData;
     update(ref(db), updates);
-    console.log(newPostData.price);
+  };
+  const newTitleHandler = (newTitle, item) => {
+    let statieGeld;
+    item[1].price1 ? (statieGeld = item[1].price1) : (statieGeld = null);
+    const newPostData = {
+      category: item[1].category,
+      id: item[1].id,
+      desc: item[1].desc,
+      image01: item[1].image01,
+      price1: statieGeld,
+      title: newTitle,
+      price: item[1].price,
+    };
+    const updates = {};
+    updates['/products/' + item[0]] = newPostData;
+    update(ref(db), updates);
   };
   return (
     <Helmet title='Admin'>
@@ -135,11 +151,8 @@ const Admin = () => {
         <div className='products-container'>
           {newProducts.map((item) => (
             <div className='product__item'>
-              <div className='product__content'>
-                <h5>{item[1].title}</h5>
-              </div>
-
               <div className=' d-flex align-items-center justify-content-between '>
+                <span className='product__price'>€{item[1].title}</span>
                 <span className='product__price'>€{item[1].price}</span>
               </div>
               <div>Nieuwe prijs:</div>
@@ -150,6 +163,17 @@ const Admin = () => {
               <button
                 className='bel_ons-btn'
                 onClick={() => newPriceHandler(newPrice, item)}
+              >
+                Bewerken
+              </button>
+              <div>Nieuwe titel:</div>
+              <input
+                type='text'
+                onChange={(e) => setNewTitle(e.target.value)}
+              />
+              <button
+                className='bel_ons-btn'
+                onClick={() => newTitleHandler(newTitle, item)}
               >
                 Bewerken
               </button>

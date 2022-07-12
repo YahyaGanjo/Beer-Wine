@@ -254,7 +254,7 @@ const Home = () => {
             <Col>
               <div className='why__tasty-treat'>
                 <h2 className='tasty__treat-title mb-4'>
-                  We hebben een ruim <span>bezorgengebied!</span>
+                  We hebben een ruim <span>bezorggebied!</span>
                 </h2>
                 <p className='tasty__treat-desc'>
                   Vul eenvoudig je postcode in, dan kan je direct bij ons
