@@ -30,6 +30,9 @@
   font-size: 1rem;
   color: #212245;
 }
+.days {
+  float: right;
+}
 
 .delivery__time-item p {
   color: #212245;
@@ -73,6 +76,9 @@
   color: #212245;
 }
 
+.deliver__time-list {
+  width: 100%;
+}
 .social__links span i {
   padding: 5px;
   background: #df2020;
@@ -103,9 +109,12 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 765px) {
   .footer__title {
     font-size: 0.8rem;
+  }
+  .deliver__time-list {
+    width: 60%;
   }
 
   .delivery__time-item p {
