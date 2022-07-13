@@ -75,7 +75,7 @@ const products = [
   },
 
   {
-    id: '05',
+    id: '06',
     title: 'Desperados',
     price: 24.0,
     price1: null,
@@ -85,7 +85,7 @@ const products = [
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ad et est, fugiat repudiandae neque illo delectus commodi magnam explicabo autem voluptates eaque velit vero facere mollitia. Placeat rem, molestiae error obcaecati enim doloribus impedit aliquam, maiores qui minus neque.',
   },
   {
-    id: '06',
+    id: '20',
     title: 'Lays Naturel',
     price: 24.0,
     price1: null,
@@ -96,7 +96,7 @@ const products = [
   },
 
   {
-    id: '07',
+    id: '19',
     title: 'Lays Paprika',
     price: 115.0,
     price1: null,
@@ -107,8 +107,8 @@ const products = [
   },
 
   {
-    id: '08',
-    title: 'Flugel Flesje 20ml',
+    id: '22',
+    title: 'Flying Chicken',
     price: 110.0,
     price1: null,
     image01: product_08,
@@ -118,8 +118,8 @@ const products = [
   },
 
   {
-    id: '09',
-    title: '10 Flugel Flesje 20ml',
+    id: '21',
+    title: '10 Stuks Flying Chicken',
     price: 110.0,
     price1: null,
     image01: product_09,
@@ -129,8 +129,8 @@ const products = [
   },
 
   {
-    id: '10',
-    title: '40 Flugel Flesje 20ml',
+    id: '23',
+    title: '40 Stuks Flying Chicken',
     price: 24.0,
     price1: null,
     image01: product_10,
@@ -140,7 +140,7 @@ const products = [
   },
 
   {
-    id: '11',
+    id: '25',
     title: 'Red Bull 250ml ',
     price: 35.0,
     price1: null,
@@ -151,7 +151,7 @@ const products = [
   },
 
   {
-    id: '12',
+    id: '24',
     title: '4 Red Bull',
     price: 35.0,
     price1: null,
@@ -162,7 +162,7 @@ const products = [
   },
 
   {
-    id: '13',
+    id: '26',
     title: '6 Red Bull',
     price: 35.0,
     price1: null,
@@ -184,7 +184,7 @@ const products = [
   },
 
   {
-    id: '15',
+    id: '13',
     title: 'Petrikov Vodka Juicy alc 12.5%',
     price: 35.0,
     price1: null,
@@ -206,7 +206,7 @@ const products = [
   },
 
   {
-    id: '17',
+    id: '15',
     title: 'Bacardi Rum & Cola 250ml alc 7%',
     price: 35.0,
     price1: null,
@@ -228,7 +228,7 @@ const products = [
   },
 
   {
-    id: '19',
+    id: '17',
     title: 'Smirnoff Ice 250ml alc 4%',
     price: 35.0,
     price1: null,
@@ -239,7 +239,7 @@ const products = [
   },
 
   {
-    id: '20',
+    id: '11',
     title: 'Zoete Witte Wijn 70cl',
     price: 35.0,
     price1: null,
@@ -250,7 +250,7 @@ const products = [
   },
 
   {
-    id: '21',
+    id: '10',
     title: 'Rose Wijn 70cl',
     price: 35.0,
     price1: null,
@@ -261,7 +261,7 @@ const products = [
   },
 
   {
-    id: '22',
+    id: '12',
     title: 'Rode Wijn 70cl',
     price: 35.0,
     price1: null,
@@ -272,7 +272,7 @@ const products = [
   },
 
   {
-    id: '23',
+    id: '28',
     title: 'Cola',
     price: 35.0,
     price1: null,
@@ -283,7 +283,7 @@ const products = [
   },
 
   {
-    id: '24',
+    id: '27',
     title: '6 Pack Cola',
     price: 35.0,
     price1: null,
@@ -294,7 +294,7 @@ const products = [
   },
 
   {
-    id: '25',
+    id: '29',
     title: 'Fles 1.5 Liter Cola',
     price: 35.0,
     price1: null,
@@ -305,7 +305,7 @@ const products = [
   },
 
   {
-    id: '29',
+    id: '09',
     title: 'Hertog 6 Pack',
     price: 35.0,
     price1: null,
@@ -316,7 +316,7 @@ const products = [
   },
 
   {
-    id: '26',
+    id: '08',
     title: 'Hertog Krat',
     price: 19.0,
     price1: 3.9,
@@ -327,7 +327,7 @@ const products = [
   },
 
   {
-    id: '27',
+    id: '07',
     title: 'Desperados 6 Pack',
     price: 35.0,
     price1: null,
@@ -338,7 +338,7 @@ const products = [
   },
 
   {
-    id: '28',
+    id: '05',
     title: 'Corona 6 Pack',
     price: 35.0,
     price1: null,

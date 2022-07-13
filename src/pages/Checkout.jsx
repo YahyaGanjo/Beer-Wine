@@ -175,14 +175,23 @@ const Checkout = () => {
             <Col lg='4' md='6'>
               <div className='checkout__bill'>
                 <h6 className='d-flex align-items-center justify-content-between mb-3'>
-                  Bestelling: <span>€{cartTotalAmount}</span>
+                  Bestelling:{' '}
+                  <span>
+                    €{(Math.round(cartTotalAmount * 100) / 100).toFixed(2)}
+                  </span>
                 </h6>
                 <h6 className='d-flex align-items-center justify-content-between mb-3'>
-                  Bezorg Kosten: <span>€{shippingCost}</span>
+                  Bezorg Kosten:{' '}
+                  <span>
+                    €{(Math.round(shippingCost * 100) / 100).toFixed(2)}
+                  </span>
                 </h6>
                 <div className='checkout__total'>
                   <h5 className='d-flex align-items-center justify-content-between'>
-                    Totaal: <span>€{totalAmount}</span>
+                    Totaal:{' '}
+                    <span>
+                      €{(Math.round(totalAmount * 100) / 100).toFixed(2)}
+                    </span>
                   </h5>
                 </div>
               </div>

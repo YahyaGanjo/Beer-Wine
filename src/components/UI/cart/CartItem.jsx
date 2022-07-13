@@ -43,7 +43,7 @@ const CartItem = ({ item }) => {
               <p className=' d-flex align-items-center gap-2 cart__product-price'>
                 {quantity}x{' '}
                 <span>
-                  €{price} + {price1}
+                  €{price} + {(Math.round(price1 * 100) / 100).toFixed(2)}
                 </span>
                 statie geld
               </p>

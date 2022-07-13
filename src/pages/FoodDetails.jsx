@@ -72,7 +72,7 @@ const FoodDetails = () => {
                     {' '}
                     Prijs:{' '}
                     <span>
-                      €{price} + {price1}
+                      €{price} + {(Math.round(price1 * 100) / 100).toFixed(2)}
                     </span>
                     statie geld
                   </p>

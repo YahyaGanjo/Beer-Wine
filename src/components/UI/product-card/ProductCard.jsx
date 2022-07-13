@@ -33,7 +33,9 @@ const ProductCard = (props) => {
       </div>
 
       <div className=' d-flex align-items-center justify-content-between '>
-        <span className='product__price'>€{price}</span>
+        <span className='product__price'>
+          €{(Math.round(price * 100) / 100).toFixed(2)}
+        </span>
         <button className='addTOCart__btn' onClick={addToCart}>
           In Winkelwagen
         </button>
