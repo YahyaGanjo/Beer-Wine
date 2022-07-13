@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Helmet from '../components/Helmet/Helmet.js';
 import { Container, Row, Col } from 'reactstrap';
 
-import heroImg from '../assets/images/Matthews_Liquor_-_Beer_and_Cider-3.png';
+import heroImg from '../assets/images/new.png';
 import map from '../assets/images/mapimage.png';
 import '../styles/hero-section.css';
 import postcodes from '../assets/fake-data/postcodes.js';
@@ -162,47 +162,48 @@ const Home = () => {
         )}
         <Container>
           <Row>
-            <Col lg='6' md='6'>
-              <div className='hero__content  '>
-                <h1 className='mb-3'>BierWijn-Taxi.nl</h1>
-                <h2 className='mb-4 hero__title'>
-                  <span>GEKOELD GELEVERD!</span> Dranken <br /> Binnen 40 min
-                  thuisbezorgd
-                </h2>
-                <div className='hero__btns d-flex align-items-center gap-5 mt-4'>
-                  <input
-                    type='text'
-                    placeholder='Postcode'
-                    value={postcode}
-                    onChange={postcodeOnChangeHandler}
-                  />
-                  <button className='bel_ons-btn' onClick={handlePostcode}>
-                    Bestel Online
-                  </button>
+            <Col lg='12' md='6' className='hero__content d-flex'>
+              <Col lg='6'>
+                <h1 className='mb-3 web-title'>BierWijn-Taxi.nl</h1>
+                <div>
+                  <h2 className='mb-4 hero__title'>
+                    <span>GEKOELD GELEVERD!</span> Dranken <br /> Binnen 40 min
+                    thuisbezorgd
+                  </h2>
+                  <div className='hero__btns d-flex align-items-center justify-content-center gap-5 mt-4'>
+                    <input
+                      type='text'
+                      placeholder='Postcode'
+                      value={postcode}
+                      onChange={postcodeOnChangeHandler}
+                    />
+                    <button className='bel_ons-btn' onClick={handlePostcode}>
+                      Bestel Online
+                    </button>
+                  </div>
+
+                  <div className=' hero__service  d-flex align-items-center justify-content-center gap-5 mt-5 '>
+                    <p className=' d-flex align-items-center gap-2 '>
+                      <span className='shipping__icon'>
+                        <i class='ri-car-line'></i>
+                      </span>{' '}
+                      Gratis bezorging vanaf €50
+                    </p>
+
+                    <p className=' d-flex align-items-center gap-2 '>
+                      <span className='shipping__icon'>
+                        <i class='ri-shield-check-line'></i>
+                      </span>{' '}
+                      Bezorging vanaf €20
+                    </p>
+                  </div>
                 </div>
-
-                <div className=' hero__service  d-flex align-items-center gap-5 mt-5 '>
-                  <p className=' d-flex align-items-center gap-2 '>
-                    <span className='shipping__icon'>
-                      <i class='ri-car-line'></i>
-                    </span>{' '}
-                    Gratis bezorging vanaf €50
-                  </p>
-
-                  <p className=' d-flex align-items-center gap-2 '>
-                    <span className='shipping__icon'>
-                      <i class='ri-shield-check-line'></i>
-                    </span>{' '}
-                    Bezorging vanaf €20
-                  </p>
+              </Col>
+              <Col lg='6' md='6'>
+                <div className='hero__img'>
+                  <img src={heroImg} alt='hero-img' className='w-100' />
                 </div>
-              </div>
-            </Col>
-
-            <Col lg='6' md='6'>
-              <div className='hero__img'>
-                <img src={heroImg} alt='hero-img' className='w-100' />
-              </div>
+              </Col>
             </Col>
           </Row>
         </Container>
@@ -211,7 +212,7 @@ const Home = () => {
       <section id='overOns'>
         <Container>
           <Row>
-            <Col lg='12' className='text-center'>
+            <Col lg='12' className='text-center wat-we'>
               <h5 className='feature__subtitle mb-4'>Wat we serveren?</h5>
               <h2 className='feature__title'>Gewoon lekker thuis zitten</h2>
               <h2 className='feature__title'>
@@ -275,7 +276,7 @@ const Home = () => {
         <Container>
           <Row>
             <Col lg='6'>
-              <div className='testimonial '>
+              <div className='testimonial'>
                 <h5 className='testimonial__subtitle mb-4'>Beoordelingen</h5>
                 <h2 className='testimonial__title mb-4'>
                   Wat onze <span>klanten</span> zeggen

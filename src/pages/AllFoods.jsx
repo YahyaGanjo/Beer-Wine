@@ -8,8 +8,6 @@ import { Container, Row, Col } from 'reactstrap';
 import ProductCard from '../components/UI/product-card/ProductCard';
 import CartNew from '../components/UI/cart/CartNew';
 import useWindowDimensions from '../components/Hooks/useWindowDimensions';
-import '../styles/all-foods.css';
-import '../styles/pagination.css';
 import { db } from '../initFirebase';
 import { onValue, ref } from 'firebase/database';
 const AllFoods = () => {

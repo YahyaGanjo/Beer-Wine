@@ -1,3 +1,12 @@
+.wat-we {
+  padding-top: 20px;
+  color: #df2020;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background-color: rgb(253, 235, 145);
+  padding: 10px;
+  text-align: center;
+}
 .feature {
   align-self: center !important;
 }
@@ -22,7 +31,7 @@
 }
 
 .food__category {
-  background: #df2020;
+  background: rgb(250, 254, 8);
   text-align: center;
   padding: 10px 0px;
   border-radius: 8px;
@@ -34,7 +43,8 @@
   outline: none;
   padding: 7px 20px;
   background: transparent;
-  color: #fff;
+  color: #000;
+  font-weight: 800;
 }
 
 .food__category button img {
@@ -46,6 +56,14 @@
   background: #fff !important;
   border-radius: 5px;
   color: #df2020 !important;
+}
+
+.why__tasty-treat {
+  border: 1px solid #df2020;
+  border-radius: 10px;
+  background: rgb(250, 254, 8);
+  padding: 10px;
+  text-align: center;
 }
 
 .tasty__treat-title {
@@ -92,10 +110,11 @@
   border-radius: 5px;
   padding: 5px;
   font-size: 13px;
-  color: #7175e0;
-  border: none !important;
+  color: #000;
+  border: 1px solid #df2020 !important;
   font-family: 'Istok Web', sans-serif;
   font-weight: bold;
+  background-color: rgb(254, 246, 10);
 }
 .bel_ons-btn:hover {
   color: #df2020;
@@ -108,7 +127,7 @@
 .phone {
   color: #df2020;
 }
-.testimonial__title span {
+.testimonial__title {
   color: #df2020;
 }
 

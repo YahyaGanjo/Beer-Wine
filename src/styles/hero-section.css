@@ -1,6 +1,15 @@
+.web-title {
+  text-align: center;
+  color: #df2020;
+}
 .hero__content {
   padding-top: 20px;
   color: #df2020;
+  border: 1px solid #df2020;
+  border-radius: 10px;
+  background: rgb(250, 254, 8);
+  padding: 10px;
+  text-align: center;
 }
 
 .hero__title {
@@ -50,6 +59,7 @@
   color: #df2020;
   font-weight: 600;
   font-size: 0.9rem;
+  text-align: center;
 }
 
 .shipping__icon i {

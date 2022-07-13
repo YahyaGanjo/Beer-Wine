@@ -16,7 +16,7 @@
 }
 
 .product__content h5 {
-  color: #7175e0;
+  color: #df2020;
   font-size: 1rem;
   margin-bottom: 15px;
 }
@@ -30,9 +30,9 @@
 .addTOCart__btn {
   border: none;
   padding: 7px 10px;
-  background: #df2020;
-  color: #fff;
+  background: rgb(250, 254, 8);
   border-radius: 5px;
+  font-weight: 600;
   font-size: 0.9rem;
 }
 
