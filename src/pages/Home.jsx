@@ -163,7 +163,7 @@ const Home = () => {
         <Container>
           <Row>
             <Col lg='12' md='6' className='hero__content d-flex'>
-              <Col lg='6'>
+              <Col lg='6' md='3'>
                 <h1 className='mb-3 web-title'>BierWijn-Taxi.nl</h1>
                 <div>
                   <h2 className='mb-4 hero__title'>
@@ -199,7 +199,7 @@ const Home = () => {
                   </div>
                 </div>
               </Col>
-              <Col lg='6' md='6'>
+              <Col lg='6' md='3'>
                 <div className='hero__img'>
                   <img src={heroImg} alt='hero-img' className='w-100' />
                 </div>
