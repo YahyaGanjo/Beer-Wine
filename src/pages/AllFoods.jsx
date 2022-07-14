@@ -91,6 +91,17 @@ const AllFoods = () => {
       setProducts(Object.values(data));
     });
   }, []);
+  function compare(a, b) {
+    if (a.id < b.id) {
+      return -1;
+    }
+    if (a.id > b.id) {
+      return 1;
+    }
+    return 0;
+  }
+
+  allProducts.sort(compare);
   return (
     <Helmet title='Bestellen'>
       <CommonSection title='Alle Producten' />
