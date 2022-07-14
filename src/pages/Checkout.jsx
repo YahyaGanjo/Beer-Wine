@@ -19,17 +19,43 @@ const Checkout = () => {
   const [postalCode, setPostalCode] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showClosed, setShowClosed] = useState(false);
+  const [showWrong, setShowWrong] = useState(false);
 
   const shippingInfo = [];
   const cartTotalAmount = useSelector((state) => state.cart.totalAmount);
   const cartProducts = useSelector((state) => state.cart.cartItems);
 
   let shippingCost;
+  const numbersOnly = postalCode.replace(/[^\d.-]/g, '');
+  const postcodes3 = ['6671', '6668', '6666', '6672', '6673', '6674', '6665'];
+  const postcodes5 = [
+    '6675',
+    '4043',
+    '6669',
+    '4041',
+    '4051',
+    '4053',
+    '6661',
+    '6662',
+    '6678',
+    '6861',
+    '6862',
+    '6846',
+    '6871',
+    '6866',
+    '6676',
+  ];
 
   if (cartTotalAmount === 0 || cartTotalAmount > 49.99) {
     shippingCost = 0;
   } else {
-    shippingCost = 5;
+    if (postcodes3.includes(numbersOnly)) {
+      shippingCost = 3;
+    } else if (postcodes5.includes(numbersOnly)) {
+      shippingCost = 5;
+    } else {
+      shippingCost = 0;
+    }
   }
 
   const totalAmount = cartTotalAmount + Number(shippingCost);
@@ -47,6 +73,14 @@ const Checkout = () => {
     };
     if (cartTotalAmount < 20) {
       setShowModal(true);
+      setIsLoading(false);
+      return;
+    }
+    if (
+      !postcodes3.includes(numbersOnly) ||
+      !postcodes5.includes(numbersOnly)
+    ) {
+      setShowWrong(true);
       setIsLoading(false);
       return;
     }
@@ -94,6 +128,18 @@ const Checkout = () => {
         <Modal>
           <h5>Sorry! Minimaal bestelling €20</h5>
           <button className='bel_ons-btn' onClick={() => setShowModal(false)}>
+            Sluiten
+          </button>
+        </Modal>
+      )}
+      {showWrong && (
+        <Modal>
+          <h5>
+            Helaas! Bezorgen we niet in jouw regio, maar je kan ons altijd
+            bellen om de mogelijkheden te bespreken
+          </h5>
+          <h4 className='phone'>06-84045272</h4>
+          <button className='bel_ons-btn' onClick={() => setShowWrong(false)}>
             Sluiten
           </button>
         </Modal>
