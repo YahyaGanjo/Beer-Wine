@@ -266,7 +266,7 @@ const Home = () => {
               </div>
             </Col>
             <Col class='col-md-8'>
-              <img src={map} alt='map-img' className='w-100' />
+              <img src={map} alt='map-img' className='w-100 map-img' />
             </Col>
           </div>
         </Container>
