@@ -80,7 +80,6 @@ const Checkout = () => {
       postcodes3.includes(numbersOnly) === false ||
       postcodes3.includes(numbersOnly) === false
     ) {
-      console.log(postcodes3.includes(numbersOnly));
       setShowWrong(true);
       setIsLoading(false);
       return;

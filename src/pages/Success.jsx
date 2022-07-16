@@ -1,8 +1,26 @@
 import React from 'react';
+import { useEffect } from 'react';
 import Helmet from '../components/Helmet/Helmet';
 import '../styles/success.css';
 
 const Success = () => {
+  useEffect(() => {
+    fetch('https://connecting-beer-stripe.herokuapp.com/success', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => {
+        if (res.ok) return res.json();
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((e) => {
+        console.error(e.error);
+      });
+  }, []);
   return (
     <Helmet>
       <h3 className='success-title'>
