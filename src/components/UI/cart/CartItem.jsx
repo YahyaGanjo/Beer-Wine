@@ -16,8 +16,8 @@ const CartItem = ({ item }) => {
       cartActions.addItem({
         id,
         title,
-        price,
-        price1,
+        price: (Math.round(item.price * 100) / 100).toFixed(2),
+        price1: (Math.round(item.price1 * 100) / 100).toFixed(2),
         image01,
       })
     );
