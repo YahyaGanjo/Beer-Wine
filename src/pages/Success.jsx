@@ -12,6 +12,7 @@ const Success = () => {
       },
     })
       .then((res) => {
+        console.log(res);
         if (res.ok) return res.json();
       })
       .then((res) => {
@@ -24,7 +25,7 @@ const Success = () => {
   return (
     <Helmet>
       <h3 className='success-title'>
-        Bedankt voo uw <span>Bestelling</span>
+        Bedankt voor uw <span>Bestelling</span>
       </h3>
       <p className='success-msg'>
         Fijn dat je koos voor Bierwijn Bezorging. We gaan direct aan de slaag.
