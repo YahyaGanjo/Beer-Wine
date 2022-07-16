@@ -1,15 +1,23 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import Helmet from '../components/Helmet/Helmet';
 import '../styles/success.css';
 
 const Success = () => {
+  //success?session_id=cs_test_a1qG5M7pLAZqJ7tPF9AfIJte3I0VSujOZhqPsOxFi2eoQMyhtEMZHYlNhD
+  const search = useLocation().search;
+  const id = new URLSearchParams(search).get('session_id');
   const handleDetails = (event) => {
+    console.log(id);
     event.preventDefault();
     fetch('https://connecting-beer-stripe.herokuapp.com/success', {
-      method: 'GET',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
+      body: JSON.stringify({
+        id,
+      }),
     })
       .then((res) => {
         if (res.ok) return res.json();

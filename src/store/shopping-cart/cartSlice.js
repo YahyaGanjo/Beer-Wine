@@ -28,8 +28,8 @@ const cartSlice = createSlice({
           id: newItem.id,
           title: newItem.title,
           image01: newItem.image01,
-          price: Number(newItem.price),
-          price1: Number(productPrice),
+          price: (Math.round(newItem.price * 100) / 100).toFixed(2),
+          price1: (Math.round(productPrice * 100) / 100).toFixed(2),
           quantity: 1,
           totalPrice: (
             Math.round((newItem.price + newItem.price1) * 100) / 100
@@ -37,9 +37,11 @@ const cartSlice = createSlice({
         });
       } else {
         existingItem.quantity++;
-        existingItem.totalPrice =
-          Number(existingItem.totalPrice) +
-          Number(newItem.price + newItem.price1);
+        existingItem.totalPrice = (
+          Math.round(
+            (existingItem.totalPrice + (newItem.price + newItem.price1)) * 100
+          ) / 100
+        ).toFixed(2);
       }
 
       state.totalAmount = state.cartItems.reduce(
