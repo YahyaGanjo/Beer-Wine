@@ -38,7 +38,6 @@ const Success = () => {
         setName1(res.shipping.name);
         setShipping(res.shipping.address);
         setShippingCost(res.shipping_options[0].shipping_amount / 100);
-        console.log(res);
       })
       .catch((e) => {
         console.error(e.error);
@@ -75,11 +74,11 @@ const Success = () => {
         krijgt binnenkort een mailtje met je Bestelgegevens en bezorg moment.
       </p>
       {
-        <Container className='d-flex'>
+        <Container>
           <Col
-            lg='4'
-            md='6'
-            sm='8'
+            lg='3'
+            md='4'
+            sm='6'
             style={{ margin: '10px' }}
             className='delivery__time-item'
           >
@@ -105,8 +104,8 @@ const Success = () => {
             </ListGroup>
           </Col>
           <Col
-            lg='5'
-            md='6'
+            lg='3'
+            md='4'
             sm='8'
             style={{ margin: '10px' }}
             className='delivery__time-item'
