@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -5,6 +6,8 @@ import { useLocation } from 'react-router-dom';
 import Helmet from '../components/Helmet/Helmet';
 import '../styles/success.css';
 import { Container, Col, ListGroup, ListGroupItem } from 'reactstrap';
+import { db } from '../initFirebase';
+import { onValue, ref, update } from 'firebase/database';
 
 const Success = () => {
   const [name, setName] = useState('');
@@ -58,11 +61,41 @@ const Success = () => {
       })
       .then((res) => {
         setOrderedItems(res.data);
+        console.log('api fetched');
+        if (res.data) {
+          onValue(ref(db), (snapshot) => {
+            const data = Object.keys(snapshot.val().orders);
+            if (data.includes(id)) {
+              console.log('found / no sms');
+            } else {
+              console.log('send sms');
+              const updates = {};
+              updates['/orders/' + id] = '';
+              update(ref(db), updates);
+              fetch('https://connecting-beer-stripe.herokuapp.com/send-sms', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  id,
+                }),
+              })
+                .then((res) => {
+                  if (res.ok) return res.json();
+                  return res.json().then((json) => Promise.reject(json));
+                })
+                .catch((e) => {
+                  console.error(e.error);
+                });
+            }
+          });
+        }
       })
       .catch((e) => {
         console.error(e.error);
       });
-  }, [id]);
+  }, []);
 
   return (
     <Helmet>
