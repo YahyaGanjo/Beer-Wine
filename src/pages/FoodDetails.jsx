@@ -109,14 +109,14 @@ const FoodDetails = () => {
               </div>
             </Col>
 
-            <Col lg='9'>
+            {/* <Col lg='9'>
               <div className='tabs d-flex align-items-center gap-5 py-3'>
                 <h6 className='tab__active'>Beschrijving</h6>
               </div>
               <div className='tab__content'>
                 <p>{product.desc}</p>
               </div>
-            </Col>
+            </Col> */}
 
             <Col lg='12' className='mb-5 mt-4'>
               <h2 className='related__Product-title'>
