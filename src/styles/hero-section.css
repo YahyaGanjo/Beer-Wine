@@ -5,11 +5,11 @@
 .hero__content {
   padding-top: 20px;
   color: #df2020;
-  border: 1px solid #df2020;
   border-radius: 10px;
   background: rgb(250, 254, 8);
   padding: 10px;
   text-align: center;
+  border: 1px solid #df2020;
 }
 
 .hero__title {

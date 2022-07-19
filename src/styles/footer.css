@@ -32,6 +32,7 @@
 }
 .days {
   float: right;
+  margin-top: 4px;
 }
 
 .delivery__time-item p {
