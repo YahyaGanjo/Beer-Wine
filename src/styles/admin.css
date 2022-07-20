@@ -9,11 +9,20 @@
   font-weight: bold;
 }
 
+.delivery-section {
+  width: 50%;
+  text-align: center;
+}
+
 .logout-btn:hover {
   color: #df2020;
 }
 
 .reviews-container {
+  width: 100%;
+}
+
+.review-item {
   margin: 15px 5px;
   padding: 0 5px;
   border: 4px double #000;

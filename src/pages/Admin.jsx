@@ -93,7 +93,7 @@ const Admin = () => {
       <button className='logout-btn' onClick={logoutHandler}>
         Uitloggen
       </button>
-      <section style={{ width: '20%', margin: '0 auto' }}>
+      <section className='delivery-section'>
         <h5>Bezorging</h5>
         <h6>huidige bezorgingsstatus : </h6>
         {deliveryState ? <h4>Open</h4> : <h4>Dicht</h4>}
@@ -114,11 +114,11 @@ const Admin = () => {
           </button>
         </div>
       </section>
-      <div className='d-flex flex-row gap-2 justify-content-between'>
-        <div>
+      <div className='d-flex gap-2 justify-content-between'>
+        <div className='reviews-container'>
           {newReviews.map((review) => {
             return (
-              <div className='reviews-container'>
+              <div className='review-item'>
                 <h6>Beoordeling:</h6>
                 <p>{review[1].review}</p>
                 <div className=' slider__content d-flex align-items-center gap-5 '>
