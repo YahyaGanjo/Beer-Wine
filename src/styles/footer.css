@@ -16,7 +16,7 @@
 }
 
 .footer__logo p {
-  font-size: 0.9rem;
+  font-size: 2rem;
   color: #333;
   line-height: 28px;
 }
@@ -27,16 +27,12 @@
 
 .delivery__time-item span {
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #212245;
 }
 .days {
   float: right;
-  margin-top: 4px;
-}
-
-.delivery__time-item p {
-  color: #212245;
+  margin: 0.8px;
 }
 .footer__title {
   font-size: 1.1rem;
