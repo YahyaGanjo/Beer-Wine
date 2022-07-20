@@ -260,7 +260,7 @@ const Home = () => {
                 <p className='tasty__treat-desc'>
                   Vul eenvoudig je postcode in, dan kan je direct bij ons
                   bestellen! wordt je postcode niet geaccepteerd? je kan ons
-                  altijd bellen om de mogelijkheden te bespreken 06-84045272. We
+                  altijd bellen om de mogelijkheden te bespreken 0684045272. We
                   vinden het geen enkel probleem om een stukje verder te rijden.
                 </p>
               </div>

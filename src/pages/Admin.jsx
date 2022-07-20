@@ -12,6 +12,7 @@ const Admin = () => {
   const [newProducts, setNewProducts] = useState([]);
   const [newPrice, setNewPrice] = useState(0);
   const [newTitle, setNewTitle] = useState('');
+  const [deliveryState, setDeliveryState] = useState(false);
   const authCtx = useContext(AuthContext);
   const logoutHandler = () => {
     authCtx.logout();
@@ -20,18 +21,11 @@ const Admin = () => {
   useEffect(() => {
     onValue(ref(db), (snapshot) => {
       const data = snapshot.val();
-      if (!data.reviews) {
-        return;
-      } else {
-        const reviews = Object.entries(data.reviews);
-        setNewReviews(reviews);
-      }
-      if (!data.products) {
-        return;
-      } else {
-        const productsData = Object.entries(data.products);
-        setNewProducts(productsData);
-      }
+      const reviews = Object.entries(data.reviews);
+      setNewReviews(reviews);
+      const productsData = Object.entries(data.products);
+      setNewProducts(productsData);
+      setDeliveryState(data.delivery);
     });
   }, []);
 
@@ -101,6 +95,8 @@ const Admin = () => {
       </button>
       <section style={{ width: '20%', margin: '0 auto' }}>
         <h5>Bezorging</h5>
+        <h6>huidige bezorgingsstatus : </h6>
+        {deliveryState ? <h4>Open</h4> : <h4>Dicht</h4>}
         <div class='btn-group' role='group' aria-label='Basic example'>
           <button
             type='button'
