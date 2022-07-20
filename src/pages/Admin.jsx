@@ -148,7 +148,7 @@ const Admin = () => {
           {newProducts.map((item) => (
             <div className='product__item'>
               <div className=' d-flex align-items-center justify-content-between '>
-                <span className='product__price'>€{item[1].title}</span>
+                <span className='product__price'>{item[1].title}</span>
                 <span className='product__price'>€{item[1].price}</span>
               </div>
               <div>Nieuwe prijs:</div>

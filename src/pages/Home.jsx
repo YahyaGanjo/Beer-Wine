@@ -42,6 +42,7 @@ const Home = () => {
   const reviewRef = useRef();
   const [postcode, setPostcode] = useState('');
   const [showPostcode, setShowPostcode] = useState(false);
+  const [showEmpty, setShowEmpty] = useState(false);
   const [showReview, setShowReview] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -51,8 +52,10 @@ const Home = () => {
   const handlePostcode = (event) => {
     event.preventDefault();
     const numbersOnly = postcode.replace(/[^\d.-]/g, '');
-    if (postcodes.includes(numbersOnly) || numbersOnly === '') {
+    if (postcodes.includes(numbersOnly)) {
       navigate('/producten');
+    } else if (numbersOnly === '') {
+      setShowEmpty(true);
     } else {
       setShowPostcode(true);
     }
@@ -97,6 +100,14 @@ const Home = () => {
   return (
     <Helmet title='Home'>
       <section id='home'>
+        {showEmpty && (
+          <Modal>
+            <h5>De postcode die je hebt ingevoerd is ongeldig</h5>
+            <button className='bel_ons-btn' onClick={() => setShowEmpty(false)}>
+              Sluiten
+            </button>
+          </Modal>
+        )}
         {showPostcode && (
           <Modal>
             <h5>

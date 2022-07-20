@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
+import {
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from 'reactstrap';
 import CommonSection from '../components/UI/common-section/CommonSection';
 import Helmet from '../components/Helmet/Helmet';
 import Modal from '../components/UI/common-section/Modal';
@@ -11,81 +17,33 @@ import '../styles/checkout.css';
 
 const Checkout = () => {
   const [showModal, setShowModal] = useState(false);
-  const [enterName, setEnterName] = useState('');
-  const [enterEmail, setEnterEmail] = useState('');
-  const [enterNumber, setEnterNumber] = useState('');
-  const [enterCity, setEnterCity] = useState('');
-  const [enterAddress, setEnterAddress] = useState('');
-  const [postalCode, setPostalCode] = useState('');
+  const [showWrong, setShowWrong] = useState(false);
+  const [deliveryCost, setDeliveryCost] = useState(0.0);
   const [isLoading, setIsLoading] = useState(false);
   const [showClosed, setShowClosed] = useState(false);
-  const [showWrong, setShowWrong] = useState(false);
 
-  const shippingInfo = [];
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggle = () => setDropdownOpen((prevState) => !prevState);
+
   const cartTotalAmount = useSelector((state) => state.cart.totalAmount);
   const cartProducts = useSelector((state) => state.cart.cartItems);
 
-  let shippingCost;
-  const numbersOnly = postalCode.replace(/[^\d.-]/g, '');
-  const postcodes3 = ['6671', '6668', '6666', '6672', '6673', '6674', '6665'];
-  const postcodes5 = [
-    '6675',
-    '4043',
-    '6669',
-    '4041',
-    '4051',
-    '4053',
-    '6661',
-    '6662',
-    '6678',
-    '6861',
-    '6862',
-    '6846',
-    '6871',
-    '6866',
-    '6676',
-  ];
-
-  if (cartTotalAmount === 0 || cartTotalAmount > 49.99) {
-    shippingCost = 0;
-  } else {
-    if (postcodes3.includes(numbersOnly)) {
-      shippingCost = 3;
-    } else if (postcodes5.includes(numbersOnly)) {
-      shippingCost = 5;
-    } else {
-      shippingCost = 0;
-    }
-  }
-
-  const totalAmount = cartTotalAmount + Number(shippingCost);
+  const totalAmount = cartTotalAmount + deliveryCost;
 
   const submitHandler = (e) => {
     e.preventDefault();
     setIsLoading(true);
-    const userShippingAddress = {
-      name: enterName,
-      email: enterEmail,
-      phone: enterNumber,
-      city: enterCity,
-      address: enterAddress,
-      postalCode: postalCode,
-    };
     if (cartTotalAmount < 20) {
       setShowModal(true);
       setIsLoading(false);
       return;
     }
-    if (
-      postcodes3.includes(numbersOnly) === false ||
-      postcodes3.includes(numbersOnly) === false
-    ) {
+    if (deliveryCost === 0.0) {
       setShowWrong(true);
       setIsLoading(false);
       return;
     }
-
-    shippingInfo.push(userShippingAddress);
 
     onValue(ref(db), (snapshot) => {
       const deliveryState = snapshot.val().delivery;
@@ -102,7 +60,7 @@ const Checkout = () => {
             },
             body: JSON.stringify({
               items: cartProducts,
-              delivery: shippingCost,
+              delivery: deliveryCost,
             }),
           }
         )
@@ -134,11 +92,7 @@ const Checkout = () => {
       )}
       {showWrong && (
         <Modal>
-          <h5>
-            Helaas! Bezorgen we niet in jouw regio, maar je kan ons altijd
-            bellen om de mogelijkheden te bespreken
-          </h5>
-          <h4 className='phone'>06-84045272</h4>
+          <h5>Selecteer a.u.b. een afleverplaats</h5>
           <button className='bel_ons-btn' onClick={() => setShowWrong(false)}>
             Sluiten
           </button>
@@ -160,64 +114,6 @@ const Checkout = () => {
       <section>
         <Container>
           <Row>
-            <Col lg='8' md='6'>
-              <h6 className='mb-4'>Bestelgegevens</h6>
-              <form className='checkout__form' onSubmit={submitHandler}>
-                <div className='form__group'>
-                  <input
-                    type='text'
-                    placeholder='Volledige Naam'
-                    required
-                    onChange={(e) => setEnterName(e.target.value)}
-                  />
-                </div>
-
-                <div className='form__group'>
-                  <input
-                    type='email'
-                    placeholder='Email'
-                    required
-                    onChange={(e) => setEnterEmail(e.target.value)}
-                  />
-                </div>
-                <div className='form__group'>
-                  <input
-                    type='number'
-                    placeholder='Telefoon Nummer'
-                    required
-                    onChange={(e) => setEnterNumber(e.target.value)}
-                  />
-                </div>
-                <div className='form__group'>
-                  <input
-                    type='text'
-                    placeholder='Straat en huisnummer'
-                    required
-                    onChange={(e) => setEnterAddress(e.target.value)}
-                  />
-                </div>
-                <div className='form__group'>
-                  <input
-                    type='text'
-                    placeholder='Plaats'
-                    required
-                    onChange={(e) => setEnterCity(e.target.value)}
-                  />
-                </div>
-                <div className='form__group'>
-                  <input
-                    type='text'
-                    placeholder='Postcode'
-                    required
-                    onChange={(e) => setPostalCode(e.target.value)}
-                  />
-                </div>
-                <button type='submit' className='addTOCart__btn'>
-                  Bestel
-                </button>
-              </form>
-            </Col>
-
             <Col lg='4' md='6'>
               <div className='checkout__bill'>
                 <h6 className='d-flex align-items-center justify-content-between mb-3'>
@@ -227,10 +123,7 @@ const Checkout = () => {
                   </span>
                 </h6>
                 <h6 className='d-flex align-items-center justify-content-between mb-3'>
-                  Bezorg Kosten:{' '}
-                  <span>
-                    €{(Math.round(shippingCost * 100) / 100).toFixed(2)}
-                  </span>
+                  Bezorg Kosten: <span>€{deliveryCost.toFixed(2)}</span>
                 </h6>
                 <div className='checkout__total'>
                   <h5 className='d-flex align-items-center justify-content-between'>
@@ -240,6 +133,93 @@ const Checkout = () => {
                     </span>
                   </h5>
                 </div>
+              </div>
+            </Col>
+            <Col lg='8' md='6'>
+              <h6 className='mb-4'>bezorgplaats</h6>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
+                tenetur ratione eveniet a quam repellat fuga placeat sint
+                consequuntur ullam accusamus nisi error, quo asperiores, magnam
+                dolor aut minima excepturi.
+              </p>
+              <div className='d-flex p-5'>
+                <Dropdown
+                  isOpen={dropdownOpen}
+                  toggle={toggle}
+                  style={{ marginBottom: '600px' }}
+                >
+                  <button
+                    className='bel_ons-btn'
+                    onClick={submitHandler}
+                    style={{ margin: '20px', width: '100px' }}
+                  >
+                    Bestel
+                  </button>
+                  <DropdownToggle caret>Plaats</DropdownToggle>
+                  <DropdownMenu>
+                    <DropdownItem onClick={() => setDeliveryCost(3.0)}>
+                      Heteren
+                    </DropdownItem>
+                    <DropdownItem onClick={() => setDeliveryCost(3.0)}>
+                      Zetten
+                    </DropdownItem>
+                    <DropdownItem onClick={() => setDeliveryCost(3.0)}>
+                      Driel
+                    </DropdownItem>
+                    <DropdownItem onClick={() => setDeliveryCost(3.0)}>
+                      Randwijk
+                    </DropdownItem>
+                    <DropdownItem onClick={() => setDeliveryCost(3.0)}>
+                      Hemmen
+                    </DropdownItem>
+                    <DropdownItem onClick={() => setDeliveryCost(3.0)}>
+                      Andelst
+                    </DropdownItem>
+                    <DropdownItem onClick={() => setDeliveryCost(3.0)}>
+                      Herveld
+                    </DropdownItem>
+                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
+                      Valburg
+                    </DropdownItem>
+                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
+                      Opheusden
+                    </DropdownItem>
+                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
+                      Dodewaard
+                    </DropdownItem>
+                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
+                      Kesteren
+                    </DropdownItem>
+                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
+                      Ochten
+                    </DropdownItem>
+                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
+                      Ijzendoorn
+                    </DropdownItem>
+                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
+                      Elst
+                    </DropdownItem>
+                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
+                      Oosterhout
+                    </DropdownItem>
+                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
+                      Oosterbeek
+                    </DropdownItem>
+                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
+                      Schuytgraag
+                    </DropdownItem>
+                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
+                      Renkum
+                    </DropdownItem>
+                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
+                      Heelsum
+                    </DropdownItem>
+                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
+                      Hoemoet
+                    </DropdownItem>
+                  </DropdownMenu>
+                </Dropdown>
               </div>
             </Col>
           </Row>
