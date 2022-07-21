@@ -138,10 +138,8 @@ const Checkout = () => {
             <Col lg='8' md='6'>
               <h6 className='mb-4'>bezorgplaats</h6>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-                tenetur ratione eveniet a quam repellat fuga placeat sint
-                consequuntur ullam accusamus nisi error, quo asperiores, magnam
-                dolor aut minima excepturi.
+                Graag uw regio kiezen. Als we in uw regio niet bezorgen, kunt u
+                ons altijd bellen om de mogelijkheiden te bespreken 0684045272.
               </p>
               <div className='d-flex p-5'>
                 <Dropdown
