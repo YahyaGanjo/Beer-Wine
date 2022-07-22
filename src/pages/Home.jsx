@@ -8,6 +8,7 @@ import map from '../assets/images/mapimage.png';
 import '../styles/hero-section.css';
 import postcodes from '../assets/fake-data/postcodes.js';
 import Modal from '../components/UI/common-section/Modal';
+import { BsFillTelephoneFill } from 'react-icons/bs';
 
 import '../styles/home.css';
 
@@ -114,7 +115,11 @@ const Home = () => {
               Helaas! Bezorgen we niet in jouw regio, maar je kan ons altijd
               bellen om de mogelijkheden te bespreken
             </h5>
-            <h4 className='phone'>06-84045272</h4>
+            <a href='tel:+31684045272'>
+              <BsFillTelephoneFill />
+              {'    Bel ons'}
+            </a>
+            <h4 className='phone'>0684045272</h4>
             <button
               className='bel_ons-btn'
               onClick={() => setShowPostcode(false)}
@@ -233,7 +238,12 @@ const Home = () => {
                 Wij hebben een bezorgservice van gemiddeld 30 minuten, heldere
                 en scherpe prijzen en contant is mogelijk! Bier bestellen in
                 betuwe regio is nog nooit zo makkelijk geweest! Contact met ons
-                opnemen kan telefonische via 06-84045272 maar ook via Whatsapp!
+                opnemen kan telefonische via{' '}
+                <a href='tel:+31684045272'>
+                  <BsFillTelephoneFill />
+                  {'    0684045272'}
+                </a>{' '}
+                maar ook via Whatsapp!
                 <br />
                 Betaal direct online, snel en veilig met iDEAL. Zo hoef je aan
                 de deur niets meer af te rekenen.
@@ -271,8 +281,14 @@ const Home = () => {
                 <p className='tasty__treat-desc'>
                   Vul eenvoudig je postcode in, dan kan je direct bij ons
                   bestellen! wordt je postcode niet geaccepteerd? je kan ons
-                  altijd bellen om de mogelijkheden te bespreken 0684045272. We
-                  vinden het geen enkel probleem om een stukje verder te rijden.
+                  altijd bellen om de mogelijkheden te bespreken
+                  <br />
+                  <a href='tel:+31684045272'>
+                    <BsFillTelephoneFill />
+                    {'    0684045272'}
+                  </a>
+                  . We vinden het geen enkel probleem om een stukje verder te
+                  rijden.
                 </p>
               </div>
             </Col>

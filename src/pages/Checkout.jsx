@@ -7,6 +7,7 @@ import {
   DropdownMenu,
   DropdownItem,
 } from 'reactstrap';
+import { BsFillTelephoneFill } from 'react-icons/bs';
 import CommonSection from '../components/UI/common-section/CommonSection';
 import Helmet from '../components/Helmet/Helmet';
 import Modal from '../components/UI/common-section/Modal';
@@ -139,7 +140,12 @@ const Checkout = () => {
               <h6 className='mb-4'>bezorgplaats</h6>
               <p>
                 Graag uw regio kiezen. Als we in uw regio niet bezorgen, kunt u
-                ons altijd bellen om de mogelijkheiden te bespreken 0684045272.
+                ons altijd bellen om de mogelijkheden te bespreken<br></br>
+                <a href='tel:+31684045272'>
+                  <BsFillTelephoneFill />
+                  {'    Bel ons'}
+                </a>
+                <h6>0684045272</h6>
               </p>
               <div className='d-flex p-5'>
                 <Dropdown
