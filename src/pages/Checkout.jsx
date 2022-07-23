@@ -21,6 +21,7 @@ const Checkout = () => {
   const [showWrong, setShowWrong] = useState(false);
   const [deliveryCost, setDeliveryCost] = useState(0.0);
   const [isLoading, setIsLoading] = useState(false);
+  const [place, setPlace] = useState('Plaats');
   const [showClosed, setShowClosed] = useState(false);
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -147,7 +148,7 @@ const Checkout = () => {
                 </a>
                 <h6>0684045272</h6>
               </p>
-              <div className='d-flex p-5'>
+              <div className='d-flex p-1'>
                 <Dropdown
                   isOpen={dropdownOpen}
                   toggle={toggle}
@@ -156,70 +157,194 @@ const Checkout = () => {
                   <button
                     className='bel_ons-btn'
                     onClick={submitHandler}
-                    style={{ margin: '20px', width: '100px' }}
+                    style={{ margin: '10px', width: '100px' }}
                   >
                     Bestel
                   </button>
-                  <DropdownToggle caret>Plaats</DropdownToggle>
+                  <DropdownToggle caret>{place}</DropdownToggle>
                   <DropdownMenu>
-                    <DropdownItem onClick={() => setDeliveryCost(3.0)}>
-                      Heteren
+                    <DropdownItem
+                      onClick={() => {
+                        setDeliveryCost(5.0);
+                        setPlace('Arnhem-Zuid');
+                      }}
+                    >
+                      Arnhem-Zuid
                     </DropdownItem>
-                    <DropdownItem onClick={() => setDeliveryCost(3.0)}>
-                      Zetten
+                    <DropdownItem
+                      onClick={() => {
+                        setDeliveryCost(5.0);
+                        setPlace('Nijmegen-Lent');
+                      }}
+                    >
+                      Nijmegen-Lent
                     </DropdownItem>
-                    <DropdownItem onClick={() => setDeliveryCost(3.0)}>
-                      Driel
+                    <DropdownItem
+                      onClick={() => {
+                        setDeliveryCost(5.0);
+                        setPlace('Wageningen');
+                      }}
+                    >
+                      Wageningen
                     </DropdownItem>
-                    <DropdownItem onClick={() => setDeliveryCost(3.0)}>
-                      Randwijk
-                    </DropdownItem>
-                    <DropdownItem onClick={() => setDeliveryCost(3.0)}>
-                      Hemmen
-                    </DropdownItem>
-                    <DropdownItem onClick={() => setDeliveryCost(3.0)}>
-                      Andelst
-                    </DropdownItem>
-                    <DropdownItem onClick={() => setDeliveryCost(3.0)}>
-                      Herveld
-                    </DropdownItem>
-                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
-                      Valburg
-                    </DropdownItem>
-                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
-                      Opheusden
-                    </DropdownItem>
-                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
-                      Dodewaard
-                    </DropdownItem>
-                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
-                      Kesteren
-                    </DropdownItem>
-                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
-                      Ochten
-                    </DropdownItem>
-                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
-                      Ijzendoorn
-                    </DropdownItem>
-                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
+                    <DropdownItem
+                      onClick={() => {
+                        setDeliveryCost(5.0);
+                        setPlace('Elst');
+                      }}
+                    >
                       Elst
                     </DropdownItem>
-                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
+                    <DropdownItem
+                      onClick={() => {
+                        setDeliveryCost(3.0);
+                        setPlace('Zetten');
+                      }}
+                    >
+                      Zetten
+                    </DropdownItem>
+                    <DropdownItem
+                      onClick={() => {
+                        setDeliveryCost(3.0);
+                        setPlace('Driel');
+                      }}
+                    >
+                      Driel
+                    </DropdownItem>
+                    <DropdownItem
+                      onClick={() => {
+                        setDeliveryCost(3.0);
+                        setPlace('Randwijk');
+                      }}
+                    >
+                      Randwijk
+                    </DropdownItem>
+                    <DropdownItem
+                      onClick={() => {
+                        setDeliveryCost(3.0);
+                        setPlace('Hemmen');
+                      }}
+                    >
+                      Hemmen
+                    </DropdownItem>
+                    <DropdownItem
+                      onClick={() => {
+                        setDeliveryCost(3.0);
+                        setPlace('Andelst');
+                      }}
+                    >
+                      Andelst
+                    </DropdownItem>
+                    <DropdownItem
+                      onClick={() => {
+                        setDeliveryCost(3.0);
+                        setPlace('Herveld');
+                      }}
+                    >
+                      Herveld
+                    </DropdownItem>
+                    <DropdownItem
+                      onClick={() => {
+                        setDeliveryCost(5.0);
+                        setPlace('Valburg');
+                      }}
+                    >
+                      Valburg
+                    </DropdownItem>
+                    <DropdownItem
+                      onClick={() => {
+                        setDeliveryCost(5.0);
+                        setPlace('Opheusden');
+                      }}
+                    >
+                      Opheusden
+                    </DropdownItem>
+                    <DropdownItem
+                      onClick={() => {
+                        setDeliveryCost(5.0);
+                        setPlace('Dodewaard');
+                      }}
+                    >
+                      Dodewaard
+                    </DropdownItem>
+                    <DropdownItem
+                      onClick={() => {
+                        setDeliveryCost(5.0);
+                        setPlace('Kesteren');
+                      }}
+                    >
+                      Kesteren
+                    </DropdownItem>
+                    <DropdownItem
+                      onClick={() => {
+                        setDeliveryCost(5.0);
+                        setPlace('Ochten');
+                      }}
+                    >
+                      Ochten
+                    </DropdownItem>
+                    <DropdownItem
+                      onClick={() => {
+                        setDeliveryCost(5.0);
+                        setPlace('Ijzendoorn');
+                      }}
+                    >
+                      Ijzendoorn
+                    </DropdownItem>
+                    <DropdownItem
+                      onClick={() => {
+                        setDeliveryCost(3.0);
+                        setPlace('Heteren');
+                      }}
+                    >
+                      Heteren
+                    </DropdownItem>
+                    <DropdownItem
+                      onClick={() => {
+                        setDeliveryCost(5.0);
+                        setPlace('Oosterhout');
+                      }}
+                    >
                       Oosterhout
                     </DropdownItem>
-                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
+                    <DropdownItem
+                      onClick={() => {
+                        setDeliveryCost(5.0);
+                        setPlace('Oosterbeek');
+                      }}
+                    >
                       Oosterbeek
                     </DropdownItem>
-                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
+                    <DropdownItem
+                      onClick={() => {
+                        setDeliveryCost(5.0);
+                        setPlace('Schuytgraag');
+                      }}
+                    >
                       Schuytgraag
                     </DropdownItem>
-                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
+                    <DropdownItem
+                      onClick={() => {
+                        setDeliveryCost(5.0);
+                        setPlace('Renkum');
+                      }}
+                    >
                       Renkum
                     </DropdownItem>
-                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
+                    <DropdownItem
+                      onClick={() => {
+                        setDeliveryCost(5.0);
+                        setPlace('Heelsum');
+                      }}
+                    >
                       Heelsum
                     </DropdownItem>
-                    <DropdownItem onClick={() => setDeliveryCost(5.0)}>
+                    <DropdownItem
+                      onClick={() => {
+                        setDeliveryCost(5.0);
+                        setPlace('Hoemoet');
+                      }}
+                    >
                       Hoemoet
                     </DropdownItem>
                   </DropdownMenu>
