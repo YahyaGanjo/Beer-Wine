@@ -203,14 +203,14 @@ const Home = () => {
                       <span className='shipping__icon'>
                         <i class='ri-car-line'></i>
                       </span>{' '}
-                      Gratis bezorging vanaf €50
+                      Gratis bezorging vanaf €70
                     </p>
 
                     <p className=' d-flex align-items-center gap-2 '>
                       <span className='shipping__icon'>
                         <i class='ri-shield-check-line'></i>
                       </span>{' '}
-                      Bezorging vanaf €20
+                      Bezorging vanaf €40
                     </p>
                   </div>
                 </div>

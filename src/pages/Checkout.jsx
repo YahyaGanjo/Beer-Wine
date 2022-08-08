@@ -36,7 +36,7 @@ const Checkout = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     setIsLoading(true);
-    if (cartTotalAmount < 20) {
+    if (cartTotalAmount < 40) {
       setShowModal(true);
       setIsLoading(false);
       return;
@@ -86,7 +86,7 @@ const Checkout = () => {
       <CommonSection title='Bestelling' />
       {showModal && (
         <Modal>
-          <h5>Sorry! Minimaal bestelling €20</h5>
+          <h5>Sorry! Minimaal bestelling €40</h5>
           <button className='bel_ons-btn' onClick={() => setShowModal(false)}>
             Sluiten
           </button>
@@ -165,23 +165,29 @@ const Checkout = () => {
                   <DropdownMenu>
                     <DropdownItem
                       onClick={() => {
-                        setDeliveryCost(5.0);
-                        setPlace('Arnhem-Zuid');
+                        cartTotalAmount >= 70
+                          ? setDeliveryCost(0.0)
+                          : setDeliveryCost(5.0);
+                        setPlace('Arnhem');
                       }}
                     >
-                      Arnhem-Zuid
+                      Arnhem
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => {
-                        setDeliveryCost(5.0);
-                        setPlace('Nijmegen-Lent');
+                        cartTotalAmount >= 70
+                          ? setDeliveryCost(0.0)
+                          : setDeliveryCost(5.0);
+                        setPlace('Nijmegen');
                       }}
                     >
-                      Nijmegen-Lent
+                      Nijmegen
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => {
-                        setDeliveryCost(5.0);
+                        cartTotalAmount >= 70
+                          ? setDeliveryCost(0.0)
+                          : setDeliveryCost(5.0);
                         setPlace('Wageningen');
                       }}
                     >
@@ -189,7 +195,9 @@ const Checkout = () => {
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => {
-                        setDeliveryCost(5.0);
+                        cartTotalAmount >= 70
+                          ? setDeliveryCost(0.0)
+                          : setDeliveryCost(5.0);
                         setPlace('Elst');
                       }}
                     >
@@ -197,7 +205,9 @@ const Checkout = () => {
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => {
-                        setDeliveryCost(3.0);
+                        cartTotalAmount >= 70
+                          ? setDeliveryCost(0.0)
+                          : setDeliveryCost(3.0);
                         setPlace('Zetten');
                       }}
                     >
@@ -205,7 +215,9 @@ const Checkout = () => {
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => {
-                        setDeliveryCost(3.0);
+                        cartTotalAmount >= 70
+                          ? setDeliveryCost(0.0)
+                          : setDeliveryCost(3.0);
                         setPlace('Driel');
                       }}
                     >
@@ -213,7 +225,9 @@ const Checkout = () => {
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => {
-                        setDeliveryCost(3.0);
+                        cartTotalAmount >= 70
+                          ? setDeliveryCost(0.0)
+                          : setDeliveryCost(3.0);
                         setPlace('Randwijk');
                       }}
                     >
@@ -221,7 +235,9 @@ const Checkout = () => {
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => {
-                        setDeliveryCost(3.0);
+                        cartTotalAmount >= 70
+                          ? setDeliveryCost(0.0)
+                          : setDeliveryCost(3.0);
                         setPlace('Hemmen');
                       }}
                     >
@@ -229,7 +245,9 @@ const Checkout = () => {
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => {
-                        setDeliveryCost(3.0);
+                        cartTotalAmount >= 70
+                          ? setDeliveryCost(0.0)
+                          : setDeliveryCost(3.0);
                         setPlace('Andelst');
                       }}
                     >
@@ -237,7 +255,9 @@ const Checkout = () => {
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => {
-                        setDeliveryCost(3.0);
+                        cartTotalAmount >= 70
+                          ? setDeliveryCost(0.0)
+                          : setDeliveryCost(3.0);
                         setPlace('Herveld');
                       }}
                     >
@@ -245,7 +265,9 @@ const Checkout = () => {
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => {
-                        setDeliveryCost(5.0);
+                        cartTotalAmount >= 70
+                          ? setDeliveryCost(0.0)
+                          : setDeliveryCost(5.0);
                         setPlace('Valburg');
                       }}
                     >
@@ -253,7 +275,9 @@ const Checkout = () => {
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => {
-                        setDeliveryCost(5.0);
+                        cartTotalAmount >= 70
+                          ? setDeliveryCost(0.0)
+                          : setDeliveryCost(5.0);
                         setPlace('Opheusden');
                       }}
                     >
@@ -269,7 +293,9 @@ const Checkout = () => {
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => {
-                        setDeliveryCost(5.0);
+                        cartTotalAmount >= 70
+                          ? setDeliveryCost(0.0)
+                          : setDeliveryCost(5.0);
                         setPlace('Kesteren');
                       }}
                     >
@@ -277,7 +303,9 @@ const Checkout = () => {
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => {
-                        setDeliveryCost(5.0);
+                        cartTotalAmount >= 70
+                          ? setDeliveryCost(0.0)
+                          : setDeliveryCost(5.0);
                         setPlace('Ochten');
                       }}
                     >
@@ -285,7 +313,9 @@ const Checkout = () => {
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => {
-                        setDeliveryCost(5.0);
+                        cartTotalAmount >= 70
+                          ? setDeliveryCost(0.0)
+                          : setDeliveryCost(5.0);
                         setPlace('Ijzendoorn');
                       }}
                     >
@@ -293,7 +323,9 @@ const Checkout = () => {
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => {
-                        setDeliveryCost(3.0);
+                        cartTotalAmount >= 70
+                          ? setDeliveryCost(0.0)
+                          : setDeliveryCost(3.0);
                         setPlace('Heteren');
                       }}
                     >
@@ -301,7 +333,9 @@ const Checkout = () => {
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => {
-                        setDeliveryCost(5.0);
+                        cartTotalAmount >= 70
+                          ? setDeliveryCost(0.0)
+                          : setDeliveryCost(5.0);
                         setPlace('Oosterhout');
                       }}
                     >
@@ -309,7 +343,9 @@ const Checkout = () => {
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => {
-                        setDeliveryCost(5.0);
+                        cartTotalAmount >= 70
+                          ? setDeliveryCost(0.0)
+                          : setDeliveryCost(5.0);
                         setPlace('Oosterbeek');
                       }}
                     >
@@ -317,15 +353,19 @@ const Checkout = () => {
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => {
-                        setDeliveryCost(5.0);
-                        setPlace('Schuytgraag');
+                        cartTotalAmount >= 70
+                          ? setDeliveryCost(0.0)
+                          : setDeliveryCost(5.0);
+                        setPlace('Schuytgraaf');
                       }}
                     >
-                      Schuytgraag
+                      Schuytgraaf
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => {
-                        setDeliveryCost(5.0);
+                        cartTotalAmount >= 70
+                          ? setDeliveryCost(0.0)
+                          : setDeliveryCost(5.0);
                         setPlace('Renkum');
                       }}
                     >
@@ -333,7 +373,9 @@ const Checkout = () => {
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => {
-                        setDeliveryCost(5.0);
+                        cartTotalAmount >= 70
+                          ? setDeliveryCost(0.0)
+                          : setDeliveryCost(5.0);
                         setPlace('Heelsum');
                       }}
                     >
@@ -341,7 +383,9 @@ const Checkout = () => {
                     </DropdownItem>
                     <DropdownItem
                       onClick={() => {
-                        setDeliveryCost(5.0);
+                        cartTotalAmount >= 70
+                          ? setDeliveryCost(0.0)
+                          : setDeliveryCost(5.0);
                         setPlace('Hoemoet');
                       }}
                     >
