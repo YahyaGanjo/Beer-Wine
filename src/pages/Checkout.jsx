@@ -41,7 +41,7 @@ const Checkout = () => {
       setIsLoading(false);
       return;
     }
-    if (deliveryCost === 0.0) {
+    if (place === 'Plaats') {
       setShowWrong(true);
       setIsLoading(false);
       return;
