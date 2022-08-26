@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ListGroup } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 import CartItem from './CartItem';
 
 import { useSelector } from 'react-redux';

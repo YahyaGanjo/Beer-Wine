@@ -82,7 +82,7 @@ const Checkout = () => {
   };
 
   return (
-    <Helmet title='Checkout'>
+    <Helmet title='Checkout' id='overview'>
       <CommonSection title='Bestelling' />
       {showModal && (
         <Modal>

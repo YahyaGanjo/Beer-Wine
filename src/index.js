@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './App';
+import ScrollToTop from './components/Hooks/ScrollToTop';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'remixicon/fonts/remixicon.css';
 import 'slick-carousel/slick/slick.css';
@@ -19,6 +20,7 @@ ReactDOM.render(
   <React.StrictMode>
     <AuthContextProvider>
       <Router>
+        <ScrollToTop />
         <Provider store={store}>
           <App />
         </Provider>

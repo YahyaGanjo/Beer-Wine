@@ -11,7 +11,6 @@ import { onValue, ref } from 'firebase/database';
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../store/shopping-cart/cartSlice';
 import useWindowDimensions from '../components/Hooks/useWindowDimensions';
-import products from '../assets/fake-data/products';
 
 import '../styles/product-details.css';
 
