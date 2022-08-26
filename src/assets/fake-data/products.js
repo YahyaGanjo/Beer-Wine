@@ -28,6 +28,7 @@ import product_26 from '../images/hertogkrat.jfif';
 import product_27 from '../images/desp6.jfif';
 import product_28 from '../images/corona6.jfif';
 import product_29 from '../images/hertog6.jfif';
+import product_30 from '../images/gallo.jpg';
 
 const products = [
   {
@@ -344,6 +345,16 @@ const products = [
     price1: null,
     image01: product_28,
     category: 'Bier',
+
+    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ad et est, fugiat repudiandae neque illo delectus commodi magnam explicabo autem voluptates eaque velit vero facere mollitia. Placeat rem, molestiae error obcaecati enim doloribus impedit aliquam, maiores qui minus neque.',
+  },
+  {
+    id: '30',
+    title: 'Gallo',
+    price: 15.0,
+    price1: null,
+    image01: product_30,
+    category: 'Wijn',
 
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ad et est, fugiat repudiandae neque illo delectus commodi magnam explicabo autem voluptates eaque velit vero facere mollitia. Placeat rem, molestiae error obcaecati enim doloribus impedit aliquam, maiores qui minus neque.',
   },
