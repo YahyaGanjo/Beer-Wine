@@ -16,8 +16,18 @@ const Header = () => {
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const dispatch = useDispatch();
   const [showCart, setShowCart] = useState(false);
+  const [badgeClass, setBadgeClass] = useState('cart__badge');
 
   const { width } = useWindowDimensions();
+
+  useEffect(() => {
+    setBadgeClass('blinking');
+    setTimeout(removeBlinking, 1000);
+
+    function removeBlinking() {
+      setBadgeClass('cart__badge');
+    }
+  }, [totalQuantity]);
 
   useEffect(() => {
     width > 990 ? setShowCart(false) : setShowCart(true);
@@ -68,7 +78,7 @@ const Header = () => {
             {showCart && (
               <span className='cart__icon' onClick={toggleCart}>
                 <i class='ri-shopping-basket-line'></i>
-                <span className='cart__badge'>{totalQuantity}</span>
+                <span className={badgeClass}>{totalQuantity}</span>
               </span>
             )}
 
