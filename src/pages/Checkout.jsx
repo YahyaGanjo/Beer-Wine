@@ -37,14 +37,14 @@ const Checkout = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    const current = new Date();
-    const hours = current.getHours();
+    // const current = new Date();
+    // const hours = current.getHours();
 
-    if (hours > 2 && hours < 22) {
-      setIsLoading(false);
-      setShowClosed(true);
-      return;
-    }
+    // if (hours > 2 && hours < 22) {
+    //   setIsLoading(false);
+    //   setShowClosed(true);
+    //   return;
+    // }
 
     if (cartTotalAmount < 40) {
       setShowModal(true);
